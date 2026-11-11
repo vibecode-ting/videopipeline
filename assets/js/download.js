@@ -51,11 +51,12 @@
       <div class="download-card fade-up">
         <div class="download-info">
           <div class="version-badge">✅ ${lang === 'my' ? 'နောက်ဆုံးထွက် Version' : 'Latest Version'}</div>
-          <h2>${release.version}</h2>
+          <h2>Video Pipeline Suite <span style="color:var(--accent)">${release.version}</span></h2>
           <div class="release-meta">
             <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
             <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
             <span class="meta-item"><span class="meta-icon">🖥️</span> ${platformLabel}: ${release.platform}</span>
+            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
           </div>
           <a href="${url}" class="btn btn-primary btn-lg" ${url === '#' ? 'onclick="return false;"' : ''}>
             ${btnText}
