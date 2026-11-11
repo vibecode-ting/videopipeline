@@ -17,10 +17,10 @@
     "viber": "09968565125"
   },
   "forms": {
-    "provider": "formspree",
-    "order_endpoint": "https://formspree.io/f/YOUR_ORDER_FORM_ID",
-    "payment_endpoint": "https://formspree.io/f/YOUR_PAYMENT_FORM_ID",
-    "contact_endpoint": "https://formspree.io/f/YOUR_CONTACT_FORM_ID",
+    "provider": "railway",
+    "order_endpoint": "https://videopipeline-bot-production.up.railway.app/api/order",
+    "payment_endpoint": "https://videopipeline-bot-production.up.railway.app/api/payment",
+    "contact_endpoint": "https://videopipeline-bot-production.up.railway.app/api/contact",
     "web3forms_key": "YOUR_WEB3FORMS_ACCESS_KEY"
   },
   "payment_methods": [
