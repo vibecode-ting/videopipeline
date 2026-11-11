@@ -252,7 +252,7 @@
         p.className = 'form-hint phone-error';
         p.style.color = 'var(--danger)';
         p.textContent = lang === 'my'
-          ? '⚠️ ဖုန်းနံပါတ် မှန်ကန်ပါစေ (09 ဖြင့်စသော 9–12 လုံး)'
+          ? '⚠️ ဖုန်းနံပါတ် မှန်အောင် ထည့်ပေးပါ (09 နဲ့စတဲ့ ၉–၁၂ လုံး)'
           : '⚠️ Enter a valid Myanmar phone number (starting with 09, 9–12 digits)';
         phone.parentElement.appendChild(p);
       }
@@ -261,7 +261,7 @@
     if (!valid && statusEl) {
       statusEl.className = 'form-status error';
       statusEl.textContent = lang === 'my'
-        ? '⚠️ လိုအပ်သောအချက်အလက်များကို မှန်ကန်စွာ ဖြည့်ပေးပါ'
+        ? '⚠️ လိုအပ်တဲ့ အချက်အလက်တွေကို မှန်ကန်စွာ ဖြည့်ပေးပါဦး'
         : '⚠️ Please fill in all required fields accurately.';
       statusEl.style.display = 'block';
     }

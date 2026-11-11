@@ -26,7 +26,7 @@
       <button class="nav-toggle" aria-label="Menu">☰</button>
       <div class="nav-links">
         <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
-        <a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a>
+        <a href="features.html" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a>
         <a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a>
         <a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
         <a href="guide.html" data-my="အသုံးပြုနည်း" data-en="Guide">အသုံးပြုနည်း</a>
@@ -47,9 +47,9 @@
   <section class="page-hero">
     <div class="container">
       <div class="section-label" data-my="License မှာယူပါ" data-en="Order Your License">License မှာယူပါ</div>
-      <h1 data-my="Plan ရွေးချယ်ပြီး မှာယူပါ" data-en="Choose a Plan and Order">Plan ရွေးချယ်ပြီး မှာယူပါ</h1>
-      <p data-my="Form ဖြည့်ပြီး မှာယူပါ။ ငွေပေးချေပြီးနောက် ၂၄ နာရီအတွင်း License ရပါမည်" data-en="Fill in the form to order. Your license will be delivered within 24 hours after payment.">
-        Form ဖြည့်ပြီး မှာယူပါ။ ငွေပေးချေပြီးနောက် ၂၄ နာရီအတွင်း License ရပါမည်
+      <h1 data-my="Plan ရွေးချယ်ပြီး Order တင်ပါ" data-en="Choose a Plan and Order">Plan ရွေးချယ်ပြီး Order တင်ပါ</h1>
+      <p data-my="Order Form ဖြည့်ပြီး တင်လိုက်ပါ။ ငွေလွှဲ Receipt တင်ပြီး ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမယ်" data-en="Fill in the form to order. Your license will be delivered within 24 hours after payment.">
+        Order Form ဖြည့်ပြီး တင်လိုက်ပါ။ ငွေလွှဲ Receipt တင်ပြီး ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမယ်
       </p>
     </div>
   </section>
@@ -63,15 +63,15 @@
         <div class="info-box mb-32 fade-up">
           <span class="info-icon">📋</span>
           <div>
-            <strong data-my="မှာယူပုံ:" data-en="How to Order:">မှာယူပုံ:</strong>
-            <span data-my=" ① Form ဖြည့်ပြီး Submit ➔ ② ငွေပေးချေပါ ➔ ③ Receipt တင်ပါ ➔ ④ License ရပါမည်" data-en=" ① Fill form & submit ➔ ② Make payment ➔ ③ Upload receipt ➔ ④ Receive license">
-              ① Form ဖြည့်ပြီး Submit ➔ ② ငွေပေးချေပါ ➔ ③ Receipt တင်ပါ ➔ ④ License ရပါမည်
+            <strong data-my="မှာယူပုံအဆင့်ဆင့်:" data-en="How to Order:">မှာယူပုံအဆင့်ဆင့်:</strong>
+            <span data-my=" ① Order Form ဖြည့်ပြီး Submit ➔ ② ငွေလွှဲပါ ➔ ③ Receipt ပုံတင်ပါ ➔ ④ License Account ရယူပါ" data-en=" ① Fill form & submit ➔ ② Make payment ➔ ③ Upload receipt ➔ ④ Receive license">
+              ① Order Form ဖြည့်ပြီး Submit ➔ ② ငွေလွှဲပါ ➔ ③ Receipt ပုံတင်ပါ ➔ ④ License Account ရယူပါ
             </span>
           </div>
         </div>
 
         <div class="form-card fade-up">
-          <h3 class="mb-24" data-my="🛒 မှာယူမှုပုံစံ" data-en="🛒 Order Form">🛒 မှာယူမှုပုံစံ</h3>
+          <h3 class="mb-24" data-my="🛒 Order Form" data-en="🛒 Order Form">🛒 Order Form</h3>
 
           <form id="order-form" novalidate>
             <!-- Hidden fields populated by JS -->
@@ -82,12 +82,12 @@
 
             <div class="form-group">
               <label class="form-label" for="name">
-                <span data-my="အမည်" data-en="Full Name">အမည်</span>
+                <span data-my="နာမည်" data-en="Full Name">နာမည်</span>
                 <span class="required">*</span>
               </label>
               <input type="text" id="name" name="name" class="form-control" required
-                     data-my-placeholder="သင့်အမည်ကို ထည့်ပါ" data-en-placeholder="Enter your full name"
-                     placeholder="သင့်အမည်ကို ထည့်ပါ">
+                     data-my-placeholder="သင့်နာမည် ထည့်ပါ" data-en-placeholder="Enter your full name"
+                     placeholder="သင့်နာမည် ထည့်ပါ">
             </div>
 
             <div class="form-row">
@@ -99,11 +99,11 @@
                 <input type="tel" id="phone" name="phone" class="form-control" required
                        data-my-placeholder="09xxxxxxxx" data-en-placeholder="09xxxxxxxx"
                        placeholder="09xxxxxxxx">
-                <p class="form-hint" data-my="Telegram/Viber Number ထည့်ပေးပါ" data-en="Enter your Telegram/Viber number">Telegram/Viber Number ထည့်ပေးပါ</p>
+                <p class="form-hint" data-my="Telegram သို့မဟုတ် Viber သုံးနေတဲ့ ဖုန်းနံပါတ် ထည့်ပေးပါ" data-en="Enter your Telegram/Viber number">Telegram သို့မဟုတ် Viber သုံးနေတဲ့ ဖုန်းနံပါတ် ထည့်ပေးပါ</p>
               </div>
               <div class="form-group">
                 <label class="form-label" for="email">
-                  <span data-my="Email (Optional)" data-en="Email (Optional)">Email (Optional)</span>
+                  <span data-my="Email (ရှိလျှင်)" data-en="Email (Optional)">Email (ရှိလျှင်)</span>
                 </label>
                 <input type="email" id="email" name="email" class="form-control"
                        data-my-placeholder="your@email.com" data-en-placeholder="your@email.com"
@@ -113,7 +113,7 @@
 
             <div class="form-group">
               <label class="form-label" for="plan-select">
-                <span data-my="Plan ရွေးချယ်ပါ" data-en="Select Plan">Plan ရွေးချယ်ပါ</span>
+                <span data-my="Plan ရွေးချယ်ရန်" data-en="Select Plan">Plan ရွေးချယ်ရန်</span>
                 <span class="required">*</span>
               </label>
               <select id="plan-select" name="plan" class="form-control" required>
@@ -126,30 +126,30 @@
 
             <div class="form-group">
               <label class="form-label" for="notes">
-                <span data-my="မှတ်ချက် (Optional)" data-en="Notes (Optional)">မှတ်ချက် (Optional)</span>
+                <span data-my="မှတ်ချက် (ရှိလျှင်)" data-en="Notes (Optional)">မှတ်ချက် (ရှိလျှင်)</span>
               </label>
               <textarea id="notes" name="notes" class="form-control" rows="3"
-                        data-my-placeholder="အထူးမေးမြန်းလိုသောအရာများ..." data-en-placeholder="Any special requests or questions..."
-                        placeholder="အထူးမေးမြန်းလိုသောအရာများ..."></textarea>
+                        data-my-placeholder="မေးချင်တာ (သို့) မှာကြားချင်တာရှိရင် ရေးထားနိုင်ပါတယ်..." data-en-placeholder="Any special requests or questions..."
+                        placeholder="မေးချင်တာ (သို့) မှာကြားချင်တာရှိရင် ရေးထားနိုင်ပါတယ်..."></textarea>
             </div>
 
             <div id="form-status" class="form-status"></div>
 
             <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:8px;">
-              <span data-my="🛒 မှာယူရန်" data-en="🛒 Submit Order">🛒 မှာယူရန်</span>
+              <span data-my="🛒 Order တင်မည်" data-en="🛒 Submit Order">🛒 Order တင်မည်</span>
             </button>
           </form>
         </div>
 
         <!-- Payment Info -->
         <div class="payment-methods-display fade-up">
-          <h3 class="mb-8" data-my="💳 ငွေပေးချေနည်း" data-en="💳 Payment Methods">💳 ငွေပေးချေနည်း</h3>
-          <p class="mb-20" style="font-size:0.9rem;" data-my="Order တင်ပြီးနောက် အောက်ပါ Account များသို့ ငွေပေးချေပါ" data-en="After submitting your order, make payment to one of the accounts below.">Order တင်ပြီးနောက် အောက်ပါ Account များသို့ ငွေပေးချေပါ</p>
+          <h3 class="mb-8" data-my="💳 ငွေလွှဲနိုင်သော Account များ" data-en="💳 Payment Methods">💳 ငွေလွှဲနိုင်သော Account များ</h3>
+          <p class="mb-20" style="font-size:0.9rem;" data-my="Order တင်ပြီးရင် အောက်ပါ Account တစ်ခုခုဆီ ငွေလွှဲပေးပါ" data-en="After submitting your order, make payment to one of the accounts below.">Order တင်ပြီးရင် အောက်ပါ Account တစ်ခုခုဆီ ငွေလွှဲပေးပါ</p>
           <div id="payment-methods-container" class="payment-method-cards">
             <div class="empty-state" style="padding:24px; color: var(--text-muted);">Loading payment info...</div>
           </div>
           <div class="mt-24">
-            <a href="payment.html" class="btn btn-accent btn-block" data-my="🧾 Payment Receipt တင်ရန်" data-en="🧾 Upload Payment Receipt">🧾 Payment Receipt တင်ရန်</a>
+            <a href="payment.html" class="btn btn-accent btn-block" data-my="🧾 ငွေလွှဲပြီး Receipt တင်ရန်" data-en="🧾 Upload Payment Receipt">🧾 ငွေလွှဲပြီး Receipt တင်ရန်</a>
           </div>
         </div>
 
@@ -166,7 +166,7 @@
             <img src="assets/images/logo.png" alt="Logo" height="32" onerror="this.style.display='none'">
             <span class="brand-name">Video Pipeline Suite</span>
           </div>
-          <p data-my="Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software</p>
+          <p data-my="Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software</p>
           <div class="footer-contact-links">
             <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
             <a href="#" data-contact="email"><span>📧</span> Email</a>
@@ -176,7 +176,7 @@
           <h4 data-my="Pages" data-en="Pages">Pages</h4>
           <ul>
             <li><a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a></li>
-            <li><a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a></li>
+            <li><a href="features.html" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a></li>
             <li><a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a></li>
             <li><a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a></li>
           </ul>

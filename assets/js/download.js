@@ -53,9 +53,9 @@
     if (loading) loading.style.display = 'none';
 
     const url = getDownloadUrl(release);
-    const btnText = lang === 'my' ? '⬇️ ဒေါင်းလုဒ်ရယူရန်' : '⬇️ Download Now';
-    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသောနေ့' : 'Released';
-    const sizeLabel = lang === 'my' ? 'ဖိုင်အရွယ်' : 'File Size';
+    const btnText = lang === 'my' ? '⬇️ Download ရယူရန်' : '⬇️ Download Now';
+    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
+    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
     const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
 
     container.innerHTML = `
@@ -90,7 +90,7 @@
     const container = document.getElementById('changelog-container');
     if (!container) return;
     const items = lang === 'my' ? release.changelog_my : release.changelog_en;
-    const title = lang === 'my' ? '📋 ဤ Version တွင် ပါဝင်သောအရာများ' : '📋 What\'s in this release';
+    const title = lang === 'my' ? '📋 ဒီ Version မှာ ပါဝင်တဲ့ Features များ' : '📋 What\'s in this release';
 
     container.innerHTML = `
       <div class="changelog-section fade-up">
@@ -110,7 +110,7 @@
     if (!container) return;
 
     if (!previous.length) {
-      container.innerHTML = `<div class="empty-state">${lang === 'my' ? 'ယခင် Version များ မရှိသေးပါ' : 'No previous releases yet.'}</div>`;
+      container.innerHTML = `<div class="empty-state">${lang === 'my' ? 'အရင် Version ဟောင်းများ မရှိသေးပါဘူး' : 'No previous releases yet.'}</div>`;
       return;
     }
 

@@ -112,9 +112,9 @@
         form,
         statusEl,
         endpoint: config && config.forms ? config.forms.order_endpoint : '',
-        successMsgMy: '✅ မှာယူမှု အောင်မြင်ပါသည်! ကျွန်ုပ်တို့ မကြာမီ ဆက်သွယ်ပါမည်။',
+        successMsgMy: '✅ Order တင်မှု အောင်မြင်ပါပြီ! ငွေလွှဲပြီးရင် Payment Receipt စာမျက်နှာမှာ ပြေစာပုံ တင်ပေးပါနော်။',
         successMsgEn: '✅ Order submitted successfully! We will contact you soon.',
-        errorMsgMy: '❌ Error ဖြစ်သွားပါသည်။ ထပ်မံကြိုးစားပါ သို့မဟုတ် Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ။',
+        errorMsgMy: '❌ Order ပို့ရာတွင် Error ဖြစ်သွားပါတယ်။ ထပ်မံကြိုးစားပါ (သို့) Telegram (@videopipline) မှတစ်ဆင့် ဆက်သွယ်ပေးပါ။',
         errorMsgEn: '❌ Something went wrong. Please try again or contact us via Telegram.',
         onSuccess: () => {
           const infoBox = document.getElementById('plan-info-box');
