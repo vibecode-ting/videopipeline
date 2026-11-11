@@ -1,26 +1,33 @@
 {
   "latest": {
-    "version": "v1.0.0",
+    "version": "v1.0",
     "release_date": "2026-11-11",
-    "file_size": "85 MB",
+    "file_size": "393 MB",
+    "file_name": "VideoPipelineSuite-v1.0.7z",
     "platform": "Windows 10/11",
-    "github_release_url": "https://github.com/YOUR_GITHUB_USERNAME/video-pipeline-suite/releases/latest/download/VideoPipelineSuite-Setup.zip",
+    "github_release_url": "https://github.com/vibecode-ting/videopipeline/releases/download/v1.0/VideoPipelineSuite-v1.0.7z",
     "cloud_storage_url": "",
     "changelog_my": [
       "✨ ပထမဆုံး ထုတ်ဝေမှု",
       "🔒 1-PC Lock Security System",
-      "🤖 AI Video Ad Cutter (Gemini, DeepSeek, Local LLM)",
+      "🤖 AI Video Ad Cutter (Gemini, DeepSeek, Offline Local LLM)",
       "📥 Telegram & YouTube Downloader",
       "📺 Telegram Channel Studio",
-      "🚀 1-Click Autonomous Pipeline"
+      "📝 AI Batch File Renamer",
+      "📤 TikTok & Telegram Uploader",
+      "🚀 1-Click Autonomous Pipeline",
+      "🧙 Setup Wizard"
     ],
     "changelog_en": [
       "✨ Initial release",
       "🔒 1-PC Lock Security System",
-      "🤖 AI Video Ad Cutter (Gemini, DeepSeek, Local LLM)",
+      "🤖 AI Video Ad Cutter (Gemini, DeepSeek, Offline Local LLM)",
       "📥 Telegram & YouTube Downloader",
       "📺 Telegram Channel Studio",
-      "🚀 1-Click Autonomous Pipeline"
+      "📝 AI Batch File Renamer",
+      "📤 TikTok & Telegram Uploader",
+      "🚀 1-Click Autonomous Pipeline",
+      "🧙 Setup Wizard"
     ]
   },
   "previous": []
