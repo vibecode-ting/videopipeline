@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download Video Pipeline Suite — Windows 10/11 အတွက် နောက်ဆုံး Version ဒေါင်းလုဒ်ရယူပါ">
+  <meta property="og:title" content="Download — Video Pipeline Suite">
+  <meta property="og:type" content="website">
+  <title>ဒေါင်းလုဒ် — Video Pipeline Suite</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container flex-between">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.png" alt="Video Pipeline Suite" height="36"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <span class="brand-text" style="display:none">Video Pipeline Suite</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <div class="nav-links">
+        <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
+        <a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a>
+        <a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a>
+        <a href="download.html" class="active" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="guide.html" data-my="အသုံးပြုနည်း" data-en="Guide">အသုံးပြုနည်း</a>
+        <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="my">မြန်မာ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" data-my="Windows 10/11" data-en="Windows 10/11">Windows 10/11</div>
+      <h1 data-my="Video Pipeline Suite ဒေါင်းလုဒ်ရယူပါ" data-en="Download Video Pipeline Suite">Video Pipeline Suite ဒေါင်းလုဒ်ရယူပါ</h1>
+      <p data-my="နောက်ဆုံး Version ကို ဒေါင်းလုဒ်ဆွဲပြီး သင့်ရဲ့ ဗီဒီယိုလုပ်ငန်းကို စတင်ပါ" data-en="Download the latest version and start your video workflow today.">
+        နောက်ဆုံး Version ကို ဒေါင်းလုဒ်ဆွဲပြီး သင့်ရဲ့ ဗီဒီယိုလုပ်ငန်းကို စတင်ပါ
+      </p>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD CONTENT -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Latest release (populated by JS) -->
+      <div id="download-loading" class="text-center" style="padding: 48px 0;">
+        <div class="spinner" style="width:36px;height:36px;border-width:3px;margin:0 auto;"></div>
+        <p class="mt-16 text-secondary" data-my="ဒေါင်းလုဒ် အချက်အလက်များ ရယူနေပါသည်..." data-en="Loading release information...">ဒေါင်းလုဒ် အချက်အလက်များ ရယူနေပါသည်...</p>
+      </div>
+      <div id="latest-release"></div>
+
+      <!-- Changelog -->
+      <div id="changelog-container"></div>
+
+      <!-- GitHub note -->
+      <div id="github-note" class="mb-32"></div>
+
+      <!-- Previous releases -->
+      <div class="changelog-section fade-up">
+        <h3 data-my="📜 ယခင် Versions" data-en="📜 Previous Versions">📜 ယခင် Versions</h3>
+        <div id="previous-releases">
+          <div class="empty-state" data-my="ယခင် Version များ မရှိသေးပါ" data-en="No previous releases yet.">ယခင် Version များ မရှိသေးပါ</div>
+        </div>
+      </div>
+
+      <!-- Help note -->
+      <div class="info-box fade-up">
+        <span class="info-icon">💡</span>
+        <div>
+          <strong data-my="တပ်ဆင်ရာတွင် အကူအညီ လိုပါသလား?" data-en="Need help installing?">တပ်ဆင်ရာတွင် အကူအညီ လိုပါသလား?</strong><br>
+          <span data-my="အသုံးပြုနည်း Guide ကို ဖတ်ရှုပါ သို့မဟုတ် Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ" data-en="Read the User Guide or contact us via Telegram for assistance.">အသုံးပြုနည်း Guide ကို ဖတ်ရှုပါ သို့မဟုတ် Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ</span>
+          &nbsp;<a href="guide.html" data-my="Guide ကြည့်ရန် →" data-en="View Guide →">Guide ကြည့်ရန် →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-my="License မရှိသေးပါသလား?" data-en="Don't Have a License Yet?">License မရှိသေးပါသလား?</h2>
+      <p data-my="Plan တစ်ခုကို ရွေးချယ်ပြီး Software ကို အပြည့်အဝ သုံးနိုင်ပါသည်" data-en="Choose a plan to unlock full access to all features.">Plan တစ်ခုကို ရွေးချယ်ပြီး Software ကို အပြည့်အဝ သုံးနိုင်ပါသည်</p>
+      <div class="flex flex-center gap-16" style="flex-wrap:wrap;">
+        <a href="pricing.html" class="btn btn-primary btn-lg" data-my="💰 Plan ကြည့်ရန်" data-en="💰 View Plans">💰 Plan ကြည့်ရန်</a>
+        <a href="order.html" class="btn btn-ghost btn-lg" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/images/logo.png" alt="Logo" height="32" onerror="this.style.display='none'">
+            <span class="brand-name">Video Pipeline Suite</span>
+          </div>
+          <p data-my="Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software</p>
+          <div class="footer-contact-links">
+            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
+            <a href="#" data-contact="email"><span>📧</span> Email</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="Pages" data-en="Pages">Pages</h4>
+          <ul>
+            <li><a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a></li>
+            <li><a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a></li>
+            <li><a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a></li>
+            <li><a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="Support" data-en="Support">Support</h4>
+          <ul>
+            <li><a href="guide.html" data-my="အသုံးပြုနည်း" data-en="User Guide">အသုံးပြုနည်း</a></li>
+            <li><a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a></li>
+            <li><a href="order.html" data-my="မှာယူရန်" data-en="Order">မှာယူရန်</a></li>
+            <li><a href="payment.html" data-my="ငွေပေးချေရန်" data-en="Payment">ငွေပေးချေရန်</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
+          <ul>
+            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
+            <li><a href="#" data-contact="email">📧 Email</a></li>
+            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 vibecode-ting. <span data-my="မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်" data-en="All rights reserved.">မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်</span></p>
+        <p data-my="🇲🇲 Made in Myanmar" data-en="🇲🇲 Made in Myanmar">🇲🇲 Made in Myanmar</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/download.js"></script>
+</body>
+</html>

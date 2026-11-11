@@ -1,0 +1,65 @@
+{
+  "site": {
+    "name": "Video Pipeline Suite",
+    "tagline_my": "ဗီဒီယိုလုပ်ငန်းများကို တစ်နေရာတည်းမှ စီမံပါ",
+    "tagline_en": "Manage your entire video workflow from one place",
+    "platform": "Windows",
+    "github_repo": "YOUR_GITHUB_USERNAME/video-pipeline-suite",
+    "logo": "assets/images/logo.png",
+    "banner": "assets/images/banner.png",
+    "app_screenshot": "assets/images/app-screenshot.png"
+  },
+  "contact": {
+    "telegram": "https://t.me/YOUR_TELEGRAM",
+    "telegram_handle": "@YourTelegram",
+    "email": "your@email.com",
+    "phone": "09xxxxxxxxx",
+    "viber": "09xxxxxxxxx"
+  },
+  "forms": {
+    "provider": "formspree",
+    "order_endpoint": "https://formspree.io/f/YOUR_ORDER_FORM_ID",
+    "payment_endpoint": "https://formspree.io/f/YOUR_PAYMENT_FORM_ID",
+    "contact_endpoint": "https://formspree.io/f/YOUR_CONTACT_FORM_ID",
+    "web3forms_key": "YOUR_WEB3FORMS_ACCESS_KEY"
+  },
+  "payment_methods": [
+    {
+      "name": "KBZPay",
+      "account_name": "YOUR NAME",
+      "phone": "09xxxxxxxxx",
+      "icon": "💳"
+    },
+    {
+      "name": "WavePay",
+      "account_name": "YOUR NAME",
+      "phone": "09xxxxxxxxx",
+      "icon": "🌊"
+    },
+    {
+      "name": "AYAPay",
+      "account_name": "YOUR NAME",
+      "phone": "09xxxxxxxxx",
+      "icon": "🏦"
+    }
+  ],
+  "pricing": {
+    "note_android_my": "📱 Android Application — Coming Soon",
+    "note_android_en": "📱 Android Application — Coming Soon",
+    "free_device_note_my": "✨ Plan အချို့တွင် Free Device ရရှိနိုင်ပါသည်",
+    "free_device_note_en": "✨ One free device included with selected plans",
+    "plans": [
+      { "id": "1pc-3mo", "pcs": 1, "months": 3, "price_mmk": 50000, "label_my": "Personal — 3 လ", "label_en": "Personal — 3 Months", "popular": false },
+      { "id": "2pc-3mo", "pcs": 2, "months": 3, "price_mmk": 80000, "label_my": "Team — 3 လ", "label_en": "Team — 3 Months", "popular": true },
+      { "id": "3pc-3mo", "pcs": 3, "months": 3, "price_mmk": 100000, "label_my": "Business — 3 လ", "label_en": "Business — 3 Months", "popular": false },
+      { "id": "1pc-6mo", "pcs": 1, "months": 6, "price_mmk": 80000, "label_my": "Personal — 6 လ", "label_en": "Personal — 6 Months", "popular": false },
+      { "id": "2pc-6mo", "pcs": 2, "months": 6, "price_mmk": 140000, "label_my": "Team — 6 လ", "label_en": "Team — 6 Months", "popular": false },
+      { "id": "3pc-6mo", "pcs": 3, "months": 6, "price_mmk": 180000, "label_my": "Business — 6 လ", "label_en": "Business — 6 Months", "popular": false }
+    ]
+  },
+  "download": {
+    "stable_asset_name": "VideoPipelineSuite-Setup.zip",
+    "cloud_storage_url": "",
+    "use_github_releases": true
+  }
+}

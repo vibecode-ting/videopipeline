@@ -1,0 +1,27 @@
+{
+  "latest": {
+    "version": "v1.0.0",
+    "release_date": "2026-11-11",
+    "file_size": "85 MB",
+    "platform": "Windows 10/11",
+    "github_release_url": "https://github.com/YOUR_GITHUB_USERNAME/video-pipeline-suite/releases/latest/download/VideoPipelineSuite-Setup.zip",
+    "cloud_storage_url": "",
+    "changelog_my": [
+      "✨ ပထမဆုံး ထုတ်ဝေမှု",
+      "🔒 1-PC Lock Security System",
+      "🤖 AI Video Ad Cutter (Gemini, DeepSeek, Local LLM)",
+      "📥 Telegram & YouTube Downloader",
+      "📺 Telegram Channel Studio",
+      "🚀 1-Click Autonomous Pipeline"
+    ],
+    "changelog_en": [
+      "✨ Initial release",
+      "🔒 1-PC Lock Security System",
+      "🤖 AI Video Ad Cutter (Gemini, DeepSeek, Local LLM)",
+      "📥 Telegram & YouTube Downloader",
+      "📺 Telegram Channel Studio",
+      "🚀 1-Click Autonomous Pipeline"
+    ]
+  },
+  "previous": []
+}

@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Video Pipeline Suite Payment Receipt Upload — ငွေပေးချေပြီးနောက် Receipt တင်ပေးပါ">
+  <meta property="og:title" content="Payment — Video Pipeline Suite">
+  <meta property="og:type" content="website">
+  <title>ငွေပေးချေရန် — Video Pipeline Suite</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container flex-between">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.png" alt="Video Pipeline Suite" height="36"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <span class="brand-text" style="display:none">Video Pipeline Suite</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <div class="nav-links">
+        <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
+        <a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a>
+        <a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a>
+        <a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="guide.html" data-my="အသုံးပြုနည်း" data-en="Guide">အသုံးပြုနည်း</a>
+        <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="my">မြန်မာ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" data-my="Payment Confirmation" data-en="Payment Confirmation">Payment Confirmation</div>
+      <h1 data-my="ငွေပေးချေမှု အတည်ပြုပါ" data-en="Confirm Your Payment">ငွေပေးချေမှု အတည်ပြုပါ</h1>
+      <p data-my="ငွေပေးချေပြီးနောက် Payment Receipt ကို တင်ပေးပါ။ စစ်ဆေးပြီးနောက် License ကို စီစဉ်ပေးပါမည်" data-en="Upload your payment receipt after making payment. We'll verify and arrange your license promptly.">
+        ငွေပေးချေပြီးနောက် Payment Receipt ကို တင်ပေးပါ။ စစ်ဆေးပြီးနောက် License ကို စီစဉ်ပေးပါမည်
+      </p>
+    </div>
+  </section>
+
+  <!-- PAYMENT FORM -->
+  <section class="section">
+    <div class="container">
+      <div class="form-wrapper">
+
+        <div class="note-box mb-32 fade-up">
+          <span class="note-icon">📌</span>
+          <div>
+            <strong data-my="မှတ်ချက်:" data-en="Note:">မှတ်ချက်:</strong>
+            <span data-my=" Receipt ပုံကို Form မှတင်ပြ၍မရပါက ကျွန်ုပ်တို့ Telegram/Viber သို့ တိုက်ရိုက် ပို့ပေးပါ" data-en=" If you can't upload the receipt via the form, send it directly to our Telegram or Viber.">
+              Receipt ပုံကို Form မှတင်ပြ၍မရပါက ကျွန်ုပ်တို့ Telegram/Viber သို့ တိုက်ရိုက် ပို့ပေးပါ
+            </span>
+            <br>
+            <a href="#" data-contact="telegram" class="btn btn-sm" style="margin-top:10px; background: rgba(108,99,255,0.15); color: var(--primary); border-radius: 8px; padding: 7px 14px;">
+              <span data-my="✈️ Telegram သို့ ပို့ပါ" data-en="✈️ Send via Telegram">✈️ Telegram သို့ ပို့ပါ</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-card fade-up">
+          <h3 class="mb-24" data-my="🧾 Payment Receipt Form" data-en="🧾 Payment Receipt Form">🧾 Payment Receipt Form</h3>
+
+          <form id="payment-form" novalidate>
+            <input type="hidden" name="_subject" value="VPS Payment Receipt Submission">
+            <!-- web3forms access key (supports file upload) -->
+            <input type="hidden" name="access_key" id="web3forms-key">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="pay-name">
+                  <span data-my="Order အမည်" data-en="Order Name">Order အမည်</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="text" id="pay-name" name="order_name" class="form-control" required
+                       data-my-placeholder="မှာယူသောအမည်" data-en-placeholder="Name used in order"
+                       placeholder="မှာယူသောအမည်">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pay-phone">
+                  <span data-my="ဖုန်းနံပါတ်" data-en="Phone Number">ဖုန်းနံပါတ်</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="tel" id="pay-phone" name="phone" class="form-control" required
+                       data-my-placeholder="09xxxxxxxx" data-en-placeholder="09xxxxxxxx"
+                       placeholder="09xxxxxxxx">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="pay-plan">
+                  <span data-my="ရွေးချယ်သော Plan" data-en="Selected Plan">ရွေးချယ်သော Plan</span>
+                  <span class="required">*</span>
+                </label>
+                <select id="pay-plan" name="plan" class="form-control" required>
+                  <option value="" data-my="-- Plan ရွေးပါ --" data-en="-- Select Plan --">-- Plan ရွေးပါ --</option>
+                  <option value="1pc-3mo" data-my="Personal — 3 လ (50,000 MMK)" data-en="Personal — 3 Months (50,000 MMK)">Personal — 3 လ (50,000 MMK)</option>
+                  <option value="2pc-3mo" data-my="Team — 3 လ (80,000 MMK)" data-en="Team — 3 Months (80,000 MMK)">Team — 3 လ (80,000 MMK)</option>
+                  <option value="3pc-3mo" data-my="Business — 3 လ (100,000 MMK)" data-en="Business — 3 Months (100,000 MMK)">Business — 3 လ (100,000 MMK)</option>
+                  <option value="1pc-6mo" data-my="Personal — 6 လ (80,000 MMK)" data-en="Personal — 6 Months (80,000 MMK)">Personal — 6 လ (80,000 MMK)</option>
+                  <option value="2pc-6mo" data-my="Team — 6 လ (140,000 MMK)" data-en="Team — 6 Months (140,000 MMK)">Team — 6 လ (140,000 MMK)</option>
+                  <option value="3pc-6mo" data-my="Business — 6 လ (180,000 MMK)" data-en="Business — 6 Months (180,000 MMK)">Business — 6 လ (180,000 MMK)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pay-method">
+                  <span data-my="ငွေပေးချေသည့်နည်း" data-en="Payment Method">ငွေပေးချေသည့်နည်း</span>
+                  <span class="required">*</span>
+                </label>
+                <select id="pay-method" name="payment_method" class="form-control" required>
+                  <option value="" data-my="-- ရွေးပါ --" data-en="-- Select --">-- ရွေးပါ --</option>
+                  <option value="KBZPay">💳 KBZPay</option>
+                  <option value="WavePay">🌊 WavePay</option>
+                  <option value="AYAPay">🏦 AYAPay</option>
+                  <option value="Bank Transfer" data-my="Bank Transfer" data-en="Bank Transfer">Bank Transfer</option>
+                  <option value="Other" data-my="အခြား" data-en="Other">အခြား</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="pay-amount">
+                  <span data-my="ငွေပမာဏ (MMK)" data-en="Amount (MMK)">ငွေပမာဏ (MMK)</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="number" id="pay-amount" name="amount_mmk" class="form-control" required
+                       data-my-placeholder="50000" data-en-placeholder="50000"
+                       placeholder="50000" min="1">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pay-txid">
+                  <span data-my="Transaction ID" data-en="Transaction ID">Transaction ID</span>
+                </label>
+                <input type="text" id="pay-txid" name="transaction_id" class="form-control"
+                       data-my-placeholder="Transaction Reference Number" data-en-placeholder="Transaction Reference Number"
+                       placeholder="Transaction Reference Number">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pay-date">
+                <span data-my="ငွေပေးချေသောနေ့ရက်" data-en="Payment Date">ငွေပေးချေသောနေ့ရက်</span>
+                <span class="required">*</span>
+              </label>
+              <input type="date" id="pay-date" name="payment_date" class="form-control" required>
+            </div>
+
+            <!-- File Upload -->
+            <div class="form-group">
+              <label class="form-label">
+                <span data-my="Receipt ပုံ" data-en="Receipt Image">Receipt ပုံ</span>
+              </label>
+              <div class="file-upload-area" id="file-drop-area">
+                <input type="file" name="receipt_image" id="pay-receipt" accept="image/*">
+                <span class="file-upload-icon">📸</span>
+                <div class="file-upload-text" data-my="ဤနေရာတွင် ဖိုင်ကို ချထားပါ သို့မဟုတ် Click နှိပ်ပါ" data-en="Drop file here or click to upload">ဤနေရာတွင် ဖိုင်ကို ချထားပါ သို့မဟုတ် Click နှိပ်ပါ</div>
+                <div class="file-upload-hint" data-my="JPG, PNG, WEBP — 10MB အောက်" data-en="JPG, PNG, WEBP — Under 10MB">JPG, PNG, WEBP — 10MB အောက်</div>
+                <div class="file-preview" id="file-preview"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pay-notes">
+                <span data-my="မှတ်ချက်" data-en="Notes">မှတ်ချက်</span>
+              </label>
+              <textarea id="pay-notes" name="notes" class="form-control" rows="3"
+                        data-my-placeholder="ဆက်သွယ်ချက် သို့မဟုတ် မေးမြန်းလိုသောအရာများ..." data-en-placeholder="Any notes or additional information..."
+                        placeholder="ဆက်သွယ်ချက် သို့မဟုတ် မေးမြန်းလိုသောအရာများ..."></textarea>
+            </div>
+
+            <div id="payment-form-status" class="form-status"></div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:8px;">
+              <span data-my="🧾 Payment တင်ပို့မည်" data-en="🧾 Submit Payment">🧾 Payment တင်ပို့မည်</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Alternative: direct Telegram -->
+        <div class="info-box mt-24 fade-up">
+          <span class="info-icon">💡</span>
+          <div>
+            <strong data-my="အကောင်းဆုံးနည်းလမ်း:" data-en="Easiest way:">အကောင်းဆုံးနည်းလမ်း:</strong>
+            <span data-my=" Receipt ကို Telegram/Viber သို့ တိုက်ရိုက် ပို့ပြီး Order ID (ဖုန်းနံပါတ်) ကို ပူးတွဲဖော်ပြပါ" data-en=" Send the receipt directly via Telegram/Viber together with your Order ID (phone number).">
+              Receipt ကို Telegram/Viber သို့ တိုက်ရိုက် ပို့ပြီး Order ID (ဖုန်းနံပါတ်) ကို ပူးတွဲဖော်ပြပါ
+            </span>
+            <br><br>
+            <a href="#" data-contact="telegram" class="btn btn-accent btn-sm" data-my="✈️ Telegram သို့ ဆက်သွယ်ပါ" data-en="✈️ Contact via Telegram">✈️ Telegram သို့ ဆက်သွယ်ပါ</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/images/logo.png" alt="Logo" height="32" onerror="this.style.display='none'">
+            <span class="brand-name">Video Pipeline Suite</span>
+          </div>
+          <p data-my="Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software</p>
+          <div class="footer-contact-links">
+            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
+            <a href="#" data-contact="email"><span>📧</span> Email</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="Pages" data-en="Pages">Pages</h4>
+          <ul>
+            <li><a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a></li>
+            <li><a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a></li>
+            <li><a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a></li>
+            <li><a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="Support" data-en="Support">Support</h4>
+          <ul>
+            <li><a href="guide.html" data-my="အသုံးပြုနည်း" data-en="User Guide">အသုံးပြုနည်း</a></li>
+            <li><a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a></li>
+            <li><a href="order.html" data-my="မှာယူရန်" data-en="Order">မှာယူရန်</a></li>
+            <li><a href="payment.html" data-my="ငွေပေးချေရန်" data-en="Payment">ငွေပေးချေရန်</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
+          <ul>
+            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
+            <li><a href="#" data-contact="email">📧 Email</a></li>
+            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 vibecode-ting. <span data-my="မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်" data-en="All rights reserved.">မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်</span></p>
+        <p data-my="🇲🇲 Made in Myanmar" data-en="🇲🇲 Made in Myanmar">🇲🇲 Made in Myanmar</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Payment form logic
+    (function () {
+      // File preview
+      const fileInput = document.getElementById('pay-receipt');
+      const preview = document.getElementById('file-preview');
+      const dropArea = document.getElementById('file-drop-area');
+
+      if (fileInput) {
+        fileInput.addEventListener('change', () => {
+          const file = fileInput.files[0];
+          if (file) preview.textContent = '✅ ' + file.name;
+        });
+      }
+      if (dropArea) {
+        dropArea.addEventListener('dragover', e => { e.preventDefault(); dropArea.classList.add('dragover'); });
+        dropArea.addEventListener('dragleave', () => dropArea.classList.remove('dragover'));
+        dropArea.addEventListener('drop', e => {
+          e.preventDefault();
+          dropArea.classList.remove('dragover');
+          if (e.dataTransfer.files[0]) {
+            fileInput.files = e.dataTransfer.files;
+            preview.textContent = '✅ ' + e.dataTransfer.files[0].name;
+          }
+        });
+      }
+
+      // Set today's date
+      const dateField = document.getElementById('pay-date');
+      if (dateField) dateField.value = new Date().toISOString().split('T')[0];
+
+      // Load web3forms key from config
+      fetch('data/config.json').then(r => r.json()).then(config => {
+        const keyField = document.getElementById('web3forms-key');
+        if (keyField && config.forms.web3forms_key) keyField.value = config.forms.web3forms_key;
+      }).catch(() => {});
+
+      // Form submit
+      const form = document.getElementById('payment-form');
+      const statusEl = document.getElementById('payment-form-status');
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const lang = window.VPS ? window.VPS.getLang() : 'my';
+        const btn = form.querySelector('[type="submit"]');
+        const origHtml = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span>';
+
+        try {
+          // Fetch config for endpoint
+          const config = await (window.VPS ? window.VPS.loadConfig() : fetch('data/config.json').then(r => r.json()));
+          const endpoint = config.forms.payment_endpoint;
+
+          const formData = new FormData(form);
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            statusEl.className = 'form-status success';
+            statusEl.textContent = lang === 'my'
+              ? '✅ Payment Receipt တင်ပြမှု အောင်မြင်ပါသည်! ၂၄ နာရီအတွင်း ဆက်သွယ်ပါမည်။'
+              : '✅ Payment receipt submitted successfully! We will contact you within 24 hours.';
+            statusEl.style.display = 'block';
+            form.reset();
+            if (preview) preview.textContent = '';
+            if (dateField) dateField.value = new Date().toISOString().split('T')[0];
+          } else {
+            throw new Error('Submit failed');
+          }
+        } catch (err) {
+          const lang = window.VPS ? window.VPS.getLang() : 'my';
+          statusEl.className = 'form-status error';
+          statusEl.textContent = lang === 'my'
+            ? '❌ Error ဖြစ်သွားပါသည်။ Telegram မှတစ်ဆင့် Receipt ကို တိုက်ရိုက် ပို့ပေးပါ။'
+            : '❌ Submission failed. Please send your receipt directly via Telegram.';
+          statusEl.style.display = 'block';
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = origHtml;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Video Pipeline Suite မှာယူရန် — Plan ရွေးချယ်ပြီး Order တင်ပါ">
+  <meta property="og:title" content="Order — Video Pipeline Suite">
+  <meta property="og:type" content="website">
+  <title>မှာယူရန် — Video Pipeline Suite</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container flex-between">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.png" alt="Video Pipeline Suite" height="36"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <span class="brand-text" style="display:none">Video Pipeline Suite</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <div class="nav-links">
+        <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
+        <a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a>
+        <a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a>
+        <a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="guide.html" data-my="အသုံးပြုနည်း" data-en="Guide">အသုံးပြုနည်း</a>
+        <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="my">မြန်မာ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" data-my="License မှာယူပါ" data-en="Order Your License">License မှာယူပါ</div>
+      <h1 data-my="Plan ရွေးချယ်ပြီး မှာယူပါ" data-en="Choose a Plan and Order">Plan ရွေးချယ်ပြီး မှာယူပါ</h1>
+      <p data-my="Form ဖြည့်ပြီး မှာယူပါ။ ငွေပေးချေပြီးနောက် ၂၄ နာရီအတွင်း License ရပါမည်" data-en="Fill in the form to order. Your license will be delivered within 24 hours after payment.">
+        Form ဖြည့်ပြီး မှာယူပါ။ ငွေပေးချေပြီးနောက် ၂၄ နာရီအတွင်း License ရပါမည်
+      </p>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section class="section">
+    <div class="container">
+      <div class="form-wrapper">
+
+        <!-- Order Steps -->
+        <div class="info-box mb-32 fade-up">
+          <span class="info-icon">📋</span>
+          <div>
+            <strong data-my="မှာယူပုံ:" data-en="How to Order:">မှာယူပုံ:</strong>
+            <span data-my=" ① Form ဖြည့်ပြီး Submit ➔ ② ငွေပေးချေပါ ➔ ③ Receipt တင်ပါ ➔ ④ License ရပါမည်" data-en=" ① Fill form & submit ➔ ② Make payment ➔ ③ Upload receipt ➔ ④ Receive license">
+              ① Form ဖြည့်ပြီး Submit ➔ ② ငွေပေးချေပါ ➔ ③ Receipt တင်ပါ ➔ ④ License ရပါမည်
+            </span>
+          </div>
+        </div>
+
+        <div class="form-card fade-up">
+          <h3 class="mb-24" data-my="🛒 မှာယူမှုပုံစံ" data-en="🛒 Order Form">🛒 မှာယူမှုပုံစံ</h3>
+
+          <form id="order-form" novalidate>
+            <!-- Hidden fields populated by JS -->
+            <input type="hidden" name="_subject" value="New VPS License Order">
+            <input type="hidden" id="field-pcs" name="pc_count">
+            <input type="hidden" id="field-months" name="duration_months">
+            <input type="hidden" id="field-price" name="price_mmk">
+
+            <div class="form-group">
+              <label class="form-label" for="name">
+                <span data-my="အမည်" data-en="Full Name">အမည်</span>
+                <span class="required">*</span>
+              </label>
+              <input type="text" id="name" name="name" class="form-control" required
+                     data-my-placeholder="သင့်အမည်ကို ထည့်ပါ" data-en-placeholder="Enter your full name"
+                     placeholder="သင့်အမည်ကို ထည့်ပါ">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="phone">
+                  <span data-my="ဖုန်းနံပါတ်" data-en="Phone Number">ဖုန်းနံပါတ်</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="tel" id="phone" name="phone" class="form-control" required
+                       data-my-placeholder="09xxxxxxxx" data-en-placeholder="09xxxxxxxx"
+                       placeholder="09xxxxxxxx">
+                <p class="form-hint" data-my="Telegram/Viber Number ထည့်ပေးပါ" data-en="Enter your Telegram/Viber number">Telegram/Viber Number ထည့်ပေးပါ</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">
+                  <span data-my="Email (Optional)" data-en="Email (Optional)">Email (Optional)</span>
+                </label>
+                <input type="email" id="email" name="email" class="form-control"
+                       data-my-placeholder="your@email.com" data-en-placeholder="your@email.com"
+                       placeholder="your@email.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plan-select">
+                <span data-my="Plan ရွေးချယ်ပါ" data-en="Select Plan">Plan ရွေးချယ်ပါ</span>
+                <span class="required">*</span>
+              </label>
+              <select id="plan-select" name="plan" class="form-control" required>
+                <option value="" data-my="-- Plan ရွေးချယ်ပါ --" data-en="-- Select a Plan --">-- Plan ရွေးချယ်ပါ --</option>
+              </select>
+            </div>
+
+            <!-- Plan Info Box (populated by JS) -->
+            <div id="plan-info-box" class="plan-info-box" style="display:none;"></div>
+
+            <div class="form-group">
+              <label class="form-label" for="notes">
+                <span data-my="မှတ်ချက် (Optional)" data-en="Notes (Optional)">မှတ်ချက် (Optional)</span>
+              </label>
+              <textarea id="notes" name="notes" class="form-control" rows="3"
+                        data-my-placeholder="အထူးမေးမြန်းလိုသောအရာများ..." data-en-placeholder="Any special requests or questions..."
+                        placeholder="အထူးမေးမြန်းလိုသောအရာများ..."></textarea>
+            </div>
+
+            <div id="form-status" class="form-status"></div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:8px;">
+              <span data-my="🛒 မှာယူရန်" data-en="🛒 Submit Order">🛒 မှာယူရန်</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Payment Info -->
+        <div class="payment-methods-display fade-up">
+          <h3 class="mb-8" data-my="💳 ငွေပေးချေနည်း" data-en="💳 Payment Methods">💳 ငွေပေးချေနည်း</h3>
+          <p class="mb-20" style="font-size:0.9rem;" data-my="Order တင်ပြီးနောက် အောက်ပါ Account များသို့ ငွေပေးချေပါ" data-en="After submitting your order, make payment to one of the accounts below.">Order တင်ပြီးနောက် အောက်ပါ Account များသို့ ငွေပေးချေပါ</p>
+          <div id="payment-methods-container" class="payment-method-cards">
+            <div class="empty-state" style="padding:24px; color: var(--text-muted);">Loading payment info...</div>
+          </div>
+          <div class="mt-24">
+            <a href="payment.html" class="btn btn-accent btn-block" data-my="🧾 Payment Receipt တင်ရန်" data-en="🧾 Upload Payment Receipt">🧾 Payment Receipt တင်ရန်</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/images/logo.png" alt="Logo" height="32" onerror="this.style.display='none'">
+            <span class="brand-name">Video Pipeline Suite</span>
+          </div>
+          <p data-my="Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Myanmar-First ဗီဒီယိုလုပ်ငန်းအတွက် All-in-One Software</p>
+          <div class="footer-contact-links">
+            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
+            <a href="#" data-contact="email"><span>📧</span> Email</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="Pages" data-en="Pages">Pages</h4>
+          <ul>
+            <li><a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a></li>
+            <li><a href="features.html" data-my="လုပ်ဆောင်ချက်" data-en="Features">လုပ်ဆောင်ချက်</a></li>
+            <li><a href="pricing.html" data-my="စျေးနှုန်း" data-en="Pricing">စျေးနှုန်း</a></li>
+            <li><a href="download.html" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="Support" data-en="Support">Support</h4>
+          <ul>
+            <li><a href="guide.html" data-my="အသုံးပြုနည်း" data-en="User Guide">အသုံးပြုနည်း</a></li>
+            <li><a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a></li>
+            <li><a href="order.html" data-my="မှာယူရန်" data-en="Order">မှာယူရန်</a></li>
+            <li><a href="payment.html" data-my="ငွေပေးချေရန်" data-en="Payment">ငွေပေးချေရန်</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
+          <ul>
+            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
+            <li><a href="#" data-contact="email">📧 Email</a></li>
+            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 vibecode-ting. <span data-my="မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်" data-en="All rights reserved.">မူပိုင်ခွင့်အားလုံး ကာကွယ်ထားပါသည်</span></p>
+        <p data-my="🇲🇲 Made in Myanmar" data-en="🇲🇲 Made in Myanmar">🇲🇲 Made in Myanmar</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/order.js"></script>
+</body>
+</html>
