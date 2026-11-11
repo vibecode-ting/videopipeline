@@ -221,40 +221,16 @@
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const lang = window.VPS ? window.VPS.getLang() : 'my';
-        const btn = form.querySelector('[type="submit"]');
-        const origHtml = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = '<span class="spinner"></span>';
-
-        try {
-          const config = window.VPS ? await window.VPS.loadConfig() : await fetch('data/config.json').then(r => r.json());
-          const res = await fetch(config.forms.contact_endpoint, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (res.ok) {
-            statusEl.className = 'form-status success';
-            statusEl.textContent = lang === 'my'
-              ? '✅ Message ပေးပို့မှု အောင်မြင်ပါသည်! မကြာမီ ပြန်ကြားပါမည်။'
-              : '✅ Message sent successfully! We will get back to you soon.';
-            statusEl.style.display = 'block';
-            form.reset();
-          } else {
-            throw new Error('Error');
-          }
-        } catch (err) {
-          statusEl.className = 'form-status error';
-          statusEl.textContent = lang === 'my'
-            ? '❌ Error ဖြစ်သွားပါသည်။ Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ။'
-            : '❌ Submission failed. Please contact us via Telegram.';
-          statusEl.style.display = 'block';
-        } finally {
-          btn.disabled = false;
-          btn.innerHTML = origHtml;
-        }
+        const config = await window.VPS.loadConfig();
+        await window.VPS.submitFormRequest({
+          form,
+          statusEl,
+          endpoint: config && config.forms ? config.forms.contact_endpoint : '',
+          successMsgMy: '✅ Message ပေးပို့မှု အောင်မြင်ပါသည်! မကြာမီ ပြန်ကြားပါမည်။',
+          successMsgEn: '✅ Message sent successfully! We will get back to you soon.',
+          errorMsgMy: '❌ Error ဖြစ်သွားပါသည်။ Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ။',
+          errorMsgEn: '❌ Submission failed. Please contact us via Telegram.'
+        });
       });
     })();
   </script>

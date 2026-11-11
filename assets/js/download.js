@@ -5,9 +5,20 @@
 (function () {
   'use strict';
 
+  let _releases = null;
+  let _config = null;
+
   function formatDate(dateStr) {
     const d = new Date(dateStr);
     return d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function renderAll(lang) {
+    if (!_releases || !_config) return;
+    renderLatestRelease(_releases.latest, _config, lang);
+    renderChangelog(_releases.latest, lang);
+    renderPreviousReleases(_releases.previous || [], lang);
+    renderGithubNote(_config, lang);
   }
 
   async function initDownloadPage() {
@@ -16,20 +27,20 @@
         fetch('data/releases.json'),
         fetch('data/config.json')
       ]);
-      const releases = await releasesRes.json();
-      const config = await configRes.json();
+      _releases = await releasesRes.json();
+      _config = await configRes.json();
       const lang = window.VPS ? window.VPS.getLang() : (localStorage.getItem('vps-lang') || 'my');
-
-      renderLatestRelease(releases.latest, config, lang);
-      renderChangelog(releases.latest, lang);
-      renderPreviousReleases(releases.previous || [], lang);
-      renderGithubNote(config);
+      renderAll(lang);
     } catch (e) {
       console.error('Download page init failed:', e);
       const el = document.getElementById('download-loading');
       if (el) el.innerHTML = '<p class="text-secondary">Could not load release information.</p>';
     }
   }
+
+  window.addEventListener('vps:langchange', (e) => {
+    renderAll((e.detail && e.detail.lang) || (window.VPS ? window.VPS.getLang() : 'my'));
+  });
 
   function getDownloadUrl(release) {
     return release.cloud_storage_url || release.github_release_url || '#';
@@ -131,16 +142,22 @@
     `;
   }
 
-  function renderGithubNote(config) {
+  function renderGithubNote(config, lang) {
     const container = document.getElementById('github-note');
     if (!container || !config.site.github_repo) return;
     const repoUrl = `https://github.com/${config.site.github_repo}/releases`;
+    const noteText = lang === 'my'
+      ? 'ဒေါင်းလုဒ်ဖိုင်များကို GitHub Releases တွင် တင်ပေးထားပါသည်။'
+      : 'Downloads are hosted on GitHub Releases.';
+    const linkText = lang === 'my'
+      ? 'GitHub Releases အားလုံး ကြည့်ရန် →'
+      : 'View all releases on GitHub →';
     container.innerHTML = `
       <div class="info-box">
         <span class="info-icon">🐙</span>
         <div>
-          Downloads are hosted on GitHub Releases.
-          <a href="${repoUrl}" target="_blank" rel="noopener">View all releases on GitHub →</a>
+          ${noteText}
+          <a href="${repoUrl}" target="_blank" rel="noopener">${linkText}</a>
         </div>
       </div>
     `;

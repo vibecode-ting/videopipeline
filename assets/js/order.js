@@ -16,11 +16,21 @@
       buildPlanOptions();
       preselectFromURL();
       setupFormEvents();
-      renderPaymentInfo();
     } catch (e) {
       console.error('Order page init failed:', e);
     }
   }
+
+  window.addEventListener('vps:langchange', () => {
+    if (!plans.length) return;
+    const select = document.getElementById('plan-select');
+    const selected = select ? select.value : '';
+    buildPlanOptions();
+    if (select && selected) {
+      select.value = selected;
+      updatePlanInfo(selected);
+    }
+  });
 
   function buildPlanOptions() {
     const select = document.getElementById('plan-select');
@@ -96,104 +106,22 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!validateForm(form)) return;
-
-      const btn = form.querySelector('[type="submit"]');
-      const originalHtml = btn.innerHTML;
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>';
-
-      const formData = new FormData(form);
-      const endpoint = config.forms.order_endpoint;
-
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        const lang = window.VPS ? window.VPS.getLang() : 'my';
-        const statusEl = document.getElementById('form-status');
-
-        if (res.ok) {
-          statusEl.className = 'form-status success';
-          statusEl.textContent = lang === 'my'
-            ? '✅ မှာယူမှု အောင်မြင်ပါသည်! ကျွန်ုပ်တို့ မကြာမီ ဆက်သွယ်ပါမည်။'
-            : '✅ Order submitted successfully! We will contact you soon.';
-          statusEl.style.display = 'block';
-          form.reset();
-          document.getElementById('plan-info-box').style.display = 'none';
-          window.scrollTo({ top: statusEl.offsetTop - 100, behavior: 'smooth' });
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
-        const lang = window.VPS ? window.VPS.getLang() : 'my';
-        const statusEl = document.getElementById('form-status');
-        statusEl.className = 'form-status error';
-        statusEl.textContent = lang === 'my'
-          ? '❌ Error ဖြစ်သွားပါသည်။ ထပ်မံကြိုးစားပါ သို့မဟုတ် Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ။'
-          : '❌ Something went wrong. Please try again or contact us via Telegram.';
-        statusEl.style.display = 'block';
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = originalHtml;
-      }
-    });
-  }
-
-  function validateForm(form) {
-    const lang = window.VPS ? window.VPS.getLang() : 'my';
-    let valid = true;
-
-    form.querySelectorAll('[required]').forEach(field => {
-      field.style.borderColor = '';
-      if (!field.value.trim()) {
-        field.style.borderColor = 'var(--danger)';
-        valid = false;
-      }
-    });
-
-    const phone = form.querySelector('[name="phone"]');
-    if (phone && phone.value && !/^09\d{7,10}$/.test(phone.value.replace(/\s/g, ''))) {
-      phone.style.borderColor = 'var(--warning)';
-      const hint = phone.parentElement.querySelector('.phone-error');
-      if (!hint) {
-        const p = document.createElement('p');
-        p.className = 'form-hint phone-error';
-        p.style.color = 'var(--warning)';
-        p.textContent = lang === 'my' ? '⚠️ ဖုန်းနံပါတ် မှန်ကန်ပါစေ (09xxxxxxxx)' : '⚠️ Phone must start with 09';
-        phone.parentElement.appendChild(p);
-      }
-    }
-
-    if (!valid) {
-      const lang2 = lang;
+      if (!config) config = await window.VPS.loadConfig();
       const statusEl = document.getElementById('form-status');
-      if (statusEl) {
-        statusEl.className = 'form-status error';
-        statusEl.textContent = lang2 === 'my' ? '⚠️ လိုအပ်သောအချက်အလက်များ ဖြည့်ပေးပါ' : '⚠️ Please fill in all required fields.';
-        statusEl.style.display = 'block';
-      }
-    }
-    return valid;
-  }
-
-  function renderPaymentInfo() {
-    const container = document.getElementById('payment-methods-container');
-    if (!container || !config) return;
-    container.innerHTML = config.payment_methods.map(pm => `
-      <div class="payment-method-card">
-        <div class="pm-icon">${pm.icon}</div>
-        <div class="pm-name">${pm.name}</div>
-        <div class="pm-account">${pm.account_name}</div>
-        <div class="pm-phone">
-          <span>${pm.phone}</span>
-          <button class="copy-btn" onclick="copyText(this, '${pm.phone}')">📋</button>
-        </div>
-      </div>
-    `).join('');
+      await window.VPS.submitFormRequest({
+        form,
+        statusEl,
+        endpoint: config && config.forms ? config.forms.order_endpoint : '',
+        successMsgMy: '✅ မှာယူမှု အောင်မြင်ပါသည်! ကျွန်ုပ်တို့ မကြာမီ ဆက်သွယ်ပါမည်။',
+        successMsgEn: '✅ Order submitted successfully! We will contact you soon.',
+        errorMsgMy: '❌ Error ဖြစ်သွားပါသည်။ ထပ်မံကြိုးစားပါ သို့မဟုတ် Telegram မှတစ်ဆင့် ဆက်သွယ်ပါ။',
+        errorMsgEn: '❌ Something went wrong. Please try again or contact us via Telegram.',
+        onSuccess: () => {
+          const infoBox = document.getElementById('plan-info-box');
+          if (infoBox) infoBox.style.display = 'none';
+        }
+      });
+    });
   }
 
   document.addEventListener('DOMContentLoaded', initOrderPage);

@@ -50,6 +50,7 @@
     });
     // Update html lang attribute
     document.documentElement.lang = lang;
+    window.dispatchEvent(new CustomEvent('vps:langchange', { detail: { lang } }));
   }
 
   function applyLang(lang) {
@@ -142,31 +143,45 @@
     }
   }
 
+  function isPlaceholder(val) {
+    return !val || /YOUR_|your@|09xxxxxxxx|YOUR NAME/i.test(String(val).trim());
+  }
+
   async function populateContactInfo() {
     const config = await loadConfig();
-    if (!config) return;
+    if (!config || !config.contact) return;
 
-    // Telegram links
-    document.querySelectorAll('[data-contact="telegram"]').forEach(el => {
-      el.href = config.contact.telegram;
-    });
-    // Email links
-    document.querySelectorAll('[data-contact="email"]').forEach(el => {
-      el.href = 'mailto:' + config.contact.email;
-    });
-    // Phone/Viber links
-    document.querySelectorAll('[data-contact="phone"]').forEach(el => {
-      el.href = 'tel:' + config.contact.phone;
-    });
+    const bindContactLink = (selector, value, buildHref) => {
+      document.querySelectorAll(selector).forEach(el => {
+        if (isPlaceholder(value)) {
+          el.href = 'contact.html#contact-form';
+          el.setAttribute('data-unconfigured', 'true');
+          el.title = 'Contact details not configured yet — use Contact Form';
+        } else {
+          el.href = buildHref(value);
+          el.removeAttribute('data-unconfigured');
+          el.removeAttribute('title');
+          if (buildHref(value).startsWith('http')) {
+            el.target = '_blank';
+            el.rel = 'noopener';
+          }
+        }
+      });
+    };
+
+    bindContactLink('[data-contact="telegram"]', config.contact.telegram, v => v);
+    bindContactLink('[data-contact="email"]', config.contact.email, v => 'mailto:' + v);
+    bindContactLink('[data-contact="phone"]', config.contact.phone, v => 'tel:' + v.replace(/\s+/g, ''));
+
     // Text display elements
     document.querySelectorAll('[data-contact-text="telegram-handle"]').forEach(el => {
-      el.textContent = config.contact.telegram_handle;
+      el.textContent = isPlaceholder(config.contact.telegram_handle) ? 'Coming Soon' : config.contact.telegram_handle;
     });
     document.querySelectorAll('[data-contact-text="email"]').forEach(el => {
-      el.textContent = config.contact.email;
+      el.textContent = isPlaceholder(config.contact.email) ? 'Use Contact Form below' : config.contact.email;
     });
     document.querySelectorAll('[data-contact-text="phone"]').forEach(el => {
-      el.textContent = config.contact.phone;
+      el.textContent = isPlaceholder(config.contact.phone) ? 'Use Contact Form below' : config.contact.phone;
     });
   }
 
@@ -174,19 +189,129 @@
     const container = document.getElementById('payment-methods-container');
     if (!container) return;
     const config = await loadConfig();
-    if (!config) return;
+    if (!config || !Array.isArray(config.payment_methods)) return;
 
-    container.innerHTML = config.payment_methods.map(pm => `
-      <div class="payment-method-card">
-        <div class="pm-icon">${pm.icon}</div>
-        <div class="pm-name">${pm.name}</div>
-        <div class="pm-account">${pm.account_name}</div>
-        <div class="pm-phone">
-          <span>${pm.phone}</span>
-          <button class="copy-btn" onclick="copyText(this, '${pm.phone}')">📋</button>
-        </div>
-      </div>
-    `).join('');
+    container.textContent = '';
+    config.payment_methods.forEach(pm => {
+      const card = document.createElement('div');
+      card.className = 'payment-method-card';
+
+      const icon = document.createElement('div');
+      icon.className = 'pm-icon';
+      icon.textContent = pm.icon || '';
+
+      const name = document.createElement('div');
+      name.className = 'pm-name';
+      name.textContent = pm.name || '';
+
+      const account = document.createElement('div');
+      account.className = 'pm-account';
+      account.textContent = pm.account_name || '';
+
+      const phoneWrap = document.createElement('div');
+      phoneWrap.className = 'pm-phone';
+
+      const phoneText = document.createElement('span');
+      phoneText.textContent = pm.phone || '';
+
+      const copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '📋';
+      copyBtn.addEventListener('click', () => window.copyText(copyBtn, pm.phone || ''));
+
+      phoneWrap.append(phoneText, copyBtn);
+      card.append(icon, name, account, phoneWrap);
+      container.appendChild(card);
+    });
+  }
+
+  function validateFormFields(form, statusEl, lang) {
+    let valid = true;
+    form.querySelectorAll('.phone-error').forEach(el => el.remove());
+    if (statusEl) {
+      statusEl.style.display = 'none';
+      statusEl.textContent = '';
+    }
+
+    form.querySelectorAll('[required]').forEach(field => {
+      field.style.borderColor = '';
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--danger)';
+        valid = false;
+      }
+    });
+
+    const phone = form.querySelector('[name="phone"]');
+    if (phone && phone.value.trim()) {
+      const cleanedPhone = phone.value.replace(/[\s-]/g, '');
+      if (!/^09\d{7,10}$/.test(cleanedPhone)) {
+        phone.style.borderColor = 'var(--danger)';
+        valid = false;
+        const p = document.createElement('p');
+        p.className = 'form-hint phone-error';
+        p.style.color = 'var(--danger)';
+        p.textContent = lang === 'my'
+          ? '⚠️ ဖုန်းနံပါတ် မှန်ကန်ပါစေ (09 ဖြင့်စသော 9–12 လုံး)'
+          : '⚠️ Enter a valid Myanmar phone number (starting with 09, 9–12 digits)';
+        phone.parentElement.appendChild(p);
+      }
+    }
+
+    if (!valid && statusEl) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = lang === 'my'
+        ? '⚠️ လိုအပ်သောအချက်အလက်များကို မှန်ကန်စွာ ဖြည့်ပေးပါ'
+        : '⚠️ Please fill in all required fields accurately.';
+      statusEl.style.display = 'block';
+    }
+    return valid;
+  }
+
+  async function submitFormRequest({ form, statusEl, endpoint, prepareFormData, successMsgMy, successMsgEn, errorMsgMy, errorMsgEn, onSuccess }) {
+    const lang = getLang();
+    if (!validateFormFields(form, statusEl, lang)) return;
+
+    const btn = form.querySelector('[type="submit"]');
+    const originalHtml = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>';
+
+    try {
+      if (isPlaceholder(endpoint)) {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = lang === 'my'
+          ? '⚠️ Form endpoint မသတ်မှတ်ရသေးပါ (data/config.json တွင် ဖြည့်ရန် လိုအပ်ပါသည်)။'
+          : '⚠️ Form endpoint is not configured yet in data/config.json.';
+        statusEl.style.display = 'block';
+        return;
+      }
+
+      const formData = new FormData(form);
+      if (typeof prepareFormData === 'function') prepareFormData(formData);
+
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!res.ok) throw new Error('Server error');
+
+      statusEl.className = 'form-status success';
+      statusEl.textContent = lang === 'my' ? successMsgMy : successMsgEn;
+      statusEl.style.display = 'block';
+      form.reset();
+      if (typeof onSuccess === 'function') onSuccess();
+      window.scrollTo({ top: Math.max(0, statusEl.offsetTop - 100), behavior: 'smooth' });
+    } catch (err) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = lang === 'my' ? errorMsgMy : errorMsgEn;
+      statusEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+    }
   }
 
   /* ── 6. Copy to clipboard ── */
@@ -238,7 +363,7 @@
     populatePaymentMethods();
   });
 
-  // Expose loadConfig for other scripts
-  window.VPS = { loadConfig, getLang };
+  // Expose shared helpers for other scripts
+  window.VPS = { loadConfig, getLang, isPlaceholder, validateFormFields, submitFormRequest };
 
 })();

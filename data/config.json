@@ -4,7 +4,7 @@
     "tagline_my": "ဗီဒီယိုလုပ်ငန်းများကို တစ်နေရာတည်းမှ စီမံပါ",
     "tagline_en": "Manage your entire video workflow from one place",
     "platform": "Windows",
-    "github_repo": "YOUR_GITHUB_USERNAME/video-pipeline-suite",
+    "github_repo": "vibecode-ting/videopipeline",
     "logo": "assets/images/logo.png",
     "banner": "assets/images/banner.png",
     "app_screenshot": "assets/images/app-screenshot.png"
@@ -58,7 +58,7 @@
     ]
   },
   "download": {
-    "stable_asset_name": "VideoPipelineSuite-Setup.zip",
+    "stable_asset_name": "VideoPipelineSuite.Version.1.0.zip",
     "cloud_storage_url": "",
     "use_github_releases": true
   }

@@ -291,60 +291,55 @@
       const dateField = document.getElementById('pay-date');
       if (dateField) dateField.value = new Date().toISOString().split('T')[0];
 
-      // Load web3forms key from config
-      fetch('data/config.json').then(r => r.json()).then(config => {
-        const keyField = document.getElementById('web3forms-key');
-        if (keyField && config.forms.web3forms_key) keyField.value = config.forms.web3forms_key;
-      }).catch(() => {});
-
-      // Form submit
       const form = document.getElementById('payment-form');
       const statusEl = document.getElementById('payment-form-status');
       if (!form) return;
 
+      // Support ?plan= preselection
+      const planParam = new URLSearchParams(window.location.search).get('plan');
+      const planSelect = document.getElementById('pay-plan');
+      if (planParam && planSelect) planSelect.value = planParam;
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const lang = window.VPS ? window.VPS.getLang() : 'my';
-        const btn = form.querySelector('[type="submit"]');
-        const origHtml = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = '<span class="spinner"></span>';
 
-        try {
-          // Fetch config for endpoint
-          const config = await (window.VPS ? window.VPS.loadConfig() : fetch('data/config.json').then(r => r.json()));
-          const endpoint = config.forms.payment_endpoint;
-
-          const formData = new FormData(form);
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (res.ok) {
-            statusEl.className = 'form-status success';
-            statusEl.textContent = lang === 'my'
-              ? '✅ Payment Receipt တင်ပြမှု အောင်မြင်ပါသည်! ၂၄ နာရီအတွင်း ဆက်သွယ်ပါမည်။'
-              : '✅ Payment receipt submitted successfully! We will contact you within 24 hours.';
-            statusEl.style.display = 'block';
-            form.reset();
-            if (preview) preview.textContent = '';
-            if (dateField) dateField.value = new Date().toISOString().split('T')[0];
-          } else {
-            throw new Error('Submit failed');
-          }
-        } catch (err) {
-          const lang = window.VPS ? window.VPS.getLang() : 'my';
+        // Validate 10 MB receipt file size limit if attached
+        const file = fileInput && fileInput.files && fileInput.files[0];
+        if (file && file.size > 10 * 1024 * 1024) {
           statusEl.className = 'form-status error';
           statusEl.textContent = lang === 'my'
-            ? '❌ Error ဖြစ်သွားပါသည်။ Telegram မှတစ်ဆင့် Receipt ကို တိုက်ရိုက် ပို့ပေးပါ။'
-            : '❌ Submission failed. Please send your receipt directly via Telegram.';
+            ? '⚠️ Receipt ပုံဖိုင်သည် 10MB ထက် မကျော်ရပါ။'
+            : '⚠️ Receipt image must be under 10 MB.';
           statusEl.style.display = 'block';
-        } finally {
-          btn.disabled = false;
-          btn.innerHTML = origHtml;
+          return;
         }
+
+        const config = await window.VPS.loadConfig();
+        const forms = (config && config.forms) || {};
+        const hasWeb3Key = forms.web3forms_key && !window.VPS.isPlaceholder(forms.web3forms_key);
+        const endpoint = hasWeb3Key ? 'https://api.web3forms.com/submit' : (forms.payment_endpoint || '');
+
+        await window.VPS.submitFormRequest({
+          form,
+          statusEl,
+          endpoint,
+          prepareFormData: (fd) => {
+            if (hasWeb3Key) {
+              fd.set('access_key', forms.web3forms_key);
+            } else {
+              fd.delete('access_key');
+            }
+          },
+          successMsgMy: '✅ Payment Receipt တင်ပြမှု အောင်မြင်ပါသည်! ၂၄ နာရီအတွင်း ဆက်သွယ်ပါမည်။',
+          successMsgEn: '✅ Payment receipt submitted successfully! We will contact you within 24 hours.',
+          errorMsgMy: '❌ Error ဖြစ်သွားပါသည်။ Telegram မှတစ်ဆင့် Receipt ကို တိုက်ရိုက် ပို့ပေးပါ။',
+          errorMsgEn: '❌ Submission failed. Please send your receipt directly via Telegram.',
+          onSuccess: () => {
+            if (preview) preview.textContent = '';
+            if (dateField) dateField.value = new Date().toISOString().split('T')[0];
+          }
+        });
       });
     })();
   </script>
