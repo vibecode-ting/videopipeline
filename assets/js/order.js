@@ -116,9 +116,33 @@
         successMsgEn: '✅ Order submitted successfully! We will contact you soon.',
         errorMsgMy: '❌ Order ပို့ရာတွင် Error ဖြစ်သွားပါတယ်။ ထပ်မံကြိုးစားပါ (သို့) Telegram (@videopipline) မှတစ်ဆင့် ဆက်သွယ်ပေးပါ။',
         errorMsgEn: '❌ Something went wrong. Please try again or contact us via Telegram.',
-        onSuccess: () => {
+        onSuccess: (resData) => {
           const infoBox = document.getElementById('plan-info-box');
           if (infoBox) infoBox.style.display = 'none';
+          const botUsername = config && config.contact && config.contact.telegram_bot;
+          if (botUsername && statusEl) {
+            const lang = window.VPS ? window.VPS.getLang() : 'my';
+            const orderId = resData && resData.id ? `order_${resData.id}` : 'order';
+            const botUrl = `https://t.me/${botUsername}?start=${encodeURIComponent(orderId)}`;
+            const wrap = document.createElement('div');
+            wrap.style.marginTop = '12px';
+
+            const tip = document.createElement('div');
+            tip.style.marginBottom = '8px';
+            tip.textContent = lang === 'my'
+              ? '🤖 Bot ကနေ Username နဲ့ Password အလိုအလျောက် ပို့ပေးနိုင်ဖို့ အောက်က Bot ကို Start နှိပ်ထားပေးပါ:'
+              : '🤖 Tap Start on our Telegram Bot so it can automatically send your Username & Password once approved:';
+
+            const link = document.createElement('a');
+            link.href = botUrl;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.className = 'btn btn-accent btn-sm';
+            link.textContent = `✈️ Start @${botUsername}`;
+
+            wrap.append(tip, link);
+            statusEl.appendChild(wrap);
+          }
         }
       });
     });

@@ -298,11 +298,14 @@
 
       if (!res.ok) throw new Error('Server error');
 
+      let resData = {};
+      try { resData = await res.json(); } catch {}
+
       statusEl.className = 'form-status success';
       statusEl.textContent = lang === 'my' ? successMsgMy : successMsgEn;
       statusEl.style.display = 'block';
       form.reset();
-      if (typeof onSuccess === 'function') onSuccess();
+      if (typeof onSuccess === 'function') onSuccess(resData);
       window.scrollTo({ top: Math.max(0, statusEl.offsetTop - 100), behavior: 'smooth' });
     } catch (err) {
       statusEl.className = 'form-status error';
