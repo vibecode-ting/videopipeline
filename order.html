@@ -80,17 +80,16 @@
             <input type="hidden" id="field-months" name="duration_months">
             <input type="hidden" id="field-price" name="price_mmk">
 
-            <div class="form-group">
-              <label class="form-label" for="name">
-                <span data-my="နာမည်" data-en="Full Name">နာမည်</span>
-                <span class="required">*</span>
-              </label>
-              <input type="text" id="name" name="name" class="form-control" required
-                     data-my-placeholder="သင့်နာမည် ထည့်ပါ" data-en-placeholder="Enter your full name"
-                     placeholder="သင့်နာမည် ထည့်ပါ">
-            </div>
-
             <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">
+                  <span data-my="နာမည်" data-en="Full Name">နာမည်</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="text" id="name" name="name" class="form-control" required
+                       data-my-placeholder="သင့်နာမည် ထည့်ပါ" data-en-placeholder="Enter your full name"
+                       placeholder="သင့်နာမည် ထည့်ပါ">
+              </div>
               <div class="form-group">
                 <label class="form-label" for="phone">
                   <span data-my="ဖုန်းနံပါတ်" data-en="Phone Number">ဖုန်းနံပါတ်</span>
@@ -100,6 +99,19 @@
                        data-my-placeholder="09xxxxxxxx" data-en-placeholder="09xxxxxxxx"
                        placeholder="09xxxxxxxx">
                 <p class="form-hint" data-my="Telegram သို့မဟုတ် Viber သုံးနေတဲ့ ဖုန်းနံပါတ် ထည့်ပေးပါ" data-en="Enter your Telegram/Viber number">Telegram သို့မဟုတ် Viber သုံးနေတဲ့ ဖုန်းနံပါတ် ထည့်ပေးပါ</p>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="telegram-username">
+                  <span data-my="Telegram Username" data-en="Telegram Username">Telegram Username</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="text" id="telegram-username" name="telegram_username" class="form-control" required
+                       data-my-placeholder="@username" data-en-placeholder="@username"
+                       placeholder="@username">
+                <p class="form-hint" data-my="License Account ပို့ပေးနိုင်ဖို့ Telegram @username ထည့်ပေးပါ" data-en="Your Telegram @username so we can send your license">License Account ပို့ပေးနိုင်ဖို့ Telegram @username ထည့်ပေးပါ</p>
               </div>
               <div class="form-group">
                 <label class="form-label" for="email">
