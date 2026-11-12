@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -23,7 +23,10 @@
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <span class="brand-text" style="display:none">Video Pipeline Suite</span>
       </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <div class="nav-links">
         <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
         <a href="features.html" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a>
@@ -33,12 +36,18 @@
         <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
       </div>
       <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <button class="theme-toggle" aria-label="Switch theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="my">မြန်မာ</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ဒေါင်းလုဒ်
+        </a>
       </div>
     </div>
   </nav>
@@ -74,76 +83,85 @@
           <div class="pricing-card fade-up">
             <div class="pricing-name" data-my="Personal" data-en="Personal">Personal</div>
             <div class="pricing-pc-icons">
-              <span class="pc-icon">🖥️</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="pricing-price">
               <div class="amount">50,000</div>
               <span class="currency">MMK / 3 <span data-my="လ" data-en="Months">လ</span></span>
             </div>
             <ul class="pricing-features">
-              <li data-my="1 PC" data-en="1 PC">1 PC</li>
-              <li data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</li>
-              <li data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</li>
-              <li data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</li>
-              <li data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</li>
-              <li data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</li>
-              <li data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</li>
-              <li data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</li>
-              <li data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1 PC" data-en="1 PC">1 PC</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</span></li>
             </ul>
-            <a href="order.html?plan=1pc-3mo" class="btn btn-ghost btn-block" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+            <a href="order.html?plan=1pc-3mo" class="btn btn-ghost btn-block" data-my="မှာယူရန်" data-en="Order Now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              မှာယူရန်
+            </a>
           </div>
 
           <!-- Team - Popular -->
           <div class="pricing-card popular fade-up">
-            <div class="popular-badge" data-my="⭐ အရောင်းရဆုံး" data-en="⭐ Most Popular">⭐ အရောင်းရဆုံး</div>
+            <div class="popular-badge" data-my="အရောင်းရဆုံး" data-en="Most Popular">အရောင်းရဆုံး</div>
             <div class="pricing-name" data-my="Team" data-en="Team">Team</div>
             <div class="pricing-pc-icons">
-              <span class="pc-icon">🖥️</span>
-              <span class="pc-icon">🖥️</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="pricing-price">
               <div class="amount">80,000</div>
               <span class="currency">MMK / 3 <span data-my="လ" data-en="Months">လ</span></span>
             </div>
             <ul class="pricing-features">
-              <li data-my="2 PCs" data-en="2 PCs">2 PCs</li>
-              <li data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</li>
-              <li data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</li>
-              <li data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</li>
-              <li data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</li>
-              <li data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</li>
-              <li data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</li>
-              <li data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</li>
-              <li data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="2 PCs" data-en="2 PCs">2 PCs</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</span></li>
             </ul>
-            <a href="order.html?plan=2pc-3mo" class="btn btn-primary btn-block" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+            <a href="order.html?plan=2pc-3mo" class="btn btn-primary btn-block" data-my="မှာယူရန်" data-en="Order Now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              မှာယူရန်
+            </a>
           </div>
 
           <!-- Business -->
           <div class="pricing-card fade-up">
             <div class="pricing-name" data-my="Business" data-en="Business">Business</div>
             <div class="pricing-pc-icons">
-              <span class="pc-icon">🖥️</span>
-              <span class="pc-icon">🖥️</span>
-              <span class="pc-icon">🖥️</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="pricing-price">
               <div class="amount">100,000</div>
               <span class="currency">MMK / 3 <span data-my="လ" data-en="Months">လ</span></span>
             </div>
             <ul class="pricing-features">
-              <li data-my="3 PCs" data-en="3 PCs">3 PCs</li>
-              <li data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</li>
-              <li data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</li>
-              <li data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</li>
-              <li data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</li>
-              <li data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</li>
-              <li data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</li>
-              <li data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</li>
-              <li data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="3 PCs" data-en="3 PCs">3 PCs</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</span></li>
             </ul>
-            <a href="order.html?plan=3pc-3mo" class="btn btn-ghost btn-block" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+            <a href="order.html?plan=3pc-3mo" class="btn btn-ghost btn-block" data-my="မှာယူရန်" data-en="Order Now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              မှာယူရန်
+            </a>
           </div>
 
         </div>
@@ -156,71 +174,85 @@
           <!-- Personal 6mo -->
           <div class="pricing-card fade-up">
             <div class="pricing-name" data-my="Personal" data-en="Personal">Personal</div>
-            <div class="pricing-pc-icons"><span class="pc-icon">🖥️</span></div>
+            <div class="pricing-pc-icons">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
             <div class="pricing-price">
               <div class="amount">80,000</div>
               <span class="currency">MMK / 6 <span data-my="လ" data-en="Months">လ</span></span>
             </div>
             <ul class="pricing-features">
-              <li data-my="1 PC" data-en="1 PC">1 PC</li>
-              <li data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</li>
-              <li data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</li>
-              <li data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</li>
-              <li data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</li>
-              <li data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</li>
-              <li data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</li>
-              <li data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</li>
-              <li data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1 PC" data-en="1 PC">1 PC</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</span></li>
             </ul>
-            <a href="order.html?plan=1pc-6mo" class="btn btn-ghost btn-block" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+            <a href="order.html?plan=1pc-6mo" class="btn btn-ghost btn-block" data-my="မှာယူရန်" data-en="Order Now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              မှာယူရန်
+            </a>
           </div>
 
           <!-- Team 6mo -->
           <div class="pricing-card fade-up">
             <div class="pricing-name" data-my="Team" data-en="Team">Team</div>
             <div class="pricing-pc-icons">
-              <span class="pc-icon">🖥️</span><span class="pc-icon">🖥️</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="pricing-price">
               <div class="amount">140,000</div>
               <span class="currency">MMK / 6 <span data-my="လ" data-en="Months">လ</span></span>
             </div>
             <ul class="pricing-features">
-              <li data-my="2 PCs" data-en="2 PCs">2 PCs</li>
-              <li data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</li>
-              <li data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</li>
-              <li data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</li>
-              <li data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</li>
-              <li data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</li>
-              <li data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</li>
-              <li data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</li>
-              <li data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="2 PCs" data-en="2 PCs">2 PCs</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</span></li>
             </ul>
-            <a href="order.html?plan=2pc-6mo" class="btn btn-ghost btn-block" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+            <a href="order.html?plan=2pc-6mo" class="btn btn-ghost btn-block" data-my="မှာယူရန်" data-en="Order Now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              မှာယူရန်
+            </a>
           </div>
 
           <!-- Business 6mo -->
           <div class="pricing-card fade-up">
             <div class="pricing-name" data-my="Business" data-en="Business">Business</div>
             <div class="pricing-pc-icons">
-              <span class="pc-icon">🖥️</span><span class="pc-icon">🖥️</span><span class="pc-icon">🖥️</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="pricing-price">
               <div class="amount">180,000</div>
               <span class="currency">MMK / 6 <span data-my="လ" data-en="Months">လ</span></span>
             </div>
             <ul class="pricing-features">
-              <li data-my="3 PCs" data-en="3 PCs">3 PCs</li>
-              <li data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</li>
-              <li data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</li>
-              <li data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</li>
-              <li data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</li>
-              <li data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</li>
-              <li data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</li>
-              <li data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</li>
-              <li data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="3 PCs" data-en="3 PCs">3 PCs</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Batch File Renamer" data-en="Batch File Renamer">Batch File Renamer</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</span></li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</span></li>
             </ul>
-            <a href="order.html?plan=3pc-6mo" class="btn btn-ghost btn-block" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+            <a href="order.html?plan=3pc-6mo" class="btn btn-ghost btn-block" data-my="မှာယူရန်" data-en="Order Now">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              မှာယူရန်
+            </a>
           </div>
 
         </div>
@@ -228,8 +260,14 @@
 
       <!-- Notes -->
       <div class="pricing-notes mt-48 fade-up">
-        <div class="pricing-note">📱 <span data-my="Android Application — Coming Soon" data-en="Android Application — Coming Soon">Android Application — Coming Soon</span></div>
-        <div class="pricing-note">✨ <span data-my="Plan အချို့တွင် Free Device ရရှိနိုင်ပါသည်" data-en="One free device included with selected plans">Plan အချို့တွင် Free Device ရရှိနိုင်ပါသည်</span></div>
+        <div class="pricing-note">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          <span data-my="Android Application — Coming Soon" data-en="Android Application — Coming Soon">Android Application — Coming Soon</span>
+        </div>
+        <div class="pricing-note">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span data-my="Plan အချို့တွင် Free Device ရရှိနိုင်ပါသည်" data-en="One free device included with selected plans">Plan အချို့တွင် Free Device ရရှိနိုင်ပါသည်</span>
+        </div>
       </div>
 
     </div>
@@ -285,8 +323,14 @@
           </div>
           <p data-my="Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software</p>
           <div class="footer-contact-links">
-            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
-            <a href="#" data-contact="email"><span>📧</span> Email</a>
+            <a href="#" data-contact="telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Telegram
+            </a>
+            <a href="#" data-contact="email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -310,9 +354,9 @@
         <div class="footer-col">
           <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
           <ul>
-            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
-            <li><a href="#" data-contact="email">📧 Email</a></li>
-            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+            <li><a href="#" data-contact="telegram">Telegram</a></li>
+            <li><a href="#" data-contact="email">Email</a></li>
+            <li><a href="#" data-contact="phone">Phone / Viber</a></li>
           </ul>
         </div>
       </div>

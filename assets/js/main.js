@@ -1,5 +1,6 @@
 /* ========================================
-   main.js — Shared JS for all pages
+   Video Pipeline Suite — main.js
+   Shared JS for all pages
    ======================================== */
 
 (function () {
@@ -15,7 +16,6 @@
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    // update all toggle button icons
     document.querySelectorAll('.theme-toggle').forEach(btn => {
       btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     });
@@ -44,22 +44,18 @@
   function setLang(lang) {
     localStorage.setItem('vps-lang', lang);
     applyLang(lang);
-    // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    // Update html lang attribute
     document.documentElement.lang = lang;
     window.dispatchEvent(new CustomEvent('vps:langchange', { detail: { lang } }));
   }
 
   function applyLang(lang) {
-    // Handle data-my / data-en elements
     document.querySelectorAll('[data-my][data-en]').forEach(el => {
       const val = el.dataset[lang];
       if (val !== undefined) el.textContent = val;
     });
-    // Handle data-i18n-placeholder
     document.querySelectorAll('[data-my-placeholder]').forEach(el => {
       el.placeholder = lang === 'my' ? el.dataset.myPlaceholder : el.dataset.enPlaceholder;
     });
@@ -68,7 +64,6 @@
   function initLang() {
     const lang = getLang();
     document.documentElement.lang = lang;
-    // Mark active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
       btn.addEventListener('click', () => setLang(btn.dataset.lang));
@@ -76,22 +71,23 @@
     applyLang(lang);
   }
 
-  /* ── 2. Mobile Nav Toggle ── */
+  /* ── 2. Mobile Nav Toggle (SVG icon class swap) ── */
   function initNav() {
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (!toggle || !navLinks) return;
 
     toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      toggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
 
-    // Close on link click
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         navLinks.classList.remove('open');
-        toggle.textContent = '☰';
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-label', 'Open menu');
       });
     });
 
@@ -128,7 +124,32 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   }
 
-  /* ── 5. Config Loader ── */
+  /* ── 5. Pipeline Flow Animation ── */
+  function initPipelineAnimation() {
+    const pipelineEl = document.querySelector('.pipeline-flow');
+    if (!pipelineEl) return;
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate connecting lines
+          pipelineEl.querySelectorAll('.pipe-line').forEach((line, i) => {
+            setTimeout(() => line.classList.add('animated'), i * 250);
+          });
+          // Stagger nodes
+          pipelineEl.querySelectorAll('.pipe-node').forEach(node => {
+            const delay = parseInt(node.dataset.delay || 0);
+            setTimeout(() => node.classList.add('visible'), delay);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    obs.observe(pipelineEl);
+  }
+
+  /* ── 6. Config Loader ── */
   let _config = null;
 
   async function loadConfig() {
@@ -173,7 +194,6 @@
     bindContactLink('[data-contact="email"]', config.contact.email, v => 'mailto:' + v);
     bindContactLink('[data-contact="phone"]', config.contact.phone, v => 'tel:' + v.replace(/\s+/g, ''));
 
-    // Text display elements
     document.querySelectorAll('[data-contact-text="telegram-handle"]').forEach(el => {
       el.textContent = isPlaceholder(config.contact.telegram_handle) ? 'Coming Soon' : config.contact.telegram_handle;
     });
@@ -217,7 +237,7 @@
       const copyBtn = document.createElement('button');
       copyBtn.type = 'button';
       copyBtn.className = 'copy-btn';
-      copyBtn.textContent = '📋';
+      copyBtn.textContent = 'copy';
       copyBtn.addEventListener('click', () => window.copyText(copyBtn, pm.phone || ''));
 
       phoneWrap.append(phoneText, copyBtn);
@@ -236,8 +256,11 @@
 
     form.querySelectorAll('[required]').forEach(field => {
       field.style.borderColor = '';
+      const uploadArea = field.closest('.file-upload-area');
+      if (uploadArea) uploadArea.style.borderColor = '';
       if (!field.value.trim()) {
-        field.style.borderColor = 'var(--danger)';
+        if (uploadArea) uploadArea.style.borderColor = 'var(--danger)';
+        else field.style.borderColor = 'var(--danger)';
         valid = false;
       }
     });
@@ -317,29 +340,28 @@
     }
   }
 
-  /* ── 6. Copy to clipboard ── */
+  /* ── 7. Copy to clipboard ── */
   window.copyText = function (btn, text) {
     navigator.clipboard.writeText(text).then(() => {
       btn.textContent = '✓';
       btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = '📋'; btn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
     });
   };
 
-  /* ── 7. Accordion ── */
+  /* ── 8. Accordion ── */
   function initAccordion() {
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.closest('.accordion-item');
         const isOpen = item.classList.contains('open');
-        // Close all
         document.querySelectorAll('.accordion-item.open').forEach(i => i.classList.remove('open'));
         if (!isOpen) item.classList.add('open');
       });
     });
   }
 
-  /* ── 8. Tab Switcher ── */
+  /* ── 9. Tab Switcher ── */
   function initTabs() {
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -360,13 +382,14 @@
     initNav();
     initNavbarScroll();
     initScrollAnimations();
+    initPipelineAnimation();
     initAccordion();
     initTabs();
     populateContactInfo();
     populatePaymentMethods();
   });
 
-  // Expose shared helpers for other scripts
+  // Expose shared helpers
   window.VPS = { loadConfig, getLang, isPlaceholder, validateFormFields, submitFormRequest };
 
 })();

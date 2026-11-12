@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -23,7 +23,10 @@
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <span class="brand-text" style="display:none">Video Pipeline Suite</span>
       </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <div class="nav-links">
         <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
         <a href="features.html" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a>
@@ -33,12 +36,18 @@
         <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
       </div>
       <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <button class="theme-toggle" aria-label="Switch theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="my">မြန်မာ</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ဒေါင်းလုဒ်
+        </a>
       </div>
     </div>
   </nav>
@@ -60,7 +69,9 @@
       <div class="form-wrapper">
 
         <div class="note-box mb-32 fade-up">
-          <span class="note-icon">📌</span>
+          <span class="note-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </span>
           <div>
             <strong data-my="မှတ်ချက်:" data-en="Note:">မှတ်ချက်:</strong>
             <span data-my=" Form ကနေ Receipt ပုံတင်မရဖြစ်နေရင် Telegram (@videopipline) သို့မဟုတ် Viber (09968565125) ဆီ ပုံတိုက်ရိုက် ပို့ပေးနိုင်ပါတယ်" data-en=" If you can't upload the receipt via the form, send it directly to our Telegram or Viber.">
@@ -68,13 +79,17 @@
             </span>
             <br>
             <a href="#" data-contact="telegram" class="btn btn-sm" style="margin-top:10px; background: rgba(108,99,255,0.15); color: var(--primary); border-radius: 8px; padding: 7px 14px;">
-              <span data-my="✈️ Telegram မှ ပို့ရန်" data-en="✈️ Send via Telegram">✈️ Telegram မှ ပို့ရန်</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span data-my="Telegram မှ ပို့ရန်" data-en="Send via Telegram">Telegram မှ ပို့ရန်</span>
             </a>
           </div>
         </div>
 
         <div class="form-card fade-up">
-          <h3 class="mb-24" data-my="🧾 Payment Receipt Form" data-en="🧾 Payment Receipt Form">🧾 Payment Receipt Form</h3>
+          <h3 class="mb-24 flex flex-center gap-8" style="justify-content:flex-start;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span data-my="Payment Receipt Form" data-en="Payment Receipt Form">Payment Receipt Form</span>
+          </h3>
 
           <form id="payment-form" novalidate>
             <input type="hidden" name="_subject" value="VPS Payment Receipt Submission">
@@ -169,7 +184,9 @@
               </label>
               <div class="file-upload-area" id="file-drop-area">
                 <input type="file" name="receipt_image" id="pay-receipt" accept="image/*">
-                <span class="file-upload-icon">📸</span>
+                <span class="file-upload-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </span>
                 <div class="file-upload-text" data-my="Screenshot ပုံကို ဒီနေရာသို့ ဆွဲထည့်ပါ (သို့) Click နှိပ်ပြီး ရွေးပါ" data-en="Drop file here or click to upload">Screenshot ပုံကို ဒီနေရာသို့ ဆွဲထည့်ပါ (သို့) Click နှိပ်ပြီး ရွေးပါ</div>
                 <div class="file-upload-hint" data-my="JPG, PNG, WEBP — 10MB အောက်" data-en="JPG, PNG, WEBP — Under 10MB">JPG, PNG, WEBP — 10MB အောက်</div>
                 <div class="file-preview" id="file-preview"></div>
@@ -188,21 +205,27 @@
             <div id="payment-form-status" class="form-status"></div>
 
             <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:8px;">
-              <span data-my="🧾 Receipt တင်ပို့မည်" data-en="🧾 Submit Payment">🧾 Receipt တင်ပို့မည်</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+              <span data-my="Receipt တင်ပို့မည်" data-en="Submit Payment">Receipt တင်ပို့မည်</span>
             </button>
           </form>
         </div>
 
         <!-- Alternative: direct Telegram -->
         <div class="info-box mt-24 fade-up">
-          <span class="info-icon">💡</span>
+          <span class="info-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </span>
           <div>
             <strong data-my="အလွယ်ဆုံးနည်း:" data-en="Easiest way:">အလွယ်ဆုံးနည်း:</strong>
             <span data-my=" Receipt ပုံကို Telegram (@videopipline) ဆီ တိုက်ရိုက် ပို့ပြီး ကိုယ့်ဖုန်းနံပါတ်ပါ တွဲပြောပေးရင်လည်း အမြန်ဆုံး စစ်ပေးပါတယ်" data-en=" Send the receipt directly via Telegram/Viber together with your Order ID (phone number).">
               Receipt ပုံကို Telegram (@videopipline) ဆီ တိုက်ရိုက် ပို့ပြီး ကိုယ့်ဖုန်းနံပါတ်ပါ တွဲပြောပေးရင်လည်း အမြန်ဆုံး စစ်ပေးပါတယ်
             </span>
             <br><br>
-            <a href="#" data-contact="telegram" class="btn btn-accent btn-sm" data-my="✈️ Telegram မှ ဆက်သွယ်ရန်" data-en="✈️ Contact via Telegram">✈️ Telegram မှ ဆက်သွယ်ရန်</a>
+            <a href="#" data-contact="telegram" class="btn btn-accent btn-sm" data-my="Telegram မှ ဆက်သွယ်ရန်" data-en="Contact via Telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Telegram မှ ဆက်သွယ်ရန်
+            </a>
           </div>
         </div>
 
@@ -221,8 +244,14 @@
           </div>
           <p data-my="Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software</p>
           <div class="footer-contact-links">
-            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
-            <a href="#" data-contact="email"><span>📧</span> Email</a>
+            <a href="#" data-contact="telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Telegram
+            </a>
+            <a href="#" data-contact="email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -246,9 +275,9 @@
         <div class="footer-col">
           <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
           <ul>
-            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
-            <li><a href="#" data-contact="email">📧 Email</a></li>
-            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+            <li><a href="#" data-contact="telegram">Telegram</a></li>
+            <li><a href="#" data-contact="email">Email</a></li>
+            <li><a href="#" data-contact="phone">Phone / Viber</a></li>
           </ul>
         </div>
       </div>
