@@ -509,6 +509,7 @@ body:not([data-en-active]) [data-my] {
   position: relative;
   z-index: 1;
   max-width: 760px;
+  container-type: inline-size;
 }
 .hero-badge {
   display: inline-flex;
@@ -524,11 +525,17 @@ body:not([data-en-active]) [data-my] {
   margin-bottom: 24px;
   letter-spacing: 0.01em;
 }
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+.hero h1,
+.hero-title {
+  font-size: clamp(1.35rem, 4.3vw, 3.8rem);
+  font-size: clamp(1.3rem, 6.4cqw, 3.8rem);
   margin-bottom: 20px;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+}
+.hero-line {
+  display: block;
+  white-space: nowrap;
 }
 .hero p {
   font-size: 1.1rem;

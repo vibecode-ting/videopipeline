@@ -57,8 +57,8 @@
     <div class="container">
       <div class="section-label" data-my="License မှာယူပါ" data-en="Order Your License">License မှာယူပါ</div>
       <h1 data-my="Plan ရွေးချယ်ပြီး Order တင်ပါ" data-en="Choose a Plan and Order">Plan ရွေးချယ်ပြီး Order တင်ပါ</h1>
-      <p data-my="Order Form ဖြည့်ပြီး တင်လိုက်ပါ။ ငွေလွှဲ Receipt တင်ပြီး ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမယ်" data-en="Fill in the form to order. Your license will be delivered within 24 hours after payment.">
-        Order Form ဖြည့်ပြီး တင်လိုက်ပါ။ ငွေလွှဲ Receipt တင်ပြီး ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမယ်
+      <p data-my="Plan ရွေးပြီး ငွေလွှဲ Receipt တင်လိုက်ရုံဖြင့် ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမယ်" data-en="Select a plan and upload your payment receipt. Your license will be delivered within 24 hours.">
+        Plan ရွေးပြီး ငွေလွှဲ Receipt တင်လိုက်ရုံဖြင့် ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမယ်
       </p>
     </div>
   </section>
@@ -75,8 +75,8 @@
           </span>
           <div>
             <strong data-my="မှာယူပုံအဆင့်ဆင့်:" data-en="How to Order:">မှာယူပုံအဆင့်ဆင့်:</strong>
-            <span data-my=" ① Order Form ဖြည့်ပြီး Submit ➔ ② ငွေလွှဲပါ ➔ ③ Receipt ပုံတင်ပါ ➔ ④ License Account ရယူပါ" data-en=" ① Fill form &amp; submit ➔ ② Make payment ➔ ③ Upload receipt ➔ ④ Receive license">
-              ① Order Form ဖြည့်ပြီး Submit ➔ ② ငွေလွှဲပါ ➔ ③ Receipt ပုံတင်ပါ ➔ ④ License Account ရယူပါ
+            <span data-my=" ① Plan ရွေးချယ်ပါ ➔ ② ငွေလွှဲပြီး Receipt ပုံတင်ပါ ➔ ③ Order တင်ပြီး License ရယူပါ" data-en=" ① Choose Plan ➔ ② Transfer &amp; Upload Receipt ➔ ③ Submit &amp; Receive License">
+              ① Plan ရွေးချယ်ပါ ➔ ② ငွေလွှဲပြီး Receipt ပုံတင်ပါ ➔ ③ Order တင်ပြီး License ရယူပါ
             </span>
           </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="form-card fade-up">
           <h3 class="mb-24 flex flex-center gap-8" style="justify-content:flex-start;">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            <span data-my="Order Form" data-en="Order Form">Order Form</span>
+            <span data-my="Order &amp; Payment Form" data-en="Order &amp; Payment Form">Order &amp; Payment Form</span>
           </h3>
 
           <form id="order-form" novalidate>
@@ -93,49 +93,6 @@
             <input type="hidden" id="field-pcs" name="pc_count">
             <input type="hidden" id="field-months" name="duration_months">
             <input type="hidden" id="field-price" name="price_mmk">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="name">
-                  <span data-my="နာမည်" data-en="Full Name">နာမည်</span>
-                  <span class="required">*</span>
-                </label>
-                <input type="text" id="name" name="name" class="form-control" required
-                       data-my-placeholder="သင့်နာမည် ထည့်ပါ" data-en-placeholder="Enter your full name"
-                       placeholder="သင့်နာမည် ထည့်ပါ">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="phone">
-                  <span data-my="ဖုန်းနံပါတ်" data-en="Phone Number">ဖုန်းနံပါတ်</span>
-                  <span class="required">*</span>
-                </label>
-                <input type="tel" id="phone" name="phone" class="form-control" required
-                       data-my-placeholder="09xxxxxxxx" data-en-placeholder="09xxxxxxxx"
-                       placeholder="09xxxxxxxx">
-                <p class="form-hint" data-my="Telegram သို့မဟုတ် Viber သုံးနေတဲ့ ဖုန်းနံပါတ် ထည့်ပေးပါ" data-en="Enter your Telegram/Viber number">Telegram သို့မဟုတ် Viber သုံးနေတဲ့ ဖုန်းနံပါတ် ထည့်ပေးပါ</p>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="telegram-username">
-                  <span data-my="Telegram Username" data-en="Telegram Username">Telegram Username</span>
-                  <span class="required">*</span>
-                </label>
-                <input type="text" id="telegram-username" name="telegram_username" class="form-control" required
-                       data-my-placeholder="@username" data-en-placeholder="@username"
-                       placeholder="@username">
-                <p class="form-hint" data-my="License Account ပို့ပေးနိုင်ဖို့ Telegram @username ထည့်ပေးပါ" data-en="Your Telegram @username so we can send your license">License Account ပို့ပေးနိုင်ဖို့ Telegram @username ထည့်ပေးပါ</p>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">
-                  <span data-my="Email (ရှိလျှင်)" data-en="Email (Optional)">Email (ရှိလျှင်)</span>
-                </label>
-                <input type="email" id="email" name="email" class="form-control"
-                       data-my-placeholder="your@email.com" data-en-placeholder="your@email.com"
-                       placeholder="your@email.com">
-              </div>
-            </div>
 
             <div class="form-group">
               <label class="form-label" for="plan-select">
@@ -150,40 +107,74 @@
             <!-- Plan Info Box (populated by JS) -->
             <div id="plan-info-box" class="plan-info-box" style="display:none;"></div>
 
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="telegram-username">
+                  <span data-my="Telegram Username" data-en="Telegram Username">Telegram Username</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="text" id="telegram-username" name="telegram_username" class="form-control" required
+                       data-my-placeholder="@username" data-en-placeholder="@username"
+                       placeholder="@username">
+                <p class="form-hint" data-my="License Account ပို့ပေးနိုင်ဖို့ Telegram @username ထည့်ပေးပါ" data-en="Your Telegram @username so we can send your license">License Account ပို့ပေးနိုင်ဖို့ Telegram @username ထည့်ပေးပါ</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">
+                  <span data-my="Email" data-en="Email Address">Email</span>
+                  <span class="required">*</span>
+                </label>
+                <input type="email" id="email" name="email" class="form-control" required
+                       data-my-placeholder="example@gmail.com" data-en-placeholder="example@gmail.com"
+                       placeholder="example@gmail.com">
+                <p class="form-hint" data-my="License အချက်အလက် ပို့ပေးမည့် Email ထည့်ပေးပါ" data-en="Email address for your order &amp; license">License အချက်အလက် ပို့ပေးမည့် Email ထည့်ပေးပါ</p>
+              </div>
+            </div>
+
             <div class="form-group">
-              <label class="form-label" for="notes">
-                <span data-my="မှတ်ချက် (ရှိလျှင်)" data-en="Notes (Optional)">မှတ်ချက် (ရှိလျှင်)</span>
+              <label class="form-label" for="name">
+                <span data-my="နာမည် (မဖြည့်လည်းရပါသည်)" data-en="Name (Optional)">နာမည် (မဖြည့်လည်းရပါသည်)</span>
               </label>
-              <textarea id="notes" name="notes" class="form-control" rows="3"
-                        data-my-placeholder="မေးချင်တာ (သို့) မှာကြားချင်တာရှိရင် ရေးထားနိုင်ပါတယ်..." data-en-placeholder="Any special requests or questions..."
-                        placeholder="မေးချင်တာ (သို့) မှာကြားချင်တာရှိရင် ရေးထားနိုင်ပါတယ်..."></textarea>
+              <input type="text" id="name" name="name" class="form-control"
+                     data-my-placeholder="မဖြည့်လျှင် Email နာမည်ကို အလိုအလျောက် ယူသုံးပါမည်"
+                     data-en-placeholder="Optional — defaults to email name (e.g. example)"
+                     placeholder="မဖြည့်လျှင် Email နာမည်ကို အလိုအလျောက် ယူသုံးပါမည်">
+            </div>
+
+            <!-- Embedded Payment Methods -->
+            <div class="form-group" style="margin-top:24px;">
+              <label class="form-label flex flex-center gap-8" style="justify-content:flex-start;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent)"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                <span data-my="ငွေလွှဲနိုင်သော Account များ (တစ်ခုခုသို့ လွှဲပေးပါ)" data-en="Payment Accounts (Transfer to any account below)">ငွေလွှဲနိုင်သော Account များ (တစ်ခုခုသို့ လွှဲပေးပါ)</span>
+              </label>
+              <div id="payment-methods-container" class="payment-method-cards" style="margin-top:10px;">
+                <div class="empty-state" style="padding:20px; color: var(--text-muted);">Loading payment info...</div>
+              </div>
+            </div>
+
+            <!-- Direct Receipt File Upload -->
+            <div class="form-group" style="margin-top:24px;">
+              <label class="form-label">
+                <span data-my="ငွေလွှဲ Receipt Screenshot ပုံ" data-en="Payment Receipt Screenshot">ငွေလွှဲ Receipt Screenshot ပုံ</span>
+                <span class="required">*</span>
+              </label>
+              <div class="file-upload-area" id="file-drop-area">
+                <input type="file" name="receipt_image" id="order-receipt" accept="image/*" required>
+                <span class="file-upload-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </span>
+                <div class="file-upload-text" data-my="Screenshot ပုံကို ဒီနေရာသို့ ဆွဲထည့်ပါ (သို့) Click နှိပ်ပြီး ရွေးပါ" data-en="Drop receipt image here or click to upload">Screenshot ပုံကို ဒီနေရာသို့ ဆွဲထည့်ပါ (သို့) Click နှိပ်ပြီး ရွေးပါ</div>
+                <div class="file-upload-hint" data-my="JPG, PNG, WEBP — 10MB အောက်" data-en="JPG, PNG, WEBP — Under 10MB">JPG, PNG, WEBP — 10MB အောက်</div>
+                <div class="file-preview" id="file-preview"></div>
+              </div>
             </div>
 
             <div id="form-status" class="form-status"></div>
 
-            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:8px;">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:12px;">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              <span data-my="Order တင်မည်" data-en="Submit Order">Order တင်မည်</span>
+              <span data-my="Order နှင့် Receipt တင်မည်" data-en="Submit Order &amp; Receipt">Order နှင့် Receipt တင်မည်</span>
             </button>
           </form>
-        </div>
-
-        <!-- Payment Info -->
-        <div class="payment-methods-display fade-up">
-          <h3 class="mb-8 flex flex-center gap-8" style="justify-content:flex-start;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent)"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            <span data-my="ငွေလွှဲနိုင်သော Account များ" data-en="Payment Methods">ငွေလွှဲနိုင်သော Account များ</span>
-          </h3>
-          <p class="mb-20" style="font-size:0.9rem;" data-my="Order တင်ပြီးရင် အောက်ပါ Account တစ်ခုခုဆီ ငွေလွှဲပေးပါ" data-en="After submitting your order, make payment to one of the accounts below.">Order တင်ပြီးရင် အောက်ပါ Account တစ်ခုခုဆီ ငွေလွှဲပေးပါ</p>
-          <div id="payment-methods-container" class="payment-method-cards">
-            <div class="empty-state" style="padding:24px; color: var(--text-muted);">Loading payment info...</div>
-          </div>
-          <div class="mt-24">
-            <a href="payment.html" class="btn btn-accent btn-block" data-my="ငွေလွှဲပြီး Receipt တင်ရန်" data-en="Upload Payment Receipt">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              ငွေလွှဲပြီး Receipt တင်ရန်
-            </a>
-          </div>
         </div>
 
       </div>

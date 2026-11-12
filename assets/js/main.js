@@ -256,8 +256,11 @@
 
     form.querySelectorAll('[required]').forEach(field => {
       field.style.borderColor = '';
+      const uploadArea = field.closest('.file-upload-area');
+      if (uploadArea) uploadArea.style.borderColor = '';
       if (!field.value.trim()) {
-        field.style.borderColor = 'var(--danger)';
+        if (uploadArea) uploadArea.style.borderColor = 'var(--danger)';
+        else field.style.borderColor = 'var(--danger)';
         valid = false;
       }
     });
