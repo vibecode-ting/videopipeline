@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -24,7 +24,10 @@
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <span class="brand-text" style="display:none">Video Pipeline Suite</span>
       </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <div class="nav-links">
         <a href="index.html" class="active" data-my="ပင်မ" data-en="Home">ပင်မ</a>
         <a href="features.html" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a>
@@ -34,12 +37,18 @@
         <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
       </div>
       <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <button class="theme-toggle" aria-label="Switch theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="my">မြန်မာ</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ဒေါင်းလုဒ်
+        </a>
       </div>
     </div>
   </nav>
@@ -49,38 +58,56 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">
-          <span>🇲🇲</span>
+          <span aria-hidden="true">🇲🇲</span>
           <span data-my="Myanmar Creators များအတွက် Software" data-en="Myanmar-First Software">Myanmar Creators များအတွက် Software</span>
         </div>
         <h1>
           <span data-my="Video Workflow တစ်ခုလုံးကို" data-en="Manage Your Entire">Video Workflow တစ်ခုလုံးကို</span><br>
-          <span data-my="တစ်နေရာတည်းမှာ စီမံလိုက်ပါ" data-en="Video Workflow From One Place">တစ်နေရာတည်းမှာ စီမံလိုက်ပါ</span>
+          <span class="text-gradient" data-my="တစ်နေရာတည်းမှာ စီမံလိုက်ပါ" data-en="Video Workflow From One Place">တစ်နေရာတည်းမှာ စီမံလိုက်ပါ</span>
         </h1>
         <p data-my="Video Download ဆွဲတာ၊ AI နဲ့ Intro ကြော်ငြာဖြတ်တာ၊ ဖိုင်နာမည်စီတာနဲ့ Telegram/TikTok Auto Upload တင်တာတွေကို Software တစ်ခုတည်းနဲ့ အလွယ်တကူ လုပ်ဆောင်နိုင်ပါတယ်။"
            data-en="Video Pipeline Suite is an All-in-One software for Downloading, AI Ad Cutting, Renaming, and Uploading to Telegram/TikTok — all from a single place.">
           Video Download ဆွဲတာ၊ AI နဲ့ Intro ကြော်ငြာဖြတ်တာ၊ ဖိုင်နာမည်စီတာနဲ့ Telegram/TikTok Auto Upload တင်တာတွေကို Software တစ်ခုတည်းနဲ့ အလွယ်တကူ လုပ်ဆောင်နိုင်ပါတယ်။
         </p>
         <div class="hero-cta">
-          <a href="download.html" class="btn btn-primary btn-lg" data-my="⬇️ Download ရယူရန်" data-en="⬇️ Download Now">⬇️ Download ရယူရန်</a>
-          <a href="features.html" class="btn btn-ghost btn-lg" data-my="✨ Features များကြည့်ရန်" data-en="✨ See All Features">✨ Features များကြည့်ရန်</a>
+          <a href="download.html" class="btn btn-primary btn-lg" data-my="ဒေါင်းလုဒ် ရယူရန်" data-en="Download Now">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ဒေါင်းလုဒ် ရယူရန်
+          </a>
+          <a href="features.html" class="btn btn-ghost btn-lg" data-my="Features များကြည့်ရန်" data-en="See All Features">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Features များကြည့်ရန်
+          </a>
         </div>
         <div class="trust-badges">
-          <div class="trust-badge"><span>🔒</span><span data-my="Hardware-Locked (1–3 PCs)" data-en="Hardware-Locked (1–3 PCs)">Hardware-Locked (1–3 PCs)</span></div>
-          <div class="trust-badge"><span>⚡</span><span data-my="မြန်ဆန်သော Workflow" data-en="Fast Workflow">မြန်ဆန်သော Workflow</span></div>
-          <div class="trust-badge"><span>🤖</span><span data-my="AI Powered" data-en="AI Powered">AI Powered</span></div>
-          <div class="trust-badge"><span>🇲🇲</span><span data-my="Myanmar Support" data-en="Myanmar-First">Myanmar Support</span></div>
+          <div class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span data-my="Hardware-Locked (1–3 PCs)" data-en="Hardware-Locked (1–3 PCs)">Hardware-Locked (1–3 PCs)</span>
+          </div>
+          <div class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span data-my="မြန်ဆန်သော Workflow" data-en="Fast Workflow">မြန်ဆန်သော Workflow</span>
+          </div>
+          <div class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            <span data-my="AI Powered" data-en="AI Powered">AI Powered</span>
+          </div>
+          <div class="trust-badge">
+            <span aria-hidden="true">🇲🇲</span>
+            <span data-my="Myanmar Support" data-en="Myanmar-First">Myanmar Support</span>
+          </div>
         </div>
       </div>
 
       <!-- App screenshot -->
       <div class="hero-screenshot mt-48">
         <img src="assets/images/app-screenshot.png" alt="Video Pipeline Suite Screenshot"
-             onerror="this.parentElement.innerHTML='<div class=\'screenshot-fallback\'><span>🎬</span><p>Video Pipeline Suite</p></div>'">
+             onerror="this.parentElement.innerHTML='<div class=\'screenshot-fallback\'><svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'2\' y=\'3\' width=\'20\' height=\'14\' rx=\'2\'/><line x1=\'8\' y1=\'21\' x2=\'16\' y2=\'21\'/><line x1=\'12\' y1=\'17\' x2=\'12\' y2=\'21\'/></svg><p>Video Pipeline Suite</p></div>'">
       </div>
     </div>
   </section>
 
-  <!-- FEATURES PREVIEW -->
+  <!-- TOOLS — Bento Grid -->
   <section class="section" style="background: var(--dark-2);">
     <div class="container">
       <div class="section-header fade-up">
@@ -91,67 +118,183 @@
         </p>
       </div>
 
-      <div class="grid-3">
-        <div class="card fade-up">
-          <span class="card-icon">📥</span>
-          <h3 data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</h3>
-          <p data-my="Telegram Channel နဲ့ Group တွေက Video တွေကို Restricted Channel တွေပါမကျန် Download ဆွဲနိုင်ပါတယ်" data-en="Easily download videos from Telegram channels and posts.">Telegram Channel နဲ့ Group တွေက Video တွေကို Restricted Channel တွေပါမကျန် Download ဆွဲနိုင်ပါတယ်</p>
+      <div class="bento-grid">
+
+        <!-- AI Ad Cutter — flagship large -->
+        <div class="card bento-cell-2 fade-up">
+          <span class="card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </span>
+          <h3 data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</h3>
+          <p data-my="Video အစမှာပါတဲ့ ကြော်ငြာ (Intro Ads) တွေကို AI နဲ့ 0.1s တိကျမှုရှိရှိ အလိုအလျောက် ဖြတ်တောက်ပေးပါတယ်" data-en="Automatically cut intro ads using Gemini AI with 0.1s precision.">Video အစမှာပါတဲ့ ကြော်ငြာ (Intro Ads) တွေကို AI နဲ့ 0.1s တိကျမှုရှိရှိ အလိုအလျောက် ဖြတ်တောက်ပေးပါတယ်</p>
+          <div class="bento-preview" aria-hidden="true">
+            <div class="dim">› scanning frames 00:00:00 – 00:03:00</div>
+            <div>› AI detecting ad boundary...</div>
+            <div class="dim">› model: Gemini 1.5 Flash</div>
+            <div class="ok">✓ cut point: <span class="hi">00:00:47.1</span> (<span class="hi">0.1s</span> precision)</div>
+            <div class="up">› trimming Ep-007.mp4 → done</div>
+          </div>
         </div>
-        <div class="card fade-up">
-          <span class="card-icon">📺</span>
+
+        <!-- Telegram Downloader -->
+        <div class="card bento-cell-1 fade-up">
+          <span class="card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+          </span>
+          <h3 data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</h3>
+          <p data-my="Telegram Channel နဲ့ Group တွေက Video တွေကို Restricted Channel တွေပါမကျန် Download ဆွဲနိုင်ပါတယ်" data-en="Download videos from Telegram channels including restricted ones.">Telegram Channel နဲ့ Group တွေက Video တွေကို Restricted Channel တွေပါမကျန် Download ဆွဲနိုင်ပါတယ်</p>
+        </div>
+
+        <!-- Telegram Channel Studio -->
+        <div class="card bento-cell-1 fade-up">
+          <span class="card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>
+          </span>
           <h3 data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</h3>
           <p data-my="ကိုယ်ပိုင် Telegram Channel တွေကို Thumbnail, Caption Template နဲ့ Schedule တွေပါ စနစ်တကျ Manage လုပ်နိုင်ပါတယ်" data-en="Manage your Telegram channels at a professional level.">ကိုယ်ပိုင် Telegram Channel တွေကို Thumbnail, Caption Template နဲ့ Schedule တွေပါ စနစ်တကျ Manage လုပ်နိုင်ပါတယ်</p>
         </div>
-        <div class="card fade-up">
-          <span class="card-icon">▶️</span>
+
+        <!-- YouTube Downloader -->
+        <div class="card bento-cell-1 fade-up">
+          <span class="card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </span>
           <h3 data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</h3>
-          <p data-my="YouTube Video တွေကို Bot Check မမိဘဲ 4K Quality အထိ ကြည်လင်ပြတ်သားစွာ Download ဆွဲနိုင်ပါတယ်" data-en="Download YouTube videos up to 4K quality with bot bypass support.">YouTube Video တွေကို Bot Check မမိဘဲ 4K Quality အထိ ကြည်လင်ပြတ်သားစွာ Download ဆွဲနိုင်ပါတယ်</p>
+          <p data-my="YouTube Video တွေကို Bot Check မမိဘဲ 4K Quality အထိ ကြည်လင်ပြတ်သားစွာ Download ဆွဲနိုင်ပါတယ်" data-en="Download YouTube videos up to 4K quality with bot bypass support.">YouTube Video တွေကို Bot Check မမိဘဲ <span class="mono">4K</span> Quality အထိ ကြည်လင်ပြတ်သားစွာ Download ဆွဲနိုင်ပါတယ်</p>
         </div>
-        <div class="card fade-up">
-          <span class="card-icon">🤖</span>
-          <h3 data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</h3>
-          <p data-my="Video အစမှာပါတဲ့ ကြော်ငြာ (Intro Ads) တွေကို AI နဲ့ 0.1s တိကျမှုရှိရှိ အလိုအလျောက် ဖြတ်တောက်ပေးပါတယ်" data-en="Automatically cut intro ads using Gemini AI with 0.1s precision.">Video အစမှာပါတဲ့ ကြော်ငြာ (Intro Ads) တွေကို AI နဲ့ 0.1s တိကျမှုရှိရှိ အလိုအလျောက် ဖြတ်တောက်ပေးပါတယ်</p>
-        </div>
-        <div class="card fade-up">
-          <span class="card-icon">📝</span>
+
+        <!-- AI Batch Renamer -->
+        <div class="card bento-cell-1 fade-up">
+          <span class="card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
           <h3 data-my="AI Batch File Renamer" data-en="AI Batch File Renamer">AI Batch File Renamer</h3>
-          <p data-my="Series နာမည်နဲ့ အပိုင်းနံပါတ်တွေကို AI သုံးပြီး Ep-001, Ep-01 စသဖြင့် တစ်ပြိုင်နက် နာမည်ပြန်စီပေးပါတယ်" data-en="Rename files systematically using Gemini AI with smart padding.">Series နာမည်နဲ့ အပိုင်းနံပါတ်တွေကို AI သုံးပြီး Ep-001, Ep-01 စသဖြင့် တစ်ပြိုင်နက် နာမည်ပြန်စီပေးပါတယ်</p>
+          <p data-my="Series နာမည်နဲ့ အပိုင်းနံပါတ်တွေကို AI သုံးပြီး Ep-001, Ep-01 စသဖြင့် တစ်ပြိုင်နက် နာမည်ပြန်စီပေးပါတယ်" data-en="Rename files systematically using Gemini AI with smart padding.">Series နာမည်နဲ့ အပိုင်းနံပါတ်တွေကို AI သုံးပြီး <span class="mono">Ep-001</span>, <span class="mono">Ep-01</span> စသဖြင့် တစ်ပြိုင်နက် နာမည်ပြန်စီပေးပါတယ်</p>
         </div>
-        <div class="card fade-up">
-          <span class="card-icon">🚀</span>
+
+        <!-- 1-Click Pipeline — flagship large -->
+        <div class="card bento-cell-2 fade-up">
+          <span class="card-icon accent" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
           <h3 data-my="1-Click Pipeline" data-en="1-Click Pipeline">1-Click Pipeline</h3>
           <p data-my="Download → AI Cut → Rename → Upload အဆင့် ၄ ဆင့်လုံးကို ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Auto လုပ်ဆောင်ပေးပါတယ်" data-en="Full workflow automation: Download → AI Cut → Rename → Upload in one click.">Download → AI Cut → Rename → Upload အဆင့် ၄ ဆင့်လုံးကို ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Auto လုပ်ဆောင်ပေးပါတယ်</p>
+          <div class="bento-preview" aria-hidden="true">
+            <div class="ok">✓ downloaded: <span class="hi">12 files</span></div>
+            <div class="ok">✓ AI cut: <span class="hi">00:00:47.1</span> removed from each</div>
+            <div class="ok">✓ renamed: <span class="hi">Ep-001</span> → <span class="hi">Ep-012</span></div>
+            <div class="up">↑ uploading to @channel... <span class="hi">87%</span></div>
+            <div class="dim">› ETA 00:01:23</div>
+          </div>
         </div>
+
       </div>
 
       <div class="text-center mt-32 fade-up">
-        <a href="features.html" class="btn btn-ghost" data-my="Features အားလုံး ကြည့်ရန် →" data-en="See All Features →">Features အားလုံး ကြည့်ရန် →</a>
+        <a href="features.html" class="btn btn-ghost" data-my="Features အားလုံး ကြည့်ရန်" data-en="See All Features">
+          Features အားလုံး ကြည့်ရန်
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- PIPELINE VISUALIZATION -->
   <section class="section">
     <div class="container">
       <div class="section-header fade-up">
-        <div class="section-label" data-my="စတင်အသုံးပြုပုံ" data-en="How It Works">စတင်အသုံးပြုပုံ</div>
-        <h2 data-my="လွယ်ကူတဲ့ အဆင့် ၃ ဆင့်" data-en="Only 3 Steps to Get Started">လွယ်ကူတဲ့ အဆင့် ၃ ဆင့်</h2>
+        <div class="section-label" data-my="Flagship Feature" data-en="Flagship Feature">Flagship Feature</div>
+        <h2 data-my="1-Click Autonomous Pipeline" data-en="1-Click Autonomous Pipeline">1-Click Autonomous Pipeline</h2>
+        <p data-my="ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Workflow တစ်ခုလုံး အလိုအလျောက် ပြီးဆုံးပါတယ်" data-en="One click runs your entire video workflow end-to-end, automatically.">ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Workflow တစ်ခုလုံး အလိုအလျောက် ပြီးဆုံးပါတယ်</p>
       </div>
-      <div class="how-steps">
-        <div class="how-step fade-up">
-          <div class="how-icon">⬇️</div>
-          <h3 data-my="Software ကို Download ဆွဲပါ" data-en="Download Software">Software ကို Download ဆွဲပါ</h3>
-          <p data-my="Download စာမျက်နှာကနေ နောက်ဆုံး Version ကို ရယူပြီး ဖိုင်ဖြည်ကာ ဖွင့်လိုက်ပါ" data-en="Download the latest version from the Download page and install it.">Download စာမျက်နှာကနေ နောက်ဆုံး Version ကို ရယူပြီး ဖိုင်ဖြည်ကာ ဖွင့်လိုက်ပါ</p>
-        </div>
-        <div class="how-step fade-up">
-          <div class="how-icon">🔑</div>
-          <h3 data-my="Login ဝင်ပြီး Setup လုပ်ပါ" data-en="Login & Setup">Login ဝင်ပြီး Setup လုပ်ပါ</h3>
-          <p data-my="ရရှိထားတဲ့ Account နဲ့ Login ဝင်ပြီး Setup Wizard ကနေ API Key တွေကို တစ်ခါတည်း ချိတ်ဆက်ပါ" data-en="Login with your account and configure your APIs using the Setup Wizard.">ရရှိထားတဲ့ Account နဲ့ Login ဝင်ပြီး Setup Wizard ကနေ API Key တွေကို တစ်ခါတည်း ချိတ်ဆက်ပါ</p>
-        </div>
-        <div class="how-step fade-up">
-          <div class="how-icon">🚀</div>
-          <h3 data-my="Workflow စတင်လိုက်ပါ" data-en="Start Your Workflow">Workflow စတင်လိုက်ပါ</h3>
-          <p data-my="1-Click Pipeline နဲ့ Download ကနေ Upload အထိ အလိုအလျောက် run ခိုင်းလိုက်ရုံပါပဲ" data-en="Use the 1-Click Pipeline to automate your workflow from Download to Upload.">1-Click Pipeline နဲ့ Download ကနေ Upload အထိ အလိုအလျောက် run ခိုင်းလိုက်ရုံပါပဲ</p>
+
+      <!-- Animated SVG pipeline (desktop) -->
+      <div class="pipeline-flow fade-up" aria-label="4-stage pipeline: Download, AI Cut, AI Rename, Auto Upload">
+        <svg class="pipeline-svg" viewBox="0 0 820 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"/>
+            </linearGradient>
+          </defs>
+          <!-- Connecting lines -->
+          <line class="pipe-line" x1="145" y1="90" x2="265" y2="90" stroke="url(#pipeGrad)" stroke-width="2"/>
+          <line class="pipe-line" x1="355" y1="90" x2="465" y2="90" stroke="url(#pipeGrad)" stroke-width="2"/>
+          <line class="pipe-line" x1="555" y1="90" x2="665" y2="90" stroke="url(#pipeGrad)" stroke-width="2"/>
+          <!-- Node 1: Download -->
+          <g class="pipe-node" data-delay="0">
+            <circle class="node-ring" cx="90" cy="90" r="56" fill="none" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+            <circle cx="90" cy="90" r="44" fill="rgba(108,99,255,0.1)" stroke="#6C63FF" stroke-width="1.5"/>
+            <g transform="translate(78,78)" stroke="#6C63FF" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 9 8 13 12 9"/><line x1="8" y1="3" x2="8" y2="13"/>
+              <path d="M15.65 10A6 6 0 0 0 12 3h-.84A8 8 0 1 0 1 10.86"/>
+            </g>
+            <text x="90" y="152" text-anchor="middle" class="node-label" data-my="Download" data-en="Download">Download</text>
+          </g>
+          <!-- Node 2: AI Cut -->
+          <g class="pipe-node" data-delay="300">
+            <circle class="node-ring" cx="310" cy="90" r="56" fill="none" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
+            <circle cx="310" cy="90" r="44" fill="rgba(108,99,255,0.08)" stroke="#6C63FF" stroke-width="1.5"/>
+            <g transform="translate(298,78)" stroke="#6C63FF" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <rect x="2" y="2" width="20" height="20" rx="2"/><rect x="7" y="7" width="10" height="10"/>
+              <line x1="7" y1="0" x2="7" y2="2"/><line x1="17" y1="0" x2="17" y2="2"/>
+              <line x1="7" y1="22" x2="7" y2="24"/><line x1="17" y1="22" x2="17" y2="24"/>
+              <line x1="22" y1="7" x2="24" y2="7"/><line x1="22" y1="17" x2="24" y2="17"/>
+              <line x1="0" y1="7" x2="2" y2="7"/><line x1="0" y1="17" x2="2" y2="17"/>
+            </g>
+            <text x="310" y="152" text-anchor="middle" class="node-label" data-my="AI ဖြတ်တောက်" data-en="AI Cut">AI Cut</text>
+          </g>
+          <!-- Node 3: AI Rename -->
+          <g class="pipe-node" data-delay="600">
+            <circle class="node-ring" cx="510" cy="90" r="56" fill="none" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
+            <circle cx="510" cy="90" r="44" fill="rgba(0,201,167,0.08)" stroke="#00C9A7" stroke-width="1.5"/>
+            <g transform="translate(498,78)" stroke="#00C9A7" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2H5a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7z"/>
+              <polyline points="13 2 13 8 19 8"/>
+              <line x1="8" y1="13" x2="16" y2="13"/>
+              <line x1="8" y1="17" x2="13" y2="17"/>
+            </g>
+            <text x="510" y="152" text-anchor="middle" class="node-label" data-my="နာမည်စီ" data-en="AI Rename">AI Rename</text>
+          </g>
+          <!-- Node 4: Auto Upload -->
+          <g class="pipe-node" data-delay="900">
+            <circle class="node-ring" cx="730" cy="90" r="56" fill="none" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
+            <circle cx="730" cy="90" r="44" fill="rgba(0,201,167,0.12)" stroke="#00C9A7" stroke-width="1.5"/>
+            <g transform="translate(718,78)" stroke="#00C9A7" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="8 7 12 3 16 7"/><line x1="12" y1="3" x2="12" y2="13"/>
+              <path d="M20.39 10A6 6 0 0 0 18 2h-1.26A8 8 0 1 0 1 8.3"/>
+            </g>
+            <text x="730" y="152" text-anchor="middle" class="node-label" data-my="Auto Upload" data-en="Auto Upload">Auto Upload</text>
+          </g>
+        </svg>
+
+        <!-- Mobile fallback -->
+        <div class="pipeline-steps-mobile">
+          <div class="pipeline-step-m">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+            <span data-my="Download" data-en="Download">Download</span>
+          </div>
+          <div class="pipeline-arrow-m" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="pipeline-step-m">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+            <span data-my="AI ဖြတ်တောက်" data-en="AI Cut">AI Cut</span>
+          </div>
+          <div class="pipeline-arrow-m" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="pipeline-step-m">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span data-my="နာမည်စီ" data-en="AI Rename">AI Rename</span>
+          </div>
+          <div class="pipeline-arrow-m" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="pipeline-step-m">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+            <span data-my="Auto Upload" data-en="Auto Upload">Auto Upload</span>
+          </div>
         </div>
       </div>
     </div>
@@ -167,8 +310,14 @@
           1 PC ကနေ 3 PCs အထိ၊ 3 လ နဲ့ 6 လ Plan တွေထဲက ရွေးချယ်နိုင်ပါတယ်။ Plan တိုင်းမှာ Feature အကုန် ပါဝင်ပါတယ်
         </p>
         <div class="mt-32 flex flex-center gap-16" style="flex-wrap:wrap;">
-          <a href="pricing.html" class="btn btn-primary btn-lg" data-my="💰 စျေးနှုန်း ကြည့်ရန်" data-en="💰 View Pricing">💰 စျေးနှုန်း ကြည့်ရန်</a>
-          <a href="order.html" class="btn btn-ghost btn-lg" data-my="🛒 မှာယူရန်" data-en="🛒 Order Now">🛒 မှာယူရန်</a>
+          <a href="pricing.html" class="btn btn-primary btn-lg" data-my="စျေးနှုန်း ကြည့်ရန်" data-en="View Pricing">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            စျေးနှုန်း ကြည့်ရန်
+          </a>
+          <a href="order.html" class="btn btn-ghost btn-lg" data-my="မှာယူရန်" data-en="Order Now">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            မှာယူရန်
+          </a>
         </div>
       </div>
     </div>
@@ -181,7 +330,10 @@
       <p data-my="Video အလုပ်တွေကို manual တစ်ခုချင်း လုပ်နေမယ့်အစား Automation နဲ့ အချိန်ကုန်သက်သာအောင် စတင်လိုက်ပါ" data-en="Myanmar's most powerful video workflow software — level up your video business today.">
         Video အလုပ်တွေကို manual တစ်ခုချင်း လုပ်နေမယ့်အစား Automation နဲ့ အချိန်ကုန်သက်သာအောင် စတင်လိုက်ပါ
       </p>
-      <a href="download.html" class="btn btn-primary btn-lg" data-my="⬇️ Free Download" data-en="⬇️ Free Download">⬇️ Free Download</a>
+      <a href="download.html" class="btn btn-primary btn-lg" data-my="Free Download" data-en="Free Download">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Free Download
+      </a>
     </div>
   </section>
 
@@ -191,14 +343,19 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="brand-logo">
-            <img src="assets/images/logo.png" alt="Logo" height="32"
-                 onerror="this.style.display='none'">
+            <img src="assets/images/logo.png" alt="Logo" height="32" onerror="this.style.display='none'">
             <span class="brand-name">Video Pipeline Suite</span>
           </div>
           <p data-my="Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators and businesses.">Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software</p>
           <div class="footer-contact-links">
-            <a href="#" data-contact="telegram"><span>✈️</span> <span data-contact-text="telegram-handle">Telegram</span></a>
-            <a href="#" data-contact="email"><span>📧</span> <span data-contact-text="email">Email</span></a>
+            <a href="#" data-contact="telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span data-contact-text="telegram-handle">Telegram</span>
+            </a>
+            <a href="#" data-contact="email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-contact-text="email">Email</span>
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -222,9 +379,9 @@
         <div class="footer-col">
           <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
           <ul>
-            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
-            <li><a href="#" data-contact="email">📧 Email</a></li>
-            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+            <li><a href="#" data-contact="telegram">Telegram</a></li>
+            <li><a href="#" data-contact="email">Email</a></li>
+            <li><a href="#" data-contact="phone">Phone / Viber</a></li>
           </ul>
         </div>
       </div>

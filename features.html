@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -23,7 +23,10 @@
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <span class="brand-text" style="display:none">Video Pipeline Suite</span>
       </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <div class="nav-links">
         <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
         <a href="features.html" class="active" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a>
@@ -33,12 +36,18 @@
         <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
       </div>
       <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <button class="theme-toggle" aria-label="Switch theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="my">မြန်မာ</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ဒေါင်းလုဒ်
+        </a>
       </div>
     </div>
   </nav>
@@ -61,143 +70,190 @@
 
         <!-- 1. Telegram Downloader -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">📥</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+          </span>
           <h3 data-my="Telegram Downloader" data-en="Telegram Downloader">Telegram Downloader</h3>
           <p data-my="Telegram Channel နဲ့ Post တွေက Video တွေကို Filter အစုံနဲ့ မြန်မြန်ဆန်ဆန် Download ဆွဲနိုင်ပါတယ်" data-en="Easily download videos from Telegram channels and posts with advanced filtering.">Telegram Channel နဲ့ Post တွေက Video တွေကို Filter အစုံနဲ့ မြန်မြန်ဆန်ဆန် Download ဆွဲနိုင်ပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="🔓 Save / Forward ပိတ်ထားတဲ့ (Restricted) Channel တွေက Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း" data-en="🔓 Download videos even from save/forward-restricted channels">🔓 Save / Forward ပိတ်ထားတဲ့ (Restricted) Channel တွေက Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း</li>
-            <li data-my="🔗 Telegram Link ထည့်ပြီး တိုက်ရိုက် Download ဆွဲနိုင်ခြင်း" data-en="🔗 Direct download via Telegram link">🔗 Telegram Link ထည့်ပြီး တိုက်ရိုက် Download ဆွဲနိုင်ခြင်း</li>
-            <li data-my="🔍 Caption Keyword နဲ့ ရွေးချယ်ရှာဖွေ Download ဆွဲခြင်း" data-en="🔍 Filter by caption keyword search">🔍 Caption Keyword နဲ့ ရွေးချယ်ရှာဖွေ Download ဆွဲခြင်း</li>
-            <li data-my="📋 Chat ID တွေကို Bulk Export ထုတ်ယူနိုင်ခြင်း" data-en="📋 Export chat IDs in bulk">📋 Chat ID တွေကို Bulk Export ထုတ်ယူနိုင်ခြင်း</li>
-            <li data-my="⚡ Multi-connection Engine နဲ့ အမြန်ဆုံး Download ဆွဲခြင်း" data-en="⚡ Multi-connection download engine">⚡ Multi-connection Engine နဲ့ အမြန်ဆုံး Download ဆွဲခြင်း</li>
-            <li data-my="🔢 Message ID ပါထည့်ပေးလို့ ဖိုင်နာမည်ထပ်နေတာကို ကာကွယ်ပေးခြင်း" data-en="🔢 Auto-append protection with Message ID">🔢 Message ID ပါထည့်ပေးလို့ ဖိုင်နာမည်ထပ်နေတာကို ကာကွယ်ပေးခြင်း</li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-my="Save / Forward ပိတ်ထားတဲ့ (Restricted) Channel တွေက Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း" data-en="Download videos even from save/forward-restricted channels">Save / Forward ပိတ်ထားတဲ့ (Restricted) Channel တွေက Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-my="Telegram Link ထည့်ပြီး တိုက်ရိုက် Download ဆွဲနိုင်ခြင်း" data-en="Direct download via Telegram link">Telegram Link ထည့်ပြီး တိုက်ရိုက် Download ဆွဲနိုင်ခြင်း</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-my="Caption Keyword နဲ့ ရွေးချယ်ရှာဖွေ Download ဆွဲခြင်း" data-en="Filter by caption keyword search">Caption Keyword နဲ့ ရွေးချယ်ရှာဖွေ Download ဆွဲခြင်း</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-my="Chat ID တွေကို Bulk Export ထုတ်ယူနိုင်ခြင်း" data-en="Export chat IDs in bulk">Chat ID တွေကို Bulk Export ထုတ်ယူနိုင်ခြင်း</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-my="Multi-connection Engine နဲ့ အမြန်ဆုံး Download ဆွဲခြင်း" data-en="Multi-connection download engine">Multi-connection Engine နဲ့ အမြန်ဆုံး Download ဆွဲခြင်း</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-my="Message ID ပါထည့်ပေးလို့ ဖိုင်နာမည်ထပ်နေတာကို ကာကွယ်ပေးခြင်း" data-en="Auto-append protection with Message ID">Message ID ပါထည့်ပေးလို့ ဖိုင်နာမည်ထပ်နေတာကို ကာကွယ်ပေးခြင်း</span>
+            </li>
           </ul>
         </div>
 
         <!-- 2. Telegram Channel Studio -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">📺</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>
+          </span>
           <h3 data-my="Telegram Channel Studio" data-en="Telegram Channel Studio">Telegram Channel Studio</h3>
           <p data-my="ကိုယ်ပိုင် Telegram Channel တွေကို Admin တစ်ယောက်လို စနစ်တကျ Manage လုပ်နိုင်ပါတယ်" data-en="Manage your Telegram channels at a professional level with full control.">ကိုယ်ပိုင် Telegram Channel တွေကို Admin တစ်ယောက်လို စနစ်တကျ Manage လုပ်နိုင်ပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="👑 Owner / Admin / Member Badge နဲ့ Channel တွေကို တစ်နေရာတည်း စီမံနိုင်ခြင်း" data-en="👑 Writable Channel Manager with Owner/Admin/Member badges">👑 Owner / Admin / Member Badge နဲ့ Channel တွေကို တစ်နေရာတည်း စီမံနိုင်ခြင်း</li>
-            <li data-my="🛡️ Channel Content Protect (Save/Forward ပိတ်/ဖွင့်) ကို App ထဲကနေ ထိန်းချုပ်နိုင်ခြင်း" data-en="🛡️ Channel Download-Protection toggle (allow or restrict saving)">🛡️ Channel Content Protect (Save/Forward ပိတ်/ဖွင့်) ကို App ထဲကနေ ထိန်းချုပ်နိုင်ခြင်း</li>
-            <li data-my="🖼️ Video အားလုံးအတွက် Custom Poster Thumbnail တစ်ခုတည်း သတ်မှတ်တင်နိုင်ခြင်း" data-en="🖼️ Single custom poster for all videos">🖼️ Video အားလုံးအတွက် Custom Poster Thumbnail တစ်ခုတည်း သတ်မှတ်တင်နိုင်ခြင်း</li>
-            <li data-my="🎞️ Video ထဲက ကြည်လင်တဲ့ Frame တွေကို Auto Thumbnail ထုတ်ပေးခြင်း" data-en="🎞️ Auto-extract crisp frame thumbnails">🎞️ Video ထဲက ကြည်လင်တဲ့ Frame တွေကို Auto Thumbnail ထုတ်ပေးခြင်း</li>
-            <li data-my="⚡ Fast Streaming Mode (Resolution & Duration Auto-detect ပါဝင်ခြင်း)" data-en="⚡ Fast streaming with auto-detect resolution & duration">⚡ Fast Streaming Mode (Resolution & Duration Auto-detect ပါဝင်ခြင်း)</li>
-            <li data-my="📝 Rich HTML Caption Editor နဲ့ Series Template များ သိမ်းထားနိုင်ခြင်း" data-en="📝 Rich HTML caption editor with series templates">📝 Rich HTML Caption Editor နဲ့ Series Template များ သိမ်းထားနိုင်ခြင်း</li>
-            <li data-my="📊 Channel Post တွေရဲ့ Views, Reactions, Pin/Delete တွေကို Manage လုပ်နိုင်ခြင်း" data-en="📊 Channel feed manager with views, reactions, pin/delete">📊 Channel Post တွေရဲ့ Views, Reactions, Pin/Delete တွေကို Manage လုပ်နိုင်ခြင်း</li>
-            <li data-my="📌 Master Series Directory Post တွေကို အလိုအလျောက် စီပေးခြင်း" data-en="📌 Master series directory generator">📌 Master Series Directory Post တွေကို အလိုအလျောက် စီပေးခြင်း</li>
-            <li data-my="⏰ Live Countdown ပါဝင်တဲ့ In-App Upload Scheduler" data-en="⏰ In-app upload scheduler with live countdown">⏰ Live Countdown ပါဝင်တဲ့ In-App Upload Scheduler</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Owner / Admin / Member Badge နဲ့ Channel တွေကို တစ်နေရာတည်း စီမံနိုင်ခြင်း" data-en="Writable Channel Manager with Owner/Admin/Member badges">Owner / Admin / Member Badge နဲ့ Channel တွေကို တစ်နေရာတည်း စီမံနိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Channel Content Protect (Save/Forward ပိတ်/ဖွင့်) ကို App ထဲကနေ ထိန်းချုပ်နိုင်ခြင်း" data-en="Channel Download-Protection toggle">Channel Content Protect (Save/Forward ပိတ်/ဖွင့်) ကို App ထဲကနေ ထိန်းချုပ်နိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Video အားလုံးအတွက် Custom Poster Thumbnail တစ်ခုတည်း သတ်မှတ်တင်နိုင်ခြင်း" data-en="Single custom poster for all videos">Video အားလုံးအတွက် Custom Poster Thumbnail တစ်ခုတည်း သတ်မှတ်တင်နိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Video ထဲက ကြည်လင်တဲ့ Frame တွေကို Auto Thumbnail ထုတ်ပေးခြင်း" data-en="Auto-extract crisp frame thumbnails">Video ထဲက ကြည်လင်တဲ့ Frame တွေကို Auto Thumbnail ထုတ်ပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Fast Streaming Mode (Resolution &amp; Duration Auto-detect ပါဝင်ခြင်း)" data-en="Fast streaming with auto-detect resolution &amp; duration">Fast Streaming Mode (Resolution &amp; Duration Auto-detect ပါဝင်ခြင်း)</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Rich HTML Caption Editor နဲ့ Series Template များ သိမ်းထားနိုင်ခြင်း" data-en="Rich HTML caption editor with series templates">Rich HTML Caption Editor နဲ့ Series Template များ သိမ်းထားနိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Channel Post တွေရဲ့ Views, Reactions, Pin/Delete တွေကို Manage လုပ်နိုင်ခြင်း" data-en="Channel feed manager with views, reactions, pin/delete">Channel Post တွေရဲ့ Views, Reactions, Pin/Delete တွေကို Manage လုပ်နိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Live Countdown ပါဝင်တဲ့ In-App Upload Scheduler" data-en="In-app upload scheduler with live countdown">Live Countdown ပါဝင်တဲ့ In-App Upload Scheduler</span></li>
           </ul>
         </div>
 
         <!-- 3. YouTube Downloader -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">▶️</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </span>
           <h3 data-my="YouTube Downloader" data-en="YouTube Downloader">YouTube Downloader</h3>
           <p data-my="YouTube Video တွေကို Quality အမြင့်ဆုံးနဲ့ ချောမွေ့စွာ Download ဆွဲနိုင်ပါတယ်" data-en="Download YouTube videos at the best quality with bot bypass support.">YouTube Video တွေကို Quality အမြင့်ဆုံးနဲ့ ချောမွေ့စွာ Download ဆွဲနိုင်ပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="🎥 4K / 1080p / 720p Quality အစုံ ရွေးချယ် Download ဆွဲနိုင်ခြင်း" data-en="🎥 4K, 1080p, 720p resolution support">🎥 4K / 1080p / 720p Quality အစုံ ရွေးချယ် Download ဆွဲနိုင်ခြင်း</li>
-            <li data-my="🍪 Browser Cookie ချိတ်ပြီး Bot Check ကို ကျော်ဖြတ်နိုင်ခြင်း" data-en="🍪 Browser cookie support for bot bypass">🍪 Browser Cookie ချိတ်ပြီး Bot Check ကို ကျော်ဖြတ်နိုင်ခြင်း</li>
-            <li data-my="🔞 Age-restricted Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း" data-en="🔞 Age restriction bypass">🔞 Age-restricted Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="4K / 1080p / 720p Quality အစုံ ရွေးချယ် Download ဆွဲနိုင်ခြင်း" data-en="4K, 1080p, 720p resolution support"><span class="mono">4K</span> / <span class="mono">1080p</span> / <span class="mono">720p</span> Quality အစုံ ရွေးချယ် Download ဆွဲနိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Browser Cookie ချိတ်ပြီး Bot Check ကို ကျော်ဖြတ်နိုင်ခြင်း" data-en="Browser cookie support for bot bypass">Browser Cookie ချိတ်ပြီး Bot Check ကို ကျော်ဖြတ်နိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Age-restricted Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း" data-en="Age restriction bypass">Age-restricted Video တွေကိုပါ Download ဆွဲနိုင်ခြင်း</span></li>
           </ul>
         </div>
 
         <!-- 4. AI Ad Cutter -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">🤖</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </span>
           <h3 data-my="AI Video Ad Cutter" data-en="AI Video Ad Cutter">AI Video Ad Cutter</h3>
           <p data-my="Video အစမှာ ပါတတ်တဲ့ ကြော်ငြာ (Intro Ads) တွေကို AI နဲ့ ရှာဖွေဖြတ်တောက်ပေးပါတယ်" data-en="Automatically detect and cut intro advertisements using AI with precision.">Video အစမှာ ပါတတ်တဲ့ ကြော်ငြာ (Intro Ads) တွေကို AI နဲ့ ရှာဖွေဖြတ်တောက်ပေးပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="☁️ Cloud Gemini + DeepSeek + 🖥️ Offline Local LLM ကြိုက်ရာ ရွေးသုံးနိုင်ခြင်း" data-en="☁️ Cloud Gemini + DeepSeek + 🖥️ Offline Local LLM">☁️ Cloud Gemini + DeepSeek + 🖥️ Offline Local LLM ကြိုက်ရာ ရွေးသုံးနိုင်ခြင်း</li>
-            <li data-my="⏱️ 0.1s Precision Mode နဲ့ အတိအကျ ဖြတ်တောက်ပေးခြင်း" data-en="⏱️ 0.1s precision mode (LLM recommended)">⏱️ 0.1s Precision Mode နဲ့ အတိအကျ ဖြတ်တောက်ပေးခြင်း</li>
-            <li data-my="🔍 Video အစ ၃ မိနစ်စာ Frame တွေကို Auto Scan ဖတ်ပေးခြင်း" data-en="🔍 3-minute default scan window">🔍 Video အစ ၃ မိနစ်စာ Frame တွေကို Auto Scan ဖတ်ပေးခြင်း</li>
-            <li data-my="💾 Ad Template Cache စနစ်ကြောင့် API Credit ကုန်ကျမှု သက်သာခြင်း" data-en="💾 Ad template cache (saves API credits)">💾 Ad Template Cache စနစ်ကြောင့် API Credit ကုန်ကျမှု သက်သာခြင်း</li>
-            <li data-my="🧹 စစ်ဆေးပြီး Frame Cache တွေကို Auto ပြန်ရှင်းပေးခြင်း" data-en="🧹 Auto frame cleanup">🧹 စစ်ဆေးပြီး Frame Cache တွေကို Auto ပြန်ရှင်းပေးခြင်း</li>
-            <li data-my="✂️ NLE Scene Scrubber နဲ့ ကိုယ်တိုင် Manual တိတိကျကျ ဖြတ်လို့ရခြင်း" data-en="✂️ NLE scene scrubber & manual trimmer">✂️ NLE Scene Scrubber နဲ့ ကိုယ်တိုင် Manual တိတိကျကျ ဖြတ်လို့ရခြင်း</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Cloud Gemini + DeepSeek + Offline Local LLM ကြိုက်ရာ ရွေးသုံးနိုင်ခြင်း" data-en="Cloud Gemini + DeepSeek + Offline Local LLM">Cloud Gemini + DeepSeek + Offline Local LLM ကြိုက်ရာ ရွေးသုံးနိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="0.1s Precision Mode နဲ့ အတိအကျ ဖြတ်တောက်ပေးခြင်း" data-en="0.1s precision mode (LLM recommended)"><span class="mono">0.1s</span> Precision Mode နဲ့ အတိအကျ ဖြတ်တောက်ပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Video အစ ၃ မိနစ်စာ Frame တွေကို Auto Scan ဖတ်ပေးခြင်း" data-en="3-minute default scan window">Video အစ ၃ မိနစ်စာ Frame တွေကို Auto Scan ဖတ်ပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Ad Template Cache စနစ်ကြောင့် API Credit ကုန်ကျမှု သက်သာခြင်း" data-en="Ad template cache (saves API credits)">Ad Template Cache စနစ်ကြောင့် API Credit ကုန်ကျမှု သက်သာခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="စစ်ဆေးပြီး Frame Cache တွေကို Auto ပြန်ရှင်းပေးခြင်း" data-en="Auto frame cleanup">စစ်ဆေးပြီး Frame Cache တွေကို Auto ပြန်ရှင်းပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="NLE Scene Scrubber နဲ့ ကိုယ်တိုင် Manual တိတိကျကျ ဖြတ်လို့ရခြင်း" data-en="NLE scene scrubber &amp; manual trimmer">NLE Scene Scrubber နဲ့ ကိုယ်တိုင် Manual တိတိကျကျ ဖြတ်လို့ရခြင်း</span></li>
           </ul>
         </div>
 
         <!-- 5. AI Batch Renamer -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">📝</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
           <h3 data-my="AI Batch File Renamer" data-en="AI Batch File Renamer">AI Batch File Renamer</h3>
           <p data-my="ဖိုင်နာမည်တွေ ရှုပ်နေတဲ့ Video တွေကို AI သုံးပြီး တစ်ပြိုင်နက် နာမည်ပြန်စီပေးပါတယ်" data-en="Rename files systematically using Gemini AI with smart batch processing.">ဖိုင်နာမည်တွေ ရှုပ်နေတဲ့ Video တွေကို AI သုံးပြီး တစ်ပြိုင်နက် နာမည်ပြန်စီပေးပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="🤖 Gemini AI Smart Rename စနစ်" data-en="🤖 Gemini AI smart rename">🤖 Gemini AI Smart Rename စနစ်</li>
-            <li data-my="🔢 Dynamic Padding (Ep-001 / Ep-01 အလိုအလျောက် ညှိပေးခြင်း)" data-en="🔢 Dynamic padding (Ep-001 / Ep-01 auto)">🔢 Dynamic Padding (Ep-001 / Ep-01 အလိုအလျောက် ညှိပေးခြင်း)</li>
-            <li data-my="🧹 ဖိုင်နာမည်ထဲက Telegram Message ID တွေကို Auto ဖယ်ရှားပေးခြင်း" data-en="🧹 Remove Telegram message IDs">🧹 ဖိုင်နာမည်ထဲက Telegram Message ID တွေကို Auto ဖယ်ရှားပေးခြင်း</li>
-            <li data-my="⚡ Internet မလိုတဲ့ Offline Regex Mode" data-en="⚡ Offline regex mode">⚡ Internet မလိုတဲ့ Offline Regex Mode</li>
-            <li data-my="↩️ မှားသွားရင် 1-Click Undo နဲ့ မူလနာမည် ပြန်ပြောင်းနိုင်ခြင်း" data-en="↩️ 1-click undo rename">↩️ မှားသွားရင် 1-Click Undo နဲ့ မူလနာမည် ပြန်ပြောင်းနိုင်ခြင်း</li>
-            <li data-my="✏️ Preview Table ထဲမှာ စိတ်ကြိုက် ပြန်ပြင်နိုင်ခြင်း" data-en="✏️ Preview table with editable cells">✏️ Preview Table ထဲမှာ စိတ်ကြိုက် ပြန်ပြင်နိုင်ခြင်း</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Gemini AI Smart Rename စနစ်" data-en="Gemini AI smart rename">Gemini AI Smart Rename စနစ်</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Dynamic Padding (Ep-001 / Ep-01 အလိုအလျောက် ညှိပေးခြင်း)" data-en="Dynamic padding (Ep-001 / Ep-01 auto)">Dynamic Padding (<span class="mono">Ep-001</span> / <span class="mono">Ep-01</span> အလိုအလျောက် ညှိပေးခြင်း)</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="ဖိုင်နာမည်ထဲက Telegram Message ID တွေကို Auto ဖယ်ရှားပေးခြင်း" data-en="Remove Telegram message IDs">ဖိုင်နာမည်ထဲက Telegram Message ID တွေကို Auto ဖယ်ရှားပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Internet မလိုတဲ့ Offline Regex Mode" data-en="Offline regex mode">Internet မလိုတဲ့ Offline Regex Mode</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="မှားသွားရင် 1-Click Undo နဲ့ မူလနာမည် ပြန်ပြောင်းနိုင်ခြင်း" data-en="1-click undo rename">မှားသွားရင် 1-Click Undo နဲ့ မူလနာမည် ပြန်ပြောင်းနိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Preview Table ထဲမှာ စိတ်ကြိုက် ပြန်ပြင်နိုင်ခြင်း" data-en="Preview table with editable cells">Preview Table ထဲမှာ စိတ်ကြိုက် ပြန်ပြင်နိုင်ခြင်း</span></li>
           </ul>
         </div>
 
         <!-- 6. TikTok & Telegram Uploader -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">📤</span>
-          <h3 data-my="TikTok & Telegram Uploader" data-en="TikTok & Telegram Uploader">TikTok & Telegram Uploader</h3>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+          </span>
+          <h3 data-my="TikTok &amp; Telegram Uploader" data-en="TikTok &amp; Telegram Uploader">TikTok &amp; Telegram Uploader</h3>
           <p data-my="Video တွေကို Schedule သတ်မှတ်ပြီး TikTok နဲ့ Telegram ကို Auto Upload တင်နိုင်ပါတယ်" data-en="Upload videos to multiple platforms on a schedule with live countdown.">Video တွေကို Schedule သတ်မှတ်ပြီး TikTok နဲ့ Telegram ကို Auto Upload တင်နိုင်ပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="🎵 TikTok Auto Upload (Playwright Automation)" data-en="🎵 TikTok (Playwright automation)">🎵 TikTok Auto Upload (Playwright Automation)</li>
-            <li data-my="📡 Telegram Channel / Group / Topic တွေဆီ Upload တင်ခြင်း" data-en="📡 Telegram (Channel / Group / Topic)">📡 Telegram Channel / Group / Topic တွေဆီ Upload တင်ခြင်း</li>
-            <li data-my="⏰ Date & Time Scheduler စနစ်" data-en="⏰ Date & time scheduler">⏰ Date & Time Scheduler စနစ်</li>
-            <li data-my="🕐 Live Countdown နဲ့ အချိန်ကျရင် Auto Upload စတင်ပေးခြင်း" data-en="🕐 Live countdown + auto-launch">🕐 Live Countdown နဲ့ အချိန်ကျရင် Auto Upload စတင်ပေးခြင်း</li>
-            <li data-my="+15m, +30m, +1h, +3h, +6h, Tomorrow Quick Schedule ခလုတ်များ" data-en="+15m, +30m, +1h, +3h, +6h, Tomorrow quick buttons">+15m, +30m, +1h, +3h, +6h, Tomorrow Quick Schedule ခလုတ်များ</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="TikTok Auto Upload (Playwright Automation)" data-en="TikTok (Playwright automation)">TikTok Auto Upload (Playwright Automation)</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Telegram Channel / Group / Topic တွေဆီ Upload တင်ခြင်း" data-en="Telegram (Channel / Group / Topic)">Telegram Channel / Group / Topic တွေဆီ Upload တင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Date &amp; Time Scheduler စနစ်" data-en="Date &amp; time scheduler">Date &amp; Time Scheduler စနစ်</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Live Countdown နဲ့ အချိန်ကျရင် Auto Upload စတင်ပေးခြင်း" data-en="Live countdown + auto-launch">Live Countdown နဲ့ အချိန်ကျရင် Auto Upload စတင်ပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="+15m, +30m, +1h, +3h, +6h, Tomorrow Quick Schedule ခလုတ်များ" data-en="+15m, +30m, +1h, +3h, +6h, Tomorrow quick buttons"><span class="mono">+15m, +30m, +1h, +3h, +6h</span>, Tomorrow Quick Schedule ခလုတ်များ</span></li>
           </ul>
         </div>
 
         <!-- 7. Security -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">🔒</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
           <h3 data-my="Hardware-Lock Security (1–3 PCs)" data-en="Hardware-Lock Security (1–3 PCs)">Hardware-Lock Security (1–3 PCs)</h3>
-          <p data-my="Account ကို Hardware ID နဲ့ ချိတ်ဆက်ထားပြီး Plan အလိုက် 1–3 PC အထိ စိတ်ချစွာ သုံးနိုင်ပါတယ်" data-en="Hardware-bound security linking accounts to authorized machines (1–3 PCs based on plan).">Account ကို Hardware ID နဲ့ ချိတ်ဆက်ထားပြီး Plan အလိုက် 1–3 PC အထိ စိတ်ချစွာ သုံးနိုင်ပါတယ်</p>
+          <p data-my="Account ကို Hardware ID နဲ့ ချိတ်ဆက်ထားပြီး Plan အလိုက် 1–3 PC အထိ စိတ်ချစွာ သုံးနိုင်ပါတယ်" data-en="Hardware-bound security linking accounts to authorized machines.">Account ကို Hardware ID နဲ့ ချိတ်ဆက်ထားပြီး Plan အလိုက် 1–3 PC အထိ စိတ်ချစွာ သုံးနိုင်ပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="🖥️ CPU + Motherboard UUID + Machine GUID Hardware Lock" data-en="🖥️ CPU + Motherboard UUID + Machine GUID lock">🖥️ CPU + Motherboard UUID + Machine GUID Hardware Lock</li>
-            <li data-my="🛡️ Account မျှဝေခိုးသုံးခြင်းမှ ကာကွယ်ပေးခြင်း" data-en="🛡️ Protection against unauthorized sharing">🛡️ Account မျှဝေခိုးသုံးခြင်းမှ ကာကွယ်ပေးခြင်း</li>
-            <li data-my="📅 License သက်တမ်းကို App ထဲမှာ တိုက်ရိုက် စစ်နိုင်ခြင်း" data-en="📅 Subscription expiry tracking">📅 License သက်တမ်းကို App ထဲမှာ တိုက်ရိုက် စစ်နိုင်ခြင်း</li>
-            <li data-my="🔑 System Status ထဲကနေ Password အလွယ်တကူ ပြောင်းနိုင်ခြင်း" data-en="🔑 Change password from system status panel">🔑 System Status ထဲကနေ Password အလွယ်တကူ ပြောင်းနိုင်ခြင်း</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="CPU + Motherboard UUID + Machine GUID Hardware Lock" data-en="CPU + Motherboard UUID + Machine GUID lock">CPU + Motherboard UUID + Machine GUID Hardware Lock</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="Account မျှဝေခိုးသုံးခြင်းမှ ကာကွယ်ပေးခြင်း" data-en="Protection against unauthorized sharing">Account မျှဝေခိုးသုံးခြင်းမှ ကာကွယ်ပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="License သက်တမ်းကို App ထဲမှာ တိုက်ရိုက် စစ်နိုင်ခြင်း" data-en="Subscription expiry tracking">License သက်တမ်းကို App ထဲမှာ တိုက်ရိုက် စစ်နိုင်ခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="System Status ထဲကနေ Password အလွယ်တကူ ပြောင်းနိုင်ခြင်း" data-en="Change password from system status panel">System Status ထဲကနေ Password အလွယ်တကူ ပြောင်းနိုင်ခြင်း</span></li>
           </ul>
         </div>
 
         <!-- 8. Setup Wizard -->
         <div class="feature-card fade-up">
-          <span class="feature-icon">🧙</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+          </span>
           <h3 data-my="Setup Wizard" data-en="Setup Wizard">Setup Wizard</h3>
           <p data-my="ပထမဆုံး Login ဝင်ချိန်မှာ Telegram, Gemini နဲ့ DeepSeek API တွေကို လွယ်ကူစွာ Setup လုပ်နိုင်ပါတယ်" data-en="Easily configure Telegram, Gemini, and DeepSeek APIs on first login.">ပထမဆုံး Login ဝင်ချိန်မှာ Telegram, Gemini နဲ့ DeepSeek API တွေကို လွယ်ကူစွာ Setup လုပ်နိုင်ပါတယ်</p>
           <ul class="feature-list">
-            <li data-my="🔍 App စဖွင့်တာနဲ့ မချိတ်ရသေးတဲ့ API တွေကို Auto စစ်ပေးခြင်း" data-en="🔍 Auto-detect unconfigured APIs on startup">🔍 App စဖွင့်တာနဲ့ မချိတ်ရသေးတဲ့ API တွေကို Auto စစ်ပေးခြင်း</li>
-            <li data-my="💬 အဆင့်လိုက် ဖြည့်ရုံ Popup Setup Wizard" data-en="💬 Interactive popup wizard">💬 အဆင့်လိုက် ဖြည့်ရုံ Popup Setup Wizard</li>
-            <li data-my="✅ တစ်ခါ Setup လုပ်ထားရုံနဲ့ ထပ်ခါတလဲလဲ ထည့်စရာမလိုခြင်း" data-en="✅ One-time setup, no repeated input needed">✅ တစ်ခါ Setup လုပ်ထားရုံနဲ့ ထပ်ခါတလဲလဲ ထည့်စရာမလိုခြင်း</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="App စဖွင့်တာနဲ့ မချိတ်ရသေးတဲ့ API တွေကို Auto စစ်ပေးခြင်း" data-en="Auto-detect unconfigured APIs on startup">App စဖွင့်တာနဲ့ မချိတ်ရသေးတဲ့ API တွေကို Auto စစ်ပေးခြင်း</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="အဆင့်လိုက် ဖြည့်ရုံ Popup Setup Wizard" data-en="Interactive popup wizard">အဆင့်လိုက် ဖြည့်ရုံ Popup Setup Wizard</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-my="တစ်ခါ Setup လုပ်ထားရုံနဲ့ ထပ်ခါတလဲလဲ ထည့်စရာမလိုခြင်း" data-en="One-time setup, no repeated input needed">တစ်ခါ Setup လုပ်ထားရုံနဲ့ ထပ်ခါတလဲလဲ ထည့်စရာမလိုခြင်း</span></li>
           </ul>
         </div>
 
         <!-- 9. Pipeline - Full width -->
         <div class="pipeline-highlight fade-up">
           <div class="section-label" data-my="Flagship Feature" data-en="Flagship Feature">Flagship Feature</div>
-          <h3 style="font-size:1.5rem; margin: 12px 0 16px;" data-my="🚀 1-Click Autonomous Pipeline" data-en="🚀 1-Click Autonomous Pipeline">🚀 1-Click Autonomous Pipeline</h3>
-          <p style="max-width:600px; margin:0 auto;" data-my="Download → AI ကြော်ငြာဖြတ် → နာမည်စီ → Upload အထိ ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Workflow တစ်ခုလုံးကို Auto လုပ်ဆောင်ပေးပါတယ်" data-en="Download → AI Ad Removal → Batch Rename → Upload — the complete workflow automated in one click.">
+          <h3 style="font-size:1.5rem; margin: 12px 0 16px; position:relative; z-index:1;" data-my="1-Click Autonomous Pipeline" data-en="1-Click Autonomous Pipeline">1-Click Autonomous Pipeline</h3>
+          <p style="max-width:600px; margin:0 auto; position:relative; z-index:1;" data-my="Download → AI ကြော်ငြာဖြတ် → နာမည်စီ → Upload အထိ ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Workflow တစ်ခုလုံးကို Auto လုပ်ဆောင်ပေးပါတယ်" data-en="Download → AI Ad Removal → Batch Rename → Upload — the complete workflow automated in one click.">
             Download → AI ကြော်ငြာဖြတ် → နာမည်စီ → Upload အထိ ခလုတ်တစ်ချက်နှိပ်ရုံနဲ့ Workflow တစ်ခုလုံးကို Auto လုပ်ဆောင်ပေးပါတယ်
           </p>
           <div class="pipeline-steps">
             <div class="pipeline-step">
-              <span class="step-icon">📥</span>
+              <span class="step-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+              </span>
               <span data-my="Download" data-en="Download">Download</span>
             </div>
-            <span class="pipeline-arrow">➔</span>
+            <span class="pipeline-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
             <div class="pipeline-step">
-              <span class="step-icon">🤖</span>
+              <span class="step-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+              </span>
               <span data-my="AI Cut" data-en="AI Cut">AI Cut</span>
             </div>
-            <span class="pipeline-arrow">➔</span>
+            <span class="pipeline-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
             <div class="pipeline-step">
-              <span class="step-icon">📝</span>
+              <span class="step-icon accent" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
               <span data-my="Rename" data-en="Rename">Rename</span>
             </div>
-            <span class="pipeline-arrow">➔</span>
+            <span class="pipeline-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
             <div class="pipeline-step">
-              <span class="step-icon">📤</span>
+              <span class="step-icon accent" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+              </span>
               <span data-my="Upload" data-en="Upload">Upload</span>
             </div>
           </div>
@@ -213,8 +269,11 @@
       <h2 data-my="အခုပဲ Download ဆွဲပြီး စတင်လိုက်ပါ" data-en="Download Now and Get Started">အခုပဲ Download ဆွဲပြီး စတင်လိုက်ပါ</h2>
       <p data-my="ကိုယ်နဲ့ကိုက်ညီတဲ့ Plan ကို ရွေးချယ်ပြီး Video အလုပ်တွေကို Automation နဲ့ အဆင့်မြှင့်လိုက်ပါ" data-en="Choose a plan and level up your video business today.">ကိုယ်နဲ့ကိုက်ညီတဲ့ Plan ကို ရွေးချယ်ပြီး Video အလုပ်တွေကို Automation နဲ့ အဆင့်မြှင့်လိုက်ပါ</p>
       <div class="flex flex-center gap-16" style="flex-wrap:wrap;">
-        <a href="download.html" class="btn btn-primary btn-lg" data-my="⬇️ Download" data-en="⬇️ Download">⬇️ Download</a>
-        <a href="pricing.html" class="btn btn-ghost btn-lg" data-my="💰 Plan ကြည့်ရန်" data-en="💰 View Plans">💰 Plan ကြည့်ရန်</a>
+        <a href="download.html" class="btn btn-primary btn-lg" data-my="ဒေါင်းလုဒ်" data-en="Download">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ဒေါင်းလုဒ်
+        </a>
+        <a href="pricing.html" class="btn btn-ghost btn-lg" data-my="Plan ကြည့်ရန်" data-en="View Plans">Plan ကြည့်ရန်</a>
       </div>
     </div>
   </section>
@@ -230,8 +289,14 @@
           </div>
           <p data-my="Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software</p>
           <div class="footer-contact-links">
-            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
-            <a href="#" data-contact="email"><span>📧</span> Email</a>
+            <a href="#" data-contact="telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Telegram
+            </a>
+            <a href="#" data-contact="email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -255,9 +320,9 @@
         <div class="footer-col">
           <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
           <ul>
-            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
-            <li><a href="#" data-contact="email">📧 Email</a></li>
-            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+            <li><a href="#" data-contact="telegram">Telegram</a></li>
+            <li><a href="#" data-contact="email">Email</a></li>
+            <li><a href="#" data-contact="phone">Phone / Viber</a></li>
           </ul>
         </div>
       </div>

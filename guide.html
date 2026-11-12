@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -23,7 +23,10 @@
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <span class="brand-text" style="display:none">Video Pipeline Suite</span>
       </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <div class="nav-links">
         <a href="index.html" data-my="ပင်မ" data-en="Home">ပင်မ</a>
         <a href="features.html" data-my="လုပ်ဆောင်ချက်များ" data-en="Features">လုပ်ဆောင်ချက်များ</a>
@@ -33,12 +36,18 @@
         <a href="contact.html" data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</a>
       </div>
       <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Switch theme"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <button class="theme-toggle" aria-label="Switch theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="my">မြန်မာ</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">ဒေါင်းလုဒ်</a>
+        <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ဒေါင်းလုဒ်
+        </a>
       </div>
     </div>
   </nav>
@@ -104,7 +113,10 @@
         <!-- Telegram API -->
         <div class="accordion-item fade-up">
           <div class="accordion-header">
-            <h4>📱 <span data-my="Telegram API Setup" data-en="Telegram API Setup">Telegram API Setup</span></h4>
+            <h4 class="flex flex-center gap-8" style="justify-content:flex-start;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span data-my="Telegram API Setup" data-en="Telegram API Setup">Telegram API Setup</span>
+            </h4>
             <span class="accordion-icon">+</span>
           </div>
           <div class="accordion-body">
@@ -123,7 +135,10 @@
         <!-- Gemini API -->
         <div class="accordion-item fade-up">
           <div class="accordion-header">
-            <h4>🤖 <span data-my="Gemini API Setup (AI Features)" data-en="Gemini API Setup (AI Features)">Gemini API Setup (AI Features)</span></h4>
+            <h4 class="flex flex-center gap-8" style="justify-content:flex-start;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--primary)"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+              <span data-my="Gemini API Setup (AI Features)" data-en="Gemini API Setup (AI Features)">Gemini API Setup (AI Features)</span>
+            </h4>
             <span class="accordion-icon">+</span>
           </div>
           <div class="accordion-body">
@@ -135,14 +150,17 @@
               <li data-my="'Create API key in new project' ကို ရွေးပါ" data-en="Select 'Create API key in new project'">'Create API key in new project' ကို ရွေးပါ</li>
               <li data-my="ရလာတဲ့ API Key ကို Copy ကူးပြီး Software ရဲ့ Gemini API Key နေရာမှာ ထည့်ပါ" data-en="Copy the API key and paste it in the Gemini API Key field in the software">ရလာတဲ့ API Key ကို Copy ကူးပြီး Software ရဲ့ Gemini API Key နေရာမှာ ထည့်ပါ</li>
             </ol>
-            <p class="mt-16" style="font-size:0.85rem;" data-my="💡 Free tier နဲ့တင် AI Ad Cutter နဲ့ Batch Renamer ကို ကောင်းကောင်း သုံးနိုင်ပါတယ်" data-en="💡 The free tier works great for most use cases.">💡 Free tier နဲ့တင် AI Ad Cutter နဲ့ Batch Renamer ကို ကောင်းကောင်း သုံးနိုင်ပါတယ်</p>
+            <p class="mt-16" style="font-size:0.85rem;" data-my="Free tier နဲ့တင် AI Ad Cutter နဲ့ Batch Renamer ကို ကောင်းကောင်း သုံးနိုင်ပါတယ်" data-en="The free tier works great for most use cases.">Free tier နဲ့တင် AI Ad Cutter နဲ့ Batch Renamer ကို ကောင်းကောင်း သုံးနိုင်ပါတယ်</p>
           </div>
         </div>
 
         <!-- DeepSeek API -->
         <div class="accordion-item fade-up">
           <div class="accordion-header">
-            <h4>🔬 <span data-my="DeepSeek API Setup (Alternative AI)" data-en="DeepSeek API Setup (Alternative AI)">DeepSeek API Setup (Alternative AI)</span></h4>
+            <h4 class="flex flex-center gap-8" style="justify-content:flex-start;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent)"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span data-my="DeepSeek API Setup (Alternative AI)" data-en="DeepSeek API Setup (Alternative AI)">DeepSeek API Setup (Alternative AI)</span>
+            </h4>
             <span class="accordion-icon">+</span>
           </div>
           <div class="accordion-body">
@@ -153,7 +171,7 @@
               <li data-my="'Create new secret key' ကို နှိပ်ပါ" data-en="Click 'Create new secret key'">'Create new secret key' ကို နှိပ်ပါ</li>
               <li data-my="Key ကို Copy ကူးပြီး Software ထဲမှာ ထည့်သွင်းပါ" data-en="Copy the key and enter it in the software">Key ကို Copy ကူးပြီး Software ထဲမှာ ထည့်သွင်းပါ</li>
             </ol>
-            <p class="mt-16" style="font-size:0.85rem;" data-my="💡 DeepSeek က API ကုန်ကျစရိတ် ပိုသက်သာပြီး Internet မလိုတဲ့ Offline Local LLM Option လည်း ပါဝင်ပါတယ်" data-en="💡 DeepSeek is cheaper than Gemini. An Offline Local LLM option is also available.">💡 DeepSeek က API ကုန်ကျစရိတ် ပိုသက်သာပြီး Internet မလိုတဲ့ Offline Local LLM Option လည်း ပါဝင်ပါတယ်</p>
+            <p class="mt-16" style="font-size:0.85rem;" data-my="DeepSeek က API ကုန်ကျစရိတ် ပိုသက်သာပြီး Internet မလိုတဲ့ Offline Local LLM Option လည်း ပါဝင်ပါတယ်" data-en="DeepSeek is cheaper than Gemini. An Offline Local LLM option is also available.">DeepSeek က API ကုန်ကျစရိတ် ပိုသက်သာပြီး Internet မလိုတဲ့ Offline Local LLM Option လည်း ပါဝင်ပါတယ်</p>
           </div>
         </div>
 
@@ -235,7 +253,10 @@
     <div class="container text-center fade-up">
       <h3 data-my="ထပ်မံ မေးမြန်းလိုတာ ရှိပါသလား?" data-en="Still Need Help?">ထပ်မံ မေးမြန်းလိုတာ ရှိပါသလား?</h3>
       <p class="mt-8 mb-24" data-my="Telegram (@videopipline) ကနေ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်" data-en="Ask us directly through our Telegram channel.">Telegram (@videopipline) ကနေ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်</p>
-      <a href="contact.html" class="btn btn-primary" data-my="📱 ဆက်သွယ်ရန်" data-en="📱 Contact Us">📱 ဆက်သွယ်ရန်</a>
+      <a href="contact.html" class="btn btn-primary" data-my="ဆက်သွယ်ရန်" data-en="Contact Us">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        ဆက်သွယ်ရန်
+      </a>
     </div>
   </section>
 
@@ -250,8 +271,14 @@
           </div>
           <p data-my="Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software" data-en="All-in-One software for Myanmar video creators.">Video Creator နဲ့ Channel Admin များအတွက် All-in-One Software</p>
           <div class="footer-contact-links">
-            <a href="#" data-contact="telegram"><span>✈️</span> Telegram</a>
-            <a href="#" data-contact="email"><span>📧</span> Email</a>
+            <a href="#" data-contact="telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Telegram
+            </a>
+            <a href="#" data-contact="email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -275,9 +302,9 @@
         <div class="footer-col">
           <h4 data-my="ဆက်သွယ်ရန်" data-en="Contact">ဆက်သွယ်ရန်</h4>
           <ul>
-            <li><a href="#" data-contact="telegram">📱 Telegram</a></li>
-            <li><a href="#" data-contact="email">📧 Email</a></li>
-            <li><a href="#" data-contact="phone">📞 Phone/Viber</a></li>
+            <li><a href="#" data-contact="telegram">Telegram</a></li>
+            <li><a href="#" data-contact="email">Email</a></li>
+            <li><a href="#" data-contact="phone">Phone / Viber</a></li>
           </ul>
         </div>
       </div>
