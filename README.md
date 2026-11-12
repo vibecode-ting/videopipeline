@@ -17,7 +17,6 @@ videopipeline/
 ├── download.html           # Release download links (rendered from data/releases.json)
 ├── guide.html              # Quick start & configuration guide
 ├── order.html              # Combined 1-click order & payment receipt submission
-├── payment.html            # Standalone payment receipt upload form
 ├── contact.html            # Contact inquiry form
 ├── push-pr.bat             # Windows 1-click script to push branch & open GitHub PR
 ├── merge-pr.bat            # Windows 1-click script to merge PR & sync main

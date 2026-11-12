@@ -34,8 +34,7 @@ Co-Authored-By: Claude Code <noreply@anthropic.com>
 | `pricing.html` | Pricing cards + FAQ accordion |
 | `download.html` | Renders from `data/releases.json` via `assets/js/download.js` |
 | `guide.html` | Setup guide + step cards |
-| `order.html` | Order form — renders plans from `data/config.json` via `assets/js/order.js` |
-| `payment.html` | Payment confirmation + receipt upload |
+| `order.html` | Order & Payment form — renders plans, payment methods & direct receipt upload |
 | `contact.html` | Contact form |
 | `assets/css/main.css` | Single global stylesheet (design system CSS vars, all components) |
 | `assets/js/main.js` | Shared JS: theme toggle, lang toggle, nav, scroll animations, contact/payment data, accordion, tabs |
