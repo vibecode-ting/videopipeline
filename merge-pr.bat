@@ -1,10 +1,16 @@
 @echo off
 setlocal enabledelayedexpansion
-cd /d "%~dp0"
+
+:: Support UNC paths (e.g. \\wsl.localhost or \\wsl$) by mounting temporary virtual drive letter
+pushd "%~dp0"
+
+:: Mark current directory safe for Windows git accessing WSL filesystem
+git config --global --add safe.directory "%CD%" >nul 2>&1
 
 for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set "BRANCH=%%b"
 if "%BRANCH%"=="" (
     echo [ERROR] Not a git repository or git not found.
+    popd
     pause
     exit /b 1
 )
@@ -27,6 +33,7 @@ if not errorlevel 1 (
             git pull origin main
             echo.
             echo Successfully merged and synced main!
+            popd
             pause
             exit /b 0
         )
@@ -42,6 +49,7 @@ if /i not "%BRANCH%"=="main" (
 
 if "%MERGE_BRANCH%"=="" (
     echo [ERROR] No branch specified.
+    popd
     pause
     exit /b 1
 )
@@ -51,6 +59,7 @@ echo [1/4] Switching to main...
 git checkout main
 if errorlevel 1 (
     echo [ERROR] Failed to checkout main. Check for uncommitted changes.
+    popd
     pause
     exit /b 1
 )
@@ -64,6 +73,7 @@ echo [3/4] Merging branch %MERGE_BRANCH% into main...
 git merge "%MERGE_BRANCH%"
 if errorlevel 1 (
     echo [ERROR] Merge conflict detected. Resolve conflicts manually and commit.
+    popd
     pause
     exit /b 1
 )
@@ -73,6 +83,7 @@ echo [4/4] Pushing updated main to origin...
 git push origin main
 if errorlevel 1 (
     echo [ERROR] Failed to push main to origin.
+    popd
     pause
     exit /b 1
 )
@@ -86,4 +97,5 @@ if /i "%DEL_CHOICE%"=="Y" (
 
 echo.
 echo Done! Branch %MERGE_BRANCH% merged into main.
+popd
 pause

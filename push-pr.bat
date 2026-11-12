@@ -1,10 +1,16 @@
 @echo off
 setlocal enabledelayedexpansion
-cd /d "%~dp0"
+
+:: Support UNC paths (e.g. \\wsl.localhost or \\wsl$) by mounting temporary virtual drive letter
+pushd "%~dp0"
+
+:: Mark current directory safe for Windows git accessing WSL filesystem
+git config --global --add safe.directory "%CD%" >nul 2>&1
 
 for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set "BRANCH=%%b"
 if "%BRANCH%"=="" (
     echo [ERROR] Not a git repository or git not found.
+    popd
     pause
     exit /b 1
 )
@@ -12,6 +18,7 @@ if "%BRANCH%"=="" (
 if /i "%BRANCH%"=="main" (
     echo [ERROR] Never push directly to main! Checkout a feature branch first:
     echo         git checkout -b your-branch-name
+    popd
     pause
     exit /b 1
 )
@@ -25,6 +32,7 @@ echo [1/2] Pushing branch to origin...
 git push -u origin "%BRANCH%"
 if errorlevel 1 (
     echo [ERROR] git push failed.
+    popd
     pause
     exit /b 1
 )
@@ -35,6 +43,7 @@ where gh >nul 2>&1
 if errorlevel 1 (
     echo [INFO] GitHub CLI ^(gh^) not found. Open PR manually on GitHub:
     echo        https://github.com/vibecode-ting/videopipeline/pull/new/%BRANCH%
+    popd
     pause
     exit /b 0
 )
@@ -53,4 +62,5 @@ if errorlevel 1 (
 
 echo.
 echo Done!
+popd
 pause
