@@ -45,17 +45,17 @@
     }
   ],
   "pricing": {
-    "note_android_my": "📱 Android Application — Coming Soon",
-    "note_android_en": "📱 Android Application — Coming Soon",
-    "free_device_note_my": "✨ Plan အချို့တွင် Free Device ရရှိနိုင်ပါသည်",
-    "free_device_note_en": "✨ One free device included with selected plans",
+    "note_android_my": "📱 Android Mobile Suite — Plan အားလုံးတွင် Android Device ၁ လုံး အခမဲ့ အသုံးပြုခွင့် ပါဝင်ပါသည်",
+    "note_android_en": "📱 Android Mobile Suite — 1 Android Device Included with All Plans",
+    "free_device_note_my": "✨ Plan အားလုံးတွင် 1 Android Device အခမဲ့ ပါဝင်ပါသည်",
+    "free_device_note_en": "✨ 1 Android Device Included with All Plans",
     "plans": [
-      { "id": "1pc-3mo", "pcs": 1, "months": 3, "price_mmk": 50000, "label_my": "Personal — 3 လ", "label_en": "Personal — 3 Months", "popular": false },
-      { "id": "2pc-3mo", "pcs": 2, "months": 3, "price_mmk": 80000, "label_my": "Team — 3 လ", "label_en": "Team — 3 Months", "popular": true },
-      { "id": "3pc-3mo", "pcs": 3, "months": 3, "price_mmk": 100000, "label_my": "Business — 3 လ", "label_en": "Business — 3 Months", "popular": false },
-      { "id": "1pc-6mo", "pcs": 1, "months": 6, "price_mmk": 80000, "label_my": "Personal — 6 လ", "label_en": "Personal — 6 Months", "popular": false },
-      { "id": "2pc-6mo", "pcs": 2, "months": 6, "price_mmk": 140000, "label_my": "Team — 6 လ", "label_en": "Team — 6 Months", "popular": false },
-      { "id": "3pc-6mo", "pcs": 3, "months": 6, "price_mmk": 180000, "label_my": "Business — 6 လ", "label_en": "Business — 6 Months", "popular": false }
+      { "id": "1pc-3mo", "pcs": 1, "android_devices": 1, "months": 3, "price_mmk": 50000, "label_my": "Personal — 3 လ (1 PC + 1 Android)", "label_en": "Personal — 3 Months (1 PC + 1 Android)", "popular": false },
+      { "id": "2pc-3mo", "pcs": 2, "android_devices": 1, "months": 3, "price_mmk": 80000, "label_my": "Team — 3 လ (2 PCs + 1 Android)", "label_en": "Team — 3 Months (2 PCs + 1 Android)", "popular": true },
+      { "id": "3pc-3mo", "pcs": 3, "android_devices": 1, "months": 3, "price_mmk": 100000, "label_my": "Business — 3 လ (3 PCs + 1 Android)", "label_en": "Business — 3 Months (3 PCs + 1 Android)", "popular": false },
+      { "id": "1pc-6mo", "pcs": 1, "android_devices": 1, "months": 6, "price_mmk": 80000, "label_my": "Personal — 6 လ (1 PC + 1 Android)", "label_en": "Personal — 6 Months (1 PC + 1 Android)", "popular": false },
+      { "id": "2pc-6mo", "pcs": 2, "android_devices": 1, "months": 6, "price_mmk": 140000, "label_my": "Team — 6 လ (2 PCs + 1 Android)", "label_en": "Team — 6 Months (2 PCs + 1 Android)", "popular": false },
+      { "id": "3pc-6mo", "pcs": 3, "android_devices": 1, "months": 6, "price_mmk": 180000, "label_my": "Business — 6 လ (3 PCs + 1 Android)", "label_en": "Business — 6 Months (3 PCs + 1 Android)", "popular": false }
     ]
   },
   "download": {
