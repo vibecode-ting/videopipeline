@@ -175,7 +175,7 @@
         },
         successMsgMy: '✅ Order နှင့် Payment Receipt တင်မှု အောင်မြင်ပါပြီ! စစ်ဆေးပြီး ၂၄ နာရီအတွင်း License Account ပို့ပေးပါမည်။',
         successMsgEn: '✅ Order & payment receipt submitted successfully! We will deliver your license within 24 hours.',
-        errorMsgMy: '❌ Order ပို့ရာတွင် Error ဖြစ်သွားပါတယ်။ ထပ်မံကြိုးစားပါ (သို့) Telegram (@videopipline) မှတစ်ဆင့် ဆက်သွယ်ပေးပါ။',
+        errorMsgMy: '❌ Order ပို့ရာတွင် Error ဖြစ်သွားပါတယ်။ ထပ်မံကြိုးစားပါ (သို့) Telegram (@videopipeline) မှတစ်ဆင့် ဆက်သွယ်ပေးပါ။',
         errorMsgEn: '❌ Something went wrong. Please try again or contact us via Telegram.',
         onSuccess: (resData) => {
           const infoBox = document.getElementById('plan-info-box');
