@@ -32,5 +32,30 @@
       "🧙 Setup Wizard"
     ]
   },
+  "android": {
+    "version": "v1.0.0",
+    "release_date": "2026-11-13",
+    "file_size": "8.3 MB",
+    "file_name": "VideoPipelineSuite-v1.0.0.apk",
+    "platform": "Android 8.0+",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.0.0-android/VideoPipelineSuite-v1.0.0.apk",
+    "cloud_storage_url": "",
+    "changelog_my": [
+      "✨ ပထမဆုံး Video Pipeline Suite Android APK ထွက်ရှိမှု",
+      "📱 Native Kotlin + Material Design 3 Dark Mode",
+      "🔒 Firebase Login & Android Hardware-ID Slot Locking",
+      "📝 Telegram Message ID Remover & Gemini AI Batch Renamer",
+      "✂️ Lossless Video Intro Trimmer (Ad Cutter)",
+      "📥 High-Speed Telegram & YouTube Downloader"
+    ],
+    "changelog_en": [
+      "✨ Initial Video Pipeline Suite Android APK Release",
+      "📱 Native Kotlin + Material Design 3 Dark Mode",
+      "🔒 Firebase Login & Android Hardware-ID Slot Locking",
+      "📝 Telegram Message ID Remover & Gemini AI Batch Renamer",
+      "✂️ Lossless Video Intro Trimmer (Ad Cutter)",
+      "📥 High-Speed Telegram & YouTube Downloader"
+    ]
+  },
   "previous": []
 }

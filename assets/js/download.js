@@ -16,9 +16,57 @@
   function renderAll(lang) {
     if (!_releases || !_config) return;
     renderLatestRelease(_releases.latest, _config, lang);
+    if (_releases.android) {
+      renderAndroidRelease(_releases.android, lang);
+    }
     renderChangelog(_releases.latest, lang);
     renderPreviousReleases(_releases.previous || [], lang);
     renderGithubNote(_config, lang);
+  }
+
+  function renderAndroidRelease(release, lang) {
+    let container = document.getElementById('android-release');
+    if (!container) {
+      const latestContainer = document.getElementById('latest-release');
+      if (latestContainer) {
+        container = document.createElement('div');
+        container.id = 'android-release';
+        container.style.marginTop = '24px';
+        latestContainer.parentNode.insertBefore(container, latestContainer.nextSibling);
+      }
+    }
+    if (!container) return;
+
+    const url = getDownloadUrl(release);
+    const btnText = lang === 'my' ? '📱 Android APK Download (8.3 MB)' : '📱 Download Android APK (8.3 MB)';
+    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
+    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
+    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
+
+    container.innerHTML = `
+      <div class="download-card fade-up" style="border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(24, 24, 27, 0.8));">
+        <div class="download-info">
+          <div class="version-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">🤖 ${lang === 'my' ? 'Android Mobile Suite' : 'Android Mobile Suite'}</div>
+          <h2>Video Pipeline Suite Mobile <span style="color:#10b981">${release.version}</span></h2>
+          <div class="release-meta">
+            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
+            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
+            <span class="meta-item"><span class="meta-icon">📱</span> ${platformLabel}: ${release.platform}</span>
+            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
+          </div>
+          <a href="${url}" class="btn btn-secondary btn-lg" style="background:#10b981; border-color:#10b981; color:#fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
+            ${btnText}
+          </a>
+        </div>
+        <div class="download-action">
+          <div style="font-size:4rem; margin-bottom:12px;">📱</div>
+          <div class="download-size-note">${release.file_size} · Android 8.0+ APK</div>
+        </div>
+      </div>
+    `;
+    setTimeout(() => {
+      document.querySelectorAll('#android-release .fade-up').forEach(el => el.classList.add('visible'));
+    }, 150);
   }
 
   async function initDownloadPage() {
