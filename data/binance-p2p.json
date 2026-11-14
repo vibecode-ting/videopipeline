@@ -2,9 +2,10 @@
   "source": "Binance P2P",
   "fiat": "MMK",
   "trade_type": "BUY",
-  "fetched_at": "2026-11-14T05:23:11Z",
+  "fetched_at": "2026-11-14T12:18:16Z",
   "rates": {
-    "USDT": { "mid": 3521.5, "low": 3498.0, "high": 3545.0, "median": 3520.0, "ads_used": 36 },
-    "USDC": { "mid": 3518.0, "low": 3502.5, "high": 3533.5, "median": 3517.0, "ads_used": 18 }
-  }
+    "USDT": null,
+    "USDC": null
+  },
+  "error": "no usable rate data (USDT: no P2P advertisements returned for MMK; USDC: no P2P advertisements returned for MMK)"
 }
