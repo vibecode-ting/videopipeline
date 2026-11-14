@@ -52,12 +52,40 @@
   }
 
   function applyLang(lang) {
+    // CSS hook: Myanmar font rules (main.css) only apply while data-en-active is absent
+    if (document.body) {
+      if (lang === 'en') document.body.setAttribute('data-en-active', '');
+      else document.body.removeAttribute('data-en-active');
+    }
     document.querySelectorAll('[data-my][data-en]').forEach(el => {
       const val = el.dataset[lang];
-      if (val !== undefined) el.textContent = val;
+      if (val === undefined) return;
+      // Translations carrying inline markup (e.g. <span class="mono">) render as HTML
+      if (val.indexOf('<') !== -1) {
+        el.innerHTML = val;
+        return;
+      }
+      if (el.children.length === 0) {
+        el.textContent = val;
+        return;
+      }
+      // Plain value + element children (SVG icons): replace only the text label,
+      // never wipe the icon via textContent
+      const textNodes = Array.from(el.childNodes).filter(
+        n => n.nodeType === Node.TEXT_NODE && n.textContent.trim()
+      );
+      if (textNodes.length === 1) {
+        textNodes[0].textContent = val;
+      } else if (textNodes.length === 0) {
+        el.appendChild(document.createTextNode(val));
+      } else {
+        el.textContent = val;
+      }
     });
     document.querySelectorAll('[data-my-placeholder]').forEach(el => {
-      el.placeholder = lang === 'my' ? el.dataset.myPlaceholder : el.dataset.enPlaceholder;
+      el.placeholder = lang === 'my'
+        ? el.dataset.myPlaceholder
+        : (el.dataset.enPlaceholder || el.dataset.myPlaceholder);
     });
   }
 
@@ -209,7 +237,19 @@
     const container = document.getElementById('payment-methods-container');
     if (!container) return;
     const config = await loadConfig();
-    if (!config || !Array.isArray(config.payment_methods)) return;
+    if (!config || !Array.isArray(config.payment_methods) || !config.payment_methods.length) {
+      // Never leave the "Loading payment info..." placeholder hanging
+      const lang = getLang();
+      container.textContent = '';
+      const p = document.createElement('p');
+      p.className = 'form-hint';
+      p.style.padding = '4px 0';
+      p.textContent = lang === 'my'
+        ? 'ငွေလွှဲ Account အချက်အလက်များ လက်ရှိ မရနိုင်သေးပါ — Telegram မှတစ်ဆင့် ဆက်သွယ်ပေးပါ။'
+        : 'Payment account details are unavailable right now — please contact us via Telegram.';
+      container.appendChild(p);
+      return;
+    }
 
     container.textContent = '';
     config.payment_methods.forEach(pm => {
@@ -342,11 +382,30 @@
 
   /* ── 7. Copy to clipboard ── */
   window.copyText = function (btn, text) {
-    navigator.clipboard.writeText(text).then(() => {
+    const showCopied = () => {
       btn.textContent = '✓';
       btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
-    });
+    };
+    const fallbackCopy = () => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (ok) showCopied();
+      } catch (e) { /* clipboard unavailable — fail quietly */ }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showCopied).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
   };
 
   /* ── 8. Accordion ── */
@@ -386,6 +445,11 @@
     initAccordion();
     initTabs();
     populateContactInfo();
+    populatePaymentMethods();
+  });
+
+  // Re-render config-injected content when the language changes
+  window.addEventListener('vps:langchange', () => {
     populatePaymentMethods();
   });
 

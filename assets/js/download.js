@@ -38,7 +38,9 @@
     if (!container) return;
 
     const url = getDownloadUrl(release);
-    const btnText = lang === 'my' ? '📱 Android APK Download (8.3 MB)' : '📱 Download Android APK (8.3 MB)';
+    const btnText = lang === 'my'
+      ? `📱 Android APK Download (${release.file_size})`
+      : `📱 Download Android APK (${release.file_size})`;
     const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
     const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
     const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
