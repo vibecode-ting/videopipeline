@@ -110,18 +110,33 @@ p { color: var(--text-secondary); line-height: 1.8; }
   font-variant-numeric: tabular-nums;
 }
 
-/* Myanmar text */
+/* Myanmar text
+   Noto Sans Myanmar glyphs read visually larger/longer than Latin at the same
+   px size, and Myanmar has no inter-word spaces — `word-break: keep-all` froze
+   whole phrases on one line and overflowed narrow cards. Normal UAX-14 breaking
+   + last-resort wrap keeps short strings on one line and wraps long ones. */
 .text-my, [lang="my"] body,
 body:not([data-en-active]) [data-my] {
   font-family: 'Noto Sans Myanmar', sans-serif;
   line-height: 1.9;
-  word-break: keep-all;
+  word-break: normal;
+  line-break: auto;
+  overflow-wrap: break-word;
   letter-spacing: 0;
 }
 /* Always apply generous line-height to Noto Sans Myanmar */
 :lang(my), [data-my]:not([data-en-active]) {
   line-height: 1.9;
 }
+/* Optical size for Burmese display text — Noto Sans Myanmar reads visibly
+   larger than Latin at the same px, so the two hero headlines are trimmed a
+   touch in Myanmar mode only. Deliberately scoped to `.page-hero` / `.hero`
+   : a blanket `font-size: Xem` on [data-my] would override each element's own
+   font-size (h1 clamp, .feature-card h3 …) with a value resolved against the
+   parent, collapsing headings to ~15px. */
+body:not([data-en-active]) .page-hero h1 { font-size: clamp(1.85rem, 4.4vw, 3rem); }
+body:not([data-en-active]) .hero h1 { font-size: clamp(1.9rem, 6cqw, 3.4rem); }
+body:not([data-en-active]) .section-header h2 { font-size: clamp(1.45rem, 2.9vw, 2.05rem); }
 
 .text-gradient {
   background: var(--gradient-primary);
@@ -252,17 +267,29 @@ body:not([data-en-active]) [data-my] {
 .lang-btn {
   font-size: 0.78rem;
   font-weight: 700;
-  padding: 5px 12px;
+  padding: 5px 10px;
   border-radius: 6px;
   color: var(--text-secondary);
   transition: all var(--transition);
   font-family: 'Plus Jakarta Sans', 'Noto Sans Myanmar', sans-serif;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
 }
 .lang-btn.active {
   background: var(--primary);
   color: white;
 }
+/* 🇲🇲 / 🇺🇸 next to each language label */
+.lang-flag {
+  font-size: 0.95rem;
+  line-height: 1;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', sans-serif;
+  font-variant-emoji: emoji;
+}
+.lang-text { line-height: 1.2; }
 
 /* === Nav Toggle (mobile hamburger) === */
 .nav-toggle {
@@ -1272,6 +1299,116 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 .copy-btn:hover { background: rgba(108,99,255,0.25); }
 .copy-btn.copied { color: var(--accent); background: rgba(0,201,167,0.12); }
 
+/* Payment method dropdown → single selected account (order page) */
+.payment-detail {
+  margin-top: 14px;
+  background: var(--dark-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+.pd-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.pd-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(0,201,167,0.12);
+  border: 1px solid rgba(0,201,167,0.25);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.pd-name { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); }
+.pd-body { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+.pd-fields {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pd-row { display: flex; flex-direction: column; gap: 4px; }
+.pd-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pd-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+.pd-qr { flex-shrink: 0; width: 132px; }
+.pd-qr-img {
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+}
+.pd-qr-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 132px;
+  height: 132px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  padding: 10px;
+}
+/* Binance Pay: P2P mid rate + exact USDT / USDC for the selected plan */
+.pd-rate {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pd-rate-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.pd-rate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.pd-rate-value { color: var(--text-primary); font-weight: 600; }
+.pd-rate-row.accent .pd-rate-label { color: var(--text-primary); font-weight: 700; }
+.pd-rate-row.accent .pd-rate-value { color: var(--accent); font-weight: 700; }
+.pd-rate-divider { height: 1px; background: var(--border-subtle); margin: 4px 0; }
+.pd-rate-note { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+.pd-rate-time { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
 /* File upload */
 .file-upload-area {
   border: 2px dashed var(--border);
@@ -1578,6 +1715,9 @@ textarea.form-control { resize: vertical; min-height: 110px; }
   .pipeline-arrow { font-size: 1rem; }
   .trust-badges { gap: 12px; }
   .payment-method-cards { flex-direction: column; }
+  .pd-body { flex-direction: column; align-items: stretch; }
+  .pd-qr { width: 100%; max-width: 220px; }
+  .pd-qr-img, .pd-qr-fallback { width: 100%; height: auto; aspect-ratio: 1; }
   .page-hero { padding: 120px 0 60px; }
 }
 

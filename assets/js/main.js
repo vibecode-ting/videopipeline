@@ -233,59 +233,6 @@
     });
   }
 
-  async function populatePaymentMethods() {
-    const container = document.getElementById('payment-methods-container');
-    if (!container) return;
-    const config = await loadConfig();
-    if (!config || !Array.isArray(config.payment_methods) || !config.payment_methods.length) {
-      // Never leave the "Loading payment info..." placeholder hanging
-      const lang = getLang();
-      container.textContent = '';
-      const p = document.createElement('p');
-      p.className = 'form-hint';
-      p.style.padding = '4px 0';
-      p.textContent = lang === 'my'
-        ? 'ငွေလွှဲ Account အချက်အလက်များ လက်ရှိ မရနိုင်သေးပါ — Telegram မှတစ်ဆင့် ဆက်သွယ်ပေးပါ။'
-        : 'Payment account details are unavailable right now — please contact us via Telegram.';
-      container.appendChild(p);
-      return;
-    }
-
-    container.textContent = '';
-    config.payment_methods.forEach(pm => {
-      const card = document.createElement('div');
-      card.className = 'payment-method-card';
-
-      const icon = document.createElement('div');
-      icon.className = 'pm-icon';
-      icon.textContent = pm.icon || '';
-
-      const name = document.createElement('div');
-      name.className = 'pm-name';
-      name.textContent = pm.name || '';
-
-      const account = document.createElement('div');
-      account.className = 'pm-account';
-      account.textContent = pm.account_name || '';
-
-      const phoneWrap = document.createElement('div');
-      phoneWrap.className = 'pm-phone';
-
-      const phoneText = document.createElement('span');
-      phoneText.textContent = pm.phone || '';
-
-      const copyBtn = document.createElement('button');
-      copyBtn.type = 'button';
-      copyBtn.className = 'copy-btn';
-      copyBtn.textContent = 'copy';
-      copyBtn.addEventListener('click', () => window.copyText(copyBtn, pm.phone || ''));
-
-      phoneWrap.append(phoneText, copyBtn);
-      card.append(icon, name, account, phoneWrap);
-      container.appendChild(card);
-    });
-  }
-
   function validateFormFields(form, statusEl, lang) {
     let valid = true;
     form.querySelectorAll('.phone-error').forEach(el => el.remove());
@@ -445,12 +392,6 @@
     initAccordion();
     initTabs();
     populateContactInfo();
-    populatePaymentMethods();
-  });
-
-  // Re-render config-injected content when the language changes
-  window.addEventListener('vps:langchange', () => {
-    populatePaymentMethods();
   });
 
   // Expose shared helpers

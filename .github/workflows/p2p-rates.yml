@@ -1,0 +1,40 @@
+name: Refresh Binance P2P rates
+
+# The order page shows the USDT / USDC amount for the selected plan using the
+# middle of the Binance P2P MMK book. Binance sends no CORS headers, so a static
+# GitHub Pages site cannot call it from the visitor's browser — this workflow
+# fetches it server-side and commits the refreshed data file, which the site
+# reads from `data/binance-p2p.json`.
+on:
+  schedule:
+    - cron: '23 * * * *'   # hourly
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: p2p-rates
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch Binance P2P MMK rates
+        run: python3 scripts/fetch_binance_p2p.py --allow-stale
+
+      - name: Commit refreshed rates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/binance-p2p.json
+          if git diff --cached --quiet; then
+            echo "Rates unchanged — nothing to commit."
+          else
+            git commit -m "chore(rates): refresh Binance P2P MMK rates"
+            git push
+          fi

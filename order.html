@@ -41,8 +41,8 @@
           <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
         <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="my">မြန်မာ</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="my" aria-label="မြန်မာဘာသာ"><span class="lang-flag" aria-hidden="true">🇲🇲</span><span class="lang-text">မြန်မာ</span></button>
+          <button class="lang-btn" data-lang="en" aria-label="English"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span class="lang-text">EN</span></button>
         </div>
         <a href="download.html" class="btn btn-primary btn-sm" data-my="ဒေါင်းလုဒ်" data-en="Download">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -140,15 +140,19 @@
                      placeholder="မဖြည့်လျှင် Email နာမည်ကို အလိုအလျောက် ယူသုံးပါမည်">
             </div>
 
-            <!-- Embedded Payment Methods -->
+            <!-- Payment Method — dropdown, shows only the selected account -->
             <div class="form-group" style="margin-top:24px;">
-              <label class="form-label flex flex-center gap-8" style="justify-content:flex-start;">
+              <label class="form-label flex flex-center gap-8" for="payment-select" style="justify-content:flex-start;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent)"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                <span data-my="ငွေလွှဲနိုင်သော Account များ (တစ်ခုခုသို့ လွှဲပေးပါ)" data-en="Payment Accounts (Transfer to any account below)">ငွေလွှဲနိုင်သော Account များ (တစ်ခုခုသို့ လွှဲပေးပါ)</span>
+                <span data-my="ငွေပေးချေမည့် Payment Method ရွေးချယ်ပါ" data-en="Select Payment Method">ငွေပေးချေမည့် Payment Method ရွေးချယ်ပါ</span>
+                <span class="required">*</span>
               </label>
-              <div id="payment-methods-container" class="payment-method-cards" style="margin-top:10px;">
-                <div class="empty-state" style="padding:20px; color: var(--text-muted);">Loading payment info...</div>
-              </div>
+              <select id="payment-select" name="payment_method" class="form-control" required>
+                <option value="">-- ငွေပေးချေမည့်နည်းလမ်း ရွေးချယ်ပါ --</option>
+              </select>
+              <p class="form-hint" data-my="ရွေးချယ်ထားသော Payment Method တစ်ခုတည်း၏ Account အသေးစိတ် အောက်တွင် ပေါ်လာပါမည်" data-en="Only the account details of your selected payment method are shown below">ရွေးချယ်ထားသော Payment Method တစ်ခုတည်း၏ Account အသေးစိတ် အောက်တွင် ပေါ်လာပါမည်</p>
+              <div id="payment-detail" class="payment-detail"></div>
+              <input type="hidden" id="field-binance" name="binance_conversion" value="">
             </div>
 
             <!-- Direct Receipt File Upload -->

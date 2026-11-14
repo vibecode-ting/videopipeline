@@ -26,22 +26,82 @@
   },
   "payment_methods": [
     {
+      "id": "kbzpay",
+      "label": "KBZ Pay",
       "name": "KBZPay",
-      "account_name": "YOUR NAME",
-      "phone": "09xxxxxxxxx",
-      "icon": "💳"
+      "account_name": "THET MINN SAN",
+      "number": "09791999781",
+      "phone": "09791999781",
+      "number_label_my": "နံပါတ် / အကောင့်",
+      "number_label_en": "Number / Account",
+      "qr": "assets/images/pay/kpay.png",
+      "icon": "💳",
+      "show_rate": false
     },
     {
+      "id": "wavepay",
+      "label": "Wave Pay",
       "name": "WavePay",
-      "account_name": "YOUR NAME",
-      "phone": "09xxxxxxxxx",
-      "icon": "🌊"
+      "account_name": "Htet Aung Hlaing",
+      "number": "09786579514",
+      "phone": "09786579514",
+      "number_label_my": "နံပါတ် / အကောင့်",
+      "number_label_en": "Number / Account",
+      "qr": "assets/images/pay/wavepay.png",
+      "icon": "🌊",
+      "show_rate": false
     },
     {
+      "id": "ayapay",
+      "label": "AYA Pay",
       "name": "AYAPay",
-      "account_name": "YOUR NAME",
-      "phone": "09xxxxxxxxx",
-      "icon": "🏦"
+      "account_name": "HTET AUNG HLAING",
+      "number": "09786579514",
+      "phone": "09786579514",
+      "number_label_my": "နံပါတ် / အကောင့်",
+      "number_label_en": "Number / Account",
+      "qr": "assets/images/pay/ayapay.png",
+      "icon": "🏦",
+      "show_rate": false
+    },
+    {
+      "id": "uabpay",
+      "label": "UAB Pay",
+      "name": "UABPay",
+      "account_name": "THET MINN SAN",
+      "number": "09791999781",
+      "phone": "09791999781",
+      "number_label_my": "နံပါတ် / အကောင့်",
+      "number_label_en": "Number / Account",
+      "qr": "assets/images/pay/uabpay.png",
+      "icon": "💳",
+      "show_rate": false
+    },
+    {
+      "id": "cbpay",
+      "label": "CB Pay",
+      "name": "CBPAY",
+      "account_name": "U THET MINN SAN",
+      "number": "0039-6005-0002-7367",
+      "phone": "0039-6005-0002-7367",
+      "number_label_my": "နံပါတ် / အကောင့်",
+      "number_label_en": "Number / Account",
+      "qr": "assets/images/pay/cbpay.png",
+      "icon": "💳",
+      "show_rate": false
+    },
+    {
+      "id": "binancepay",
+      "label": "Binance Pay (USDT / USDC)",
+      "name": "Binance Pay",
+      "account_name": "",
+      "number": "1013540554",
+      "phone": "1013540554",
+      "number_label_my": "Binance Pay ID",
+      "number_label_en": "Binance Pay ID",
+      "qr": "assets/images/pay/binancepay.png",
+      "icon": "💠",
+      "show_rate": true
     }
   ],
   "pricing": {
