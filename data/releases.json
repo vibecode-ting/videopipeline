@@ -33,28 +33,30 @@
     ]
   },
   "android": {
-    "version": "v1.0.0",
-    "release_date": "2026-11-13",
-    "file_size": "8.3 MB",
-    "file_name": "VideoPipelineSuite-v1.0.0.apk",
+    "version": "v1.3.2",
+    "release_date": "2026-11-18",
+    "file_size": "38.5 MB",
+    "file_name": "VideoPipelineSuite-v1.3.2.apk",
     "platform": "Android 8.0+",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.0.0-android/VideoPipelineSuite-v1.0.0.apk",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.3.2-android/VideoPipelineSuite-v1.3.2.apk",
     "cloud_storage_url": "",
     "changelog_my": [
-      "✨ ပထမဆုံး Video Pipeline Suite Android APK ထွက်ရှိမှု",
-      "📱 Native Kotlin + Material Design 3 Dark Mode",
-      "🔒 Firebase Login & Android Hardware-ID Slot Locking",
-      "📝 Telegram Message ID Remover & Gemini AI Batch Renamer",
-      "✂️ Lossless Video Intro Trimmer (Ad Cutter)",
-      "📥 High-Speed Telegram & YouTube Downloader"
+      "🎨 Official Windows App Logo အတိုင်း Logo အသစ် ပြောင်းလဲတပ်ဆင်ခြင်း",
+      "📱 Telegram Mobile Number Input ကို API ID/Hash နှင့်အတူ တိုက်ရိုက်မြင်သာစွာ ပြင်ဆင်ထည့်သွင်းခြင်း",
+      "⚡ 1-Tap 'Send OTP Verification Code' ဖြင့် MTProto ချိတ်ဆက်ပြီး OTP တစ်ပြိုင်နက် ပို့ဆောင်နိုင်ခြင်း",
+      "✈️ Native Telegram MTProto (TDLib) တိုက်ရိုက်ထည့်သွင်းခြင်း (Phone + OTP + 2FA Login)",
+      "🔓 Restricted Channel Video များပါ မူရင်း Quality အတိုင်း Download ဆွဲနိုင်ခြင်း (2 GB+ အထိ)",
+      "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)",
+      "🔑 Google Gemini & DeepSeek API Key များ ထည့်သွင်းစစ်ဆေးနိုင်ပြီး PC မှ .env / JSON Config 1-Tap Import ပြုလုပ်နိုင်ခြင်း"
     ],
     "changelog_en": [
-      "✨ Initial Video Pipeline Suite Android APK Release",
-      "📱 Native Kotlin + Material Design 3 Dark Mode",
-      "🔒 Firebase Login & Android Hardware-ID Slot Locking",
-      "📝 Telegram Message ID Remover & Gemini AI Batch Renamer",
-      "✂️ Lossless Video Intro Trimmer (Ad Cutter)",
-      "📥 High-Speed Telegram & YouTube Downloader"
+      "🎨 Updated App Icon & Logo matching the official Windows Suite logo",
+      "📱 Direct Mobile Phone Number Input visible immediately alongside API ID & API Hash",
+      "⚡ 1-Tap 'Send OTP Verification Code' connects MTProto and triggers OTP in one step",
+      "✈️ Embedded Native Telegram MTProto (TDLib) with Phone + OTP + 2FA Login",
+      "🔓 Download Restricted Channel & Post Videos at original quality (up to 2 GB+)",
+      "📤 Native MTProto Video Uploader to your channels & groups",
+      "🔑 Google Gemini & DeepSeek API configuration with 1-tap PC .env/JSON import"
     ]
   },
   "ios": {
