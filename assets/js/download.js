@@ -19,6 +19,9 @@
     if (_releases.android) {
       renderAndroidRelease(_releases.android, lang);
     }
+    if (_releases.ios) {
+      renderIosRelease(_releases.ios, lang);
+    }
     renderChangelog(_releases.latest, lang);
     renderPreviousReleases(_releases.previous || [], lang);
     renderGithubNote(_config, lang);
@@ -69,6 +72,57 @@
     setTimeout(() => {
       document.querySelectorAll('#android-release .fade-up').forEach(el => el.classList.add('visible'));
     }, 150);
+  }
+
+  function renderIosRelease(release, lang) {
+    let container = document.getElementById('ios-release');
+    if (!container) {
+      const anchor = document.getElementById('android-release') || document.getElementById('latest-release');
+      if (anchor) {
+        container = document.createElement('div');
+        container.id = 'ios-release';
+        container.style.marginTop = '24px';
+        anchor.parentNode.insertBefore(container, anchor.nextSibling);
+      }
+    }
+    if (!container) return;
+
+    const url = getDownloadUrl(release);
+    const btnText = lang === 'my'
+      ? `🍎 iOS Unsigned IPA Download (${release.file_size})`
+      : `🍎 Download iOS Unsigned IPA (${release.file_size})`;
+    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
+    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
+    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
+    const sideloadNote = lang === 'my'
+      ? '📲 TrollStore, AltStore, SideStore, Sideloadly သို့မဟုတ် ESign ဖြင့် Install လုပ်နိုင်ပါသည်'
+      : '📲 Install via TrollStore, AltStore, SideStore, Sideloadly, or ESign';
+
+    container.innerHTML = `
+      <div class="download-card fade-up" style="border-color: rgba(99, 102, 241, 0.45); background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.05), rgba(24, 24, 27, 0.85));">
+        <div class="download-info">
+          <div class="version-badge" style="background: rgba(99, 102, 241, 0.16); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.35);">🍎 ${lang === 'my' ? 'iOS Mobile Suite (Unsigned IPA)' : 'iOS Mobile Suite (Unsigned IPA)'}</div>
+          <h2>Video Pipeline Suite for iOS <span style="color:#818cf8">${release.version}</span></h2>
+          <div class="release-meta">
+            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
+            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
+            <span class="meta-item"><span class="meta-icon">🍎</span> ${platformLabel}: ${release.platform}</span>
+            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
+          </div>
+          <a href="${url}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #6366f1, #06b6d4); border: none; color: #fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
+            ${btnText}
+          </a>
+          <p style="margin-top:12px; font-size:0.84rem; color: var(--text-secondary);">${sideloadNote}</p>
+        </div>
+        <div class="download-action">
+          <div style="font-size:4rem; margin-bottom:12px;">🍎</div>
+          <div class="download-size-note">${release.file_size} · iOS 16.0+ Unsigned IPA</div>
+        </div>
+      </div>
+    `;
+    setTimeout(() => {
+      document.querySelectorAll('#ios-release .fade-up').forEach(el => el.classList.add('visible'));
+    }, 200);
   }
 
   async function initDownloadPage() {

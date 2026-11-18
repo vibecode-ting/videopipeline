@@ -57,5 +57,30 @@
       "📥 High-Speed Telegram & YouTube Downloader"
     ]
   },
+  "ios": {
+    "version": "v1.0.0",
+    "release_date": "2026-11-18",
+    "file_size": "340 KB",
+    "file_name": "VideoPipelineSuite-v1.0.0-unsigned.ipa",
+    "platform": "iOS 16.0+ (Unsigned IPA)",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.0.0-ios/VideoPipelineSuite-v1.0.0-unsigned.ipa",
+    "cloud_storage_url": "",
+    "changelog_my": [
+      "✨ ပထမဆုံး Video Pipeline Suite iOS Unsigned IPA ထွက်ရှိမှု",
+      "🍎 Native SwiftUI + AVFoundation Dark Mode",
+      "🔒 Firebase Login & iOS Hardware-ID Slot Locking",
+      "📝 Telegram Message ID Remover & Gemini AI Batch Renamer",
+      "✂️ Lossless Video Intro Trimmer (Zero Quality Loss + Save to Photos)",
+      "📲 TrollStore, AltStore, SideStore, Sideloadly, ESign တို့ဖြင့် Install လုပ်နိုင်ခြင်း"
+    ],
+    "changelog_en": [
+      "✨ Initial Video Pipeline Suite iOS Unsigned IPA Release",
+      "🍎 Native SwiftUI + AVFoundation Dark Mode",
+      "🔒 Firebase Login & iOS Hardware-ID Slot Locking",
+      "📝 Telegram Message ID Remover & Gemini AI Batch Renamer",
+      "✂️ Lossless Video Intro Trimmer (Zero Quality Loss + Save to Photos)",
+      "📲 Sideload via TrollStore, AltStore, SideStore, Sideloadly, or ESign"
+    ]
+  },
   "previous": []
 }
