@@ -58,28 +58,30 @@
     ]
   },
   "ios": {
-    "version": "v1.3.1",
+    "version": "v1.3.2",
     "release_date": "2026-11-18",
     "file_size": "28.2 MB",
-    "file_name": "VideoPipelineSuite-v1.3.1-unsigned.ipa",
+    "file_name": "VideoPipelineSuite-v1.3.2-unsigned.ipa",
     "platform": "iOS 16.0+ (MTProto Unsigned IPA)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.1-ios/VideoPipelineSuite-v1.3.1-unsigned.ipa",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.2-ios/VideoPipelineSuite-v1.3.2-unsigned.ipa",
     "cloud_storage_url": "",
     "changelog_my": [
+      "📱 Telegram Mobile Number Input ကို API ID/Hash နှင့်အတူ တိုက်ရိုက်မြင်သာစွာ ပြင်ဆင်ထည့်သွင်းခြင်း",
+      "⚡ 1-Tap 'Send OTP Verification Code' ဖြင့် MTProto ချိတ်ဆက်ပြီး OTP တစ်ပြိုင်နက် ပို့ဆောင်နိုင်ခြင်း",
       "🎨 Official Windows App Logo အတိုင်း Logo အသစ် ပြောင်းလဲတပ်ဆင်ခြင်း",
       "✈️ Native Telegram MTProto (TDLib) တိုက်ရိုက်ထည့်သွင်းခြင်း (Phone + OTP + 2FA Login)",
       "🔓 Restricted Channel Video များပါ မူရင်း Quality အတိုင်း Download ဆွဲနိုင်ခြင်း (2 GB+ အထိ)",
       "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)",
-      "🔒 Plan သတ်မှတ်ချက်: Team (2 PCs) နှင့် Business (3 PCs) တွင်သာ ပါဝင်ပြီး Personal Plan (1 PC) တွင် မပါဝင်ပါ",
-      "📲 TrollStore, AltStore, SideStore, Sideloadly, ESign တို့ဖြင့် Sideload Install ပြုလုပ်နိုင်ခြင်း"
+      "🔒 Plan သတ်မှတ်ချက်: Team (2 PCs) နှင့် Business (3 PCs) တွင်သာ ပါဝင်ပြီး Personal Plan (1 PC) တွင် မပါဝင်ပါ"
     ],
     "changelog_en": [
+      "📱 Direct Mobile Phone Number Input visible immediately alongside API ID & API Hash",
+      "⚡ 1-Tap 'Send OTP Verification Code' connects MTProto and triggers OTP in one step",
       "🎨 Updated App Icon & Logo matching the official Windows Suite logo",
       "✈️ Embedded Native Telegram MTProto (TDLib) with Phone + OTP + 2FA Login",
       "🔓 Download Restricted Channel & Post Videos at original quality (up to 2 GB+)",
       "📤 Native MTProto Video Uploader to your channels & groups",
-      "🔒 Plan Policy: Included in Team (2 PCs) & Business (3 PCs) plans — not available for Personal (1 PC) plan",
-      "📲 Sideload via TrollStore, AltStore, SideStore, Sideloadly, or ESign"
+      "🔒 Plan Policy: Included in Team (2 PCs) & Business (3 PCs) plans — not available for Personal (1 PC) plan"
     ]
   },
   "previous": []
