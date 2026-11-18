@@ -58,27 +58,27 @@
     ]
   },
   "ios": {
-    "version": "v1.1.0",
+    "version": "v1.2.0",
     "release_date": "2026-11-18",
-    "file_size": "494 KB",
-    "file_name": "VideoPipelineSuite-v1.1.0-unsigned.ipa",
+    "file_size": "736 KB",
+    "file_name": "VideoPipelineSuite-v1.2.0-unsigned.ipa",
     "platform": "iOS 16.0+ (Unsigned IPA)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.1.0-ios/VideoPipelineSuite-v1.1.0-unsigned.ipa",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.2.0-ios/VideoPipelineSuite-v1.2.0-unsigned.ipa",
     "cloud_storage_url": "",
     "changelog_my": [
-      "🔑 API & Telegram Setup Wizard (.env / JSON Import + Live Verify)",
-      "☁️ Google Gemini API & 🤖 DeepSeek API Key ချိတ်ဆက်နိုင်ခြင်း",
-      "✈️ Telegram Bot Login (Video Inbox Sync) & MTProto Account Setup",
+      "📥 Downloader Studio UI အသစ် (Bot Inbox Search, Direct URL Speed Ring & In-App Video Preview)",
+      "📤 Uploader Studio UI အသစ် (Telegram Channel/Group Multipart Upload, TikTok Studio & Queue)",
+      "🔑 API & Telegram Setup Wizard (.env / JSON Import + Gemini & DeepSeek Live Verify)",
       "✂️ Gemini / DeepSeek Vision AI Intro Ad Cutter + Lossless Trimmer",
-      "📝 Telegram Message ID Remover, Fast Regex, Gemini & DeepSeek AI Batch Renamer",
+      "📺 YouTube Downloader HD Thumbnail Preview + MP4 / MP3 Export",
       "📲 TrollStore, AltStore, SideStore, Sideloadly, ESign တို့ဖြင့် Install လုပ်နိုင်ခြင်း"
     ],
     "changelog_en": [
-      "🔑 API & Telegram Setup Wizard (.env / JSON Import + Live Verify)",
-      "☁️ Google Gemini API & 🤖 DeepSeek API Key support",
-      "✈️ Telegram Bot Login (Video Inbox Sync) & MTProto Account Setup",
+      "📥 New Downloader Studio UI (Bot Inbox Search, Direct URL Speed Ring & In-App Video Preview)",
+      "📤 New Uploader Studio UI (Telegram Channel/Group Multipart Upload, TikTok Studio & Queue)",
+      "🔑 API & Telegram Setup Wizard (.env / JSON Import + Gemini & DeepSeek Live Verify)",
       "✂️ Gemini / DeepSeek Vision AI Intro Ad Cutter + Lossless Trimmer",
-      "📝 Telegram Message ID Remover, Fast Regex, Gemini & DeepSeek AI Batch Renamer",
+      "📺 YouTube Downloader HD Thumbnail Preview + MP4 / MP3 Export",
       "📲 Sideload via TrollStore, AltStore, SideStore, Sideloadly, or ESign"
     ]
   },
