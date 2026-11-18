@@ -95,8 +95,8 @@
     const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
     const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
     const sideloadNote = lang === 'my'
-      ? '📲 TrollStore, AltStore, SideStore, Sideloadly သို့မဟုတ် ESign ဖြင့် Install လုပ်နိုင်ပါသည်'
-      : '📲 Install via TrollStore, AltStore, SideStore, Sideloadly, or ESign';
+      ? '📲 TrollStore, AltStore, SideStore, Sideloadly သို့မဟုတ် ESign ဖြင့် Install လုပ်နိုင်ပါသည် • <b>Team (2 PCs) နှင့် Business (3 PCs) Plan များတွင်သာ ပါဝင် (Personal Plan တွင် မပါဝင်ပါ)</b>'
+      : '📲 Install via TrollStore, AltStore, SideStore, Sideloadly, or ESign • <b>Included in Team (2 PCs) &amp; Business (3 PCs) Plans only (Not available for Personal Plan)</b>';
 
     container.innerHTML = `
       <div class="download-card fade-up" style="border-color: rgba(99, 102, 241, 0.45); background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.05), rgba(24, 24, 27, 0.85));">
