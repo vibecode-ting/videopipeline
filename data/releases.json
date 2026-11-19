@@ -33,41 +33,45 @@
     ]
   },
   "android": {
-    "version": "v1.3.2",
-    "release_date": "2026-11-18",
+    "version": "v1.3.3",
+    "release_date": "2026-11-19",
     "file_size": "38.5 MB",
-    "file_name": "VideoPipelineSuite-v1.3.2.apk",
+    "file_name": "VideoPipelineSuite-v1.3.3.apk",
     "platform": "Android 8.0+",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.3.2-android/VideoPipelineSuite-v1.3.2.apk",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.3.3-android/VideoPipelineSuite-v1.3.3.apk",
     "cloud_storage_url": "",
     "changelog_my": [
+      "🤖 Smart Gemini Model Auto-Discovery (PC အတိုင်း API Key အောက်ရှိ အလုပ်လုပ်သော Gemini Model များကို အလိုအလျောက် ရှာဖွေရွေးချယ်ပေးခြင်း)",
+      "⚡ Auto-Cascade Fallback (404/429 Error မတက်စေဘဲ gemini-2.0-flash, 1.5-flash စသည်ဖြင့် အစဉ်လိုက် စစ်ဆေးအသုံးပြုခြင်း)",
       "🎨 Official Windows App Logo အတိုင်း Logo အသစ် ပြောင်းလဲတပ်ဆင်ခြင်း",
       "📱 Telegram Mobile Number Input ကို API ID/Hash နှင့်အတူ တိုက်ရိုက်မြင်သာစွာ ပြင်ဆင်ထည့်သွင်းခြင်း",
       "⚡ 1-Tap 'Send OTP Verification Code' ဖြင့် MTProto ချိတ်ဆက်ပြီး OTP တစ်ပြိုင်နက် ပို့ဆောင်နိုင်ခြင်း",
       "✈️ Native Telegram MTProto (TDLib) တိုက်ရိုက်ထည့်သွင်းခြင်း (Phone + OTP + 2FA Login)",
       "🔓 Restricted Channel Video များပါ မူရင်း Quality အတိုင်း Download ဆွဲနိုင်ခြင်း (2 GB+ အထိ)",
-      "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)",
-      "🔑 Google Gemini & DeepSeek API Key များ ထည့်သွင်းစစ်ဆေးနိုင်ပြီး PC မှ .env / JSON Config 1-Tap Import ပြုလုပ်နိုင်ခြင်း"
+      "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)"
     ],
     "changelog_en": [
-      "🎨 Updated App Icon & Logo matching the official Windows Suite logo",
+      "🤖 Smart Gemini Model Auto-Discovery (dynamically queries available models for your API key, matching PC behavior)",
+      "⚡ Auto-Cascade Fallback (automatically tries active models like gemini-2.0-flash & 1.5-flash without 404/429 crashes)",
+      "🎨 Updated App Icon & Logo matching official Windows Suite logo",
       "📱 Direct Mobile Phone Number Input visible immediately alongside API ID & API Hash",
       "⚡ 1-Tap 'Send OTP Verification Code' connects MTProto and triggers OTP in one step",
       "✈️ Embedded Native Telegram MTProto (TDLib) with Phone + OTP + 2FA Login",
       "🔓 Download Restricted Channel & Post Videos at original quality (up to 2 GB+)",
-      "📤 Native MTProto Video Uploader to your channels & groups",
-      "🔑 Google Gemini & DeepSeek API configuration with 1-tap PC .env/JSON import"
+      "📤 Native MTProto Video Uploader to your channels & groups"
     ]
   },
   "ios": {
-    "version": "v1.3.2",
-    "release_date": "2026-11-18",
+    "version": "v1.3.3",
+    "release_date": "2026-11-19",
     "file_size": "28.2 MB",
-    "file_name": "VideoPipelineSuite-v1.3.2-unsigned.ipa",
+    "file_name": "VideoPipelineSuite-v1.3.3-unsigned.ipa",
     "platform": "iOS 16.0+ (MTProto Unsigned IPA)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.2-ios/VideoPipelineSuite-v1.3.2-unsigned.ipa",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.3-ios/VideoPipelineSuite-v1.3.3-unsigned.ipa",
     "cloud_storage_url": "",
     "changelog_my": [
+      "🤖 Smart Gemini Model Auto-Discovery (PC အတိုင်း API Key အောက်ရှိ အလုပ်လုပ်သော Gemini Model များကို အလိုအလျောက် ရှာဖွေရွေးချယ်ပေးခြင်း)",
+      "⚡ Auto-Cascade Fallback (404/429 Error မတက်စေဘဲ gemini-2.0-flash, 1.5-flash စသည်ဖြင့် အစဉ်လိုက် စစ်ဆေးအသုံးပြုခြင်း)",
       "📱 Telegram Mobile Number Input ကို API ID/Hash နှင့်အတူ တိုက်ရိုက်မြင်သာစွာ ပြင်ဆင်ထည့်သွင်းခြင်း",
       "⚡ 1-Tap 'Send OTP Verification Code' ဖြင့် MTProto ချိတ်ဆက်ပြီး OTP တစ်ပြိုင်နက် ပို့ဆောင်နိုင်ခြင်း",
       "🎨 Official Windows App Logo အတိုင်း Logo အသစ် ပြောင်းလဲတပ်ဆင်ခြင်း",
@@ -77,9 +81,11 @@
       "🔒 Plan သတ်မှတ်ချက်: Team (2 PCs) နှင့် Business (3 PCs) တွင်သာ ပါဝင်ပြီး Personal Plan (1 PC) တွင် မပါဝင်ပါ"
     ],
     "changelog_en": [
+      "🤖 Smart Gemini Model Auto-Discovery (dynamically queries available models for your API key, matching PC behavior)",
+      "⚡ Auto-Cascade Fallback (automatically tries active models like gemini-2.0-flash & 1.5-flash without 404/429 crashes)",
       "📱 Direct Mobile Phone Number Input visible immediately alongside API ID & API Hash",
       "⚡ 1-Tap 'Send OTP Verification Code' connects MTProto and triggers OTP in one step",
-      "🎨 Updated App Icon & Logo matching the official Windows Suite logo",
+      "🎨 Updated App Icon & Logo matching official Windows Suite logo",
       "✈️ Embedded Native Telegram MTProto (TDLib) with Phone + OTP + 2FA Login",
       "🔓 Download Restricted Channel & Post Videos at original quality (up to 2 GB+)",
       "📤 Native MTProto Video Uploader to your channels & groups",
