@@ -35,10 +35,10 @@
   "macos": {
     "version": "v1.3.4",
     "release_date": "2026-11-20",
-    "file_size": "260 MB",
+    "file_size": "143 MB",
     "file_name": "VideoPipelineSuite-v1.3.4-macos.dmg",
     "platform": "macOS 12.0+ (Apple Silicon & Intel)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.3.4-macos/VideoPipelineSuite-v1.3.4-macos.dmg",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.3.4/VideoPipelineSuite-v1.3.4-macos.dmg",
     "cloud_storage_url": "",
     "changelog_my": [
       "🍎 macOS အတွက် Native Application (.dmg / .app) တရားဝင် ထွက်ရှိမှု",
