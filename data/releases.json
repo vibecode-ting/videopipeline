@@ -32,6 +32,33 @@
       "🧙 Setup Wizard"
     ]
   },
+  "macos": {
+    "version": "v1.3.4",
+    "release_date": "2026-11-20",
+    "file_size": "260 MB",
+    "file_name": "VideoPipelineSuite-v1.3.4-macos.dmg",
+    "platform": "macOS 12.0+ (Apple Silicon & Intel)",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.3.4-macos/VideoPipelineSuite-v1.3.4-macos.dmg",
+    "cloud_storage_url": "",
+    "changelog_my": [
+      "🍎 macOS အတွက် Native Application (.dmg / .app) တရားဝင် ထွက်ရှိမှု",
+      "⚡ Apple Silicon (M1/M2/M3/M4) နှင့် Intel Mac နှစ်မျိုးစလုံးတွင် အသုံးပြုနိုင်ခြင်း",
+      "🤖 PC Windows နှင့် ၁၀၀% တူညီသော Gemini 3.x Model များဖြင့် AI Video Ad Cutter အပြည့်အဝ အထောက်အပံ့ပေးခြင်း",
+      "📥 Telegram & YouTube 4K Downloader ပါဝင်ခြင်း",
+      "📺 Telegram Channel Studio (Schedule, Poster & Feed Manager)",
+      "📝 AI Batch File Renamer",
+      "📤 TikTok & Telegram Scheduled Video Uploader"
+    ],
+    "changelog_en": [
+      "🍎 Official Native macOS Application Release (.dmg / .app)",
+      "⚡ Supports both Apple Silicon (M1/M2/M3/M4) & Intel Macs",
+      "🤖 100% Matching Gemini 3.x AI Video Ad Cutter & Smart Cascade",
+      "📥 4K Telegram & YouTube Video Downloader",
+      "📺 Telegram Channel Studio (Schedule, Poster & Feed Manager)",
+      "📝 AI Batch File Renamer",
+      "📤 TikTok & Telegram Scheduled Video Uploader"
+    ]
+  },
   "android": {
     "version": "v1.3.4",
     "release_date": "2026-11-19",

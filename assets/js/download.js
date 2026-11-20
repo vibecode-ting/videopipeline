@@ -16,6 +16,9 @@
   function renderAll(lang) {
     if (!_releases || !_config) return;
     renderLatestRelease(_releases.latest, _config, lang);
+    if (_releases.macos) {
+      renderMacRelease(_releases.macos, lang);
+    }
     if (_releases.android) {
       renderAndroidRelease(_releases.android, lang);
     }
@@ -25,6 +28,54 @@
     renderChangelog(_releases.latest, lang);
     renderPreviousReleases(_releases.previous || [], lang);
     renderGithubNote(_config, lang);
+  }
+
+  function renderMacRelease(release, lang) {
+    let container = document.getElementById('macos-release');
+    if (!container) {
+      const latestContainer = document.getElementById('latest-release');
+      if (latestContainer) {
+        container = document.createElement('div');
+        container.id = 'macos-release';
+        container.style.marginTop = '24px';
+        latestContainer.parentNode.insertBefore(container, latestContainer.nextSibling);
+      }
+    }
+    if (!container) return;
+
+    const url = getDownloadUrl(release);
+    const btnText = lang === 'my'
+      ? `🍎 macOS DMG Installer Download (${release.file_size})`
+      : `🍎 Download for macOS (${release.file_size})`;
+    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
+    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
+    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
+
+    container.innerHTML = `
+      <div class="download-card fade-up" style="border-color: rgba(56, 189, 248, 0.45); background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.05), rgba(24, 24, 27, 0.85));">
+        <div class="download-info">
+          <div class="version-badge" style="background: rgba(56, 189, 248, 0.16); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);">🍎 ${lang === 'my' ? 'macOS Desktop Suite (.dmg)' : 'macOS Desktop Suite (.dmg)'}</div>
+          <h2>Video Pipeline Suite for macOS <span style="color:#38bdf8">${release.version}</span></h2>
+          <div class="release-meta">
+            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
+            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
+            <span class="meta-item"><span class="meta-icon">🍎</span> ${platformLabel}: ${release.platform}</span>
+            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
+          </div>
+          <a href="${url}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #0284c7, #38bdf8); border: none; color: #fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
+            ${btnText}
+          </a>
+          <p style="margin-top:12px; font-size:0.84rem; color: var(--text-secondary);">${lang === 'my' ? '⚡ Apple Silicon (M1/M2/M3/M4) နှင့် Intel Mac များတွင် .dmg ကိုဖွင့်ပြီး Applications ထဲသို့ ဆွဲထည့်ကာ တိုက်ရိုက် run နိုင်ပါသည်' : '⚡ Drag &amp; drop to /Applications on Apple Silicon (M1-M4) &amp; Intel Macs.'}</p>
+        </div>
+        <div class="download-action">
+          <div style="font-size:4rem; margin-bottom:12px;">🍎</div>
+          <div class="download-size-note">${release.file_size} · macOS DMG</div>
+        </div>
+      </div>
+    `;
+    setTimeout(() => {
+      document.querySelectorAll('#macos-release .fade-up').forEach(el => el.classList.add('visible'));
+    }, 120);
   }
 
   function renderAndroidRelease(release, lang) {
