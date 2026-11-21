@@ -112,8 +112,8 @@
 
     const winVer = (_releases.latest && _releases.latest.version) || 'v1.4.1';
     const macVer = (_releases.macos && _releases.macos.version) || 'v1.4.1';
-    const androidVer = (_releases.android && _releases.android.version) || 'v1.4.0';
-    const iosVer = (_releases.ios && _releases.ios.version) || 'v1.4.0';
+    const androidVer = (_releases.android && _releases.android.version) || 'v1.4.1';
+    const iosVer = (_releases.ios && _releases.ios.version) || 'v1.4.1';
     const linuxVer = (_releases.linux && _releases.linux.version) || 'v1.4.1';
 
     // Platform descriptions

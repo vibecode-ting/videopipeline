@@ -1,9 +1,9 @@
 {
   "latest": {
-    "version": "v1.4.0",
+    "version": "v1.4.1",
     "release_date": "2026-11-21",
     "file_size": "579 MB",
-    "file_name": "VideoPipelineSuite.Version.1.4.0.zip",
+    "file_name": "VideoPipelineSuite.Version.1.4.1.zip",
     "platform": "Windows 10/11",
     "github_release_url": "https://github.com/vibecode-ting/videopipeline/releases/download/version1.0/VideoPipelineSuite.Version.1.0.zip",
     "cloud_storage_url": "",
@@ -56,14 +56,15 @@
     ]
   },
   "android": {
-    "version": "v1.4.0",
+    "version": "v1.4.1",
     "release_date": "2026-11-21",
     "file_size": "45.1 MB",
-    "file_name": "VideoPipelineSuite-v1.4.0.apk",
+    "file_name": "VideoPipelineSuite-v1.4.1.apk",
     "platform": "Android 8.0+",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.4.0-all/VideoPipelineSuite-v1.4.0.apk",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.4.1-android/VideoPipelineSuite-v1.4.1.apk",
     "cloud_storage_url": "",
     "changelog_my": [
+      "📷 1-Click Instant QR Code Login — Telegram App (Settings > Devices > Link Desktop Device) မှ QR Code Scan ဖတ်ရုံဖြင့် ဖုန်းနံပါတ် သို့မဟုတ် OTP ရိုက်စရာမလိုဘဲ ချက်ချင်း Sign In ဝင်ရောက်နိုင်ခြင်း",
       "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
       "🤖 PC နှင့် ၁၀၀% တူညီသော Gemini 3.x Model များသို့ အဆင့်မြှင့်တင်ခြင်း (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
       "🛡️ ပျက်ပြယ်သွားသော Model အဟောင်းများ (gemini-2.5-flash, 2.0, 1.5) ၏ 404 Error များကို အပြီးတိုင် ဖယ်ရှားရှင်းလင်းပေးခြင်း",
@@ -72,6 +73,7 @@
       "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)"
     ],
     "changelog_en": [
+      "📷 1-Click Instant QR Code Login — Scan QR code with Telegram on your phone for immediate 2-second authentication without typing phone numbers or waiting for SMS OTP",
       "⚡ Built-in MTProto App Keys — Pre-configured developer credentials with zero manual API setup required",
       "🤖 100% Matching PC Gemini 3.x Model Lineup (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
       "🛡️ Fully filtered out retired/deprecated models (gemini-2.5-flash, 2.0, 1.5) preventing 404 errors completely",
@@ -81,14 +83,15 @@
     ]
   },
   "ios": {
-    "version": "v1.4.0",
+    "version": "v1.4.1",
     "release_date": "2026-11-21",
     "file_size": "28.2 MB",
-    "file_name": "VideoPipelineSuite-v1.4.0-unsigned.ipa",
+    "file_name": "VideoPipelineSuite-v1.4.1-unsigned.ipa",
     "platform": "iOS 16.0+ (MTProto Unsigned IPA)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.4.0-all/VideoPipelineSuite-v1.4.0-unsigned.ipa",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.4.1-ios/VideoPipelineSuite-v1.4.1-unsigned.ipa",
     "cloud_storage_url": "",
     "changelog_my": [
+      "📷 1-Click Instant QR Code Login — Telegram App (Settings > Devices > Link Desktop Device) မှ CoreImage QR Code Scan ဖတ်ရုံဖြင့် ချက်ချင်းချိတ်ဆက်နိုင်ခြင်း",
       "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
       "🤖 PC နှင့် ၁၀၀% တူညီသော Gemini 3.x Model များသို့ အဆင့်မြှင့်တင်ခြင်း (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
       "🛡️ ပျက်ပြယ်သွားသော Model အဟောင်းများ (gemini-2.5-flash, 2.0, 1.5) ၏ 404 Error များကို အပြီးတိုင် ဖယ်ရှားရှင်းလင်းပေးခြင်း",
@@ -97,6 +100,7 @@
       "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)"
     ],
     "changelog_en": [
+      "📷 1-Click Instant QR Code Login — Scan QR code with Telegram on your phone to log in in 2 seconds without typing credentials",
       "⚡ Built-in MTProto App Keys — Pre-configured developer credentials with zero manual API setup required",
       "🤖 100% Matching PC Gemini 3.x Model Lineup (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
       "🛡️ Fully filtered out retired/deprecated models (gemini-2.5-flash, 2.0, 1.5) preventing 404 errors completely",
