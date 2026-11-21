@@ -10,8 +10,7 @@
   const THEME_KEY = 'vps-theme';
 
   function getTheme() {
-    return localStorage.getItem(THEME_KEY) ||
-      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    return localStorage.getItem(THEME_KEY) || 'dark';
   }
 
   function applyTheme(theme) {
@@ -35,7 +34,7 @@
   }
 
   /* ── 1. Language Switcher ── */
-  const DEFAULT_LANG = 'my';
+  const DEFAULT_LANG = 'en';
 
   function getLang() {
     return localStorage.getItem('vps-lang') || DEFAULT_LANG;

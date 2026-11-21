@@ -466,7 +466,7 @@
       ]);
       _releases = await releasesRes.json();
       _config = await configRes.json();
-      const lang = window.VPS ? window.VPS.getLang() : (localStorage.getItem('vps-lang') || 'my');
+      const lang = window.VPS ? window.VPS.getLang() : (localStorage.getItem('vps-lang') || 'en');
       renderAll(lang);
     } catch (e) {
       console.error('Download page init failed:', e);
@@ -476,7 +476,7 @@
   }
 
   window.addEventListener('vps:langchange', (e) => {
-    renderAll((e.detail && e.detail.lang) || (window.VPS ? window.VPS.getLang() : 'my'));
+    renderAll((e.detail && e.detail.lang) || (window.VPS ? window.VPS.getLang() : 'en'));
   });
 
   document.addEventListener('DOMContentLoaded', initDownloadPage);
@@ -484,7 +484,7 @@
   window.VPS_SET_PLATFORM = function(platform) {
     if (PLATFORM_CONFIG[platform]) {
       _activePlatform = platform;
-      const lang = window.VPS ? window.VPS.getLang() : 'my';
+      const lang = window.VPS ? window.VPS.getLang() : 'en';
       renderAll(lang);
     }
   };
