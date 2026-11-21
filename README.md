@@ -1,8 +1,14 @@
-# Video Pipeline Suite — Web Portal
+# Video Pipeline Suite — Web Portal (v1.4.0)
 
-Official landing and order portal for **Video Pipeline Suite** — Myanmar's all-in-one Windows desktop video workflow automation SaaS (Download, AI Ad Cutter, Rename, and Auto-Upload).
+Official landing, download, and order portal for **Video Pipeline Suite** — The enterprise-grade, all-in-one cross-platform video workflow automation suite (Download, AI Ad Cutter, Batch Rename, and Auto-Upload).
 
 - **Live Site:** [videopipeline.myanmardev.com](https://videopipeline.myanmardev.com)
+- **Supported Platforms (v1.4.0):**
+  - 🪟 **Windows** (10 / 11 64-bit Portable `.zip` / `.exe`)
+  - 🍏 **macOS** (Apple Silicon `arm64` & Intel `x86_64` `.dmg`)
+  - 🤖 **Android** (8.0+ Oreo or higher `.apk`)
+  - 📱 **iOS** (15.0+ Unsigned `.ipa` for TrollStore / AltStore / SideStore)
+- **Design System:** Cybernetic dark theme with interactive platform tabs, bilingual support (English & Myanmar), and real-time live download links.
 - **Platform:** Static web portal hosted on GitHub Pages (Zero build step, plain HTML5 / CSS3 / ES6 JS).
 
 ---
