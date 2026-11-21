@@ -50,7 +50,7 @@
       arch: 'x86_64 (64-bit)',
       osMin: 'Windows 10 (20H2+) / Windows 11',
       type: 'Standalone Portable / Zip',
-      color: '#00f0ff',
+      color: '#FFC72C',
       tag: 'Windows Desktop Suite'
     },
     macos: {
@@ -61,7 +61,7 @@
       arch: 'Apple Silicon (M1–M4) & Intel (x86_64)',
       osMin: 'macOS 12.0+ (Monterey, Ventura, Sonoma, Sequoia)',
       type: 'Native Mach-O App / DMG',
-      color: '#38bdf8',
+      color: '#10B981',
       tag: 'macOS Desktop Suite'
     },
     android: {
@@ -72,7 +72,7 @@
       arch: 'arm64-v8a / armeabi-v7a',
       osMin: 'Android 8.0+ (Oreo to Android 15)',
       type: 'Native Android Package (.apk)',
-      color: '#00ff88',
+      color: '#22C55E',
       tag: 'Android Mobile Suite'
     },
     ios: {
@@ -83,7 +83,7 @@
       arch: 'ARM64 (iPhone & iPad)',
       osMin: 'iOS 15.0+ / iPadOS 15.0+',
       type: 'Unsigned IPA Package',
-      color: '#8b5cf6',
+      color: '#EF4444',
       tag: 'iOS Mobile Suite'
     }
   };
@@ -191,8 +191,8 @@
             <span class="cyber-hud-badge">[ 4_PLATFORMS_ONLINE ]</span>
           </div>
           <div class="cyber-status-line">
-            <span class="cyber-hud-badge" style="border-color:rgba(0,255,136,0.3); color:#00ff88;">🔒 SHA-256 VERIFIED</span>
-            <span class="cyber-hud-badge" style="border-color:rgba(0,240,255,0.3);">⚡ SSL ENCRYPTED</span>
+            <span class="cyber-hud-badge" style="border-color:rgba(16,185,129,0.3); color:#10B981;">🔒 SHA-256 VERIFIED</span>
+            <span class="cyber-hud-badge" style="border-color:rgba(255,199,44,0.3); color:#FFC72C;">⚡ SSL ENCRYPTED</span>
           </div>
         </div>
 
@@ -282,7 +282,7 @@
             <div class="cyber-panel-preview">
               <div class="cyber-preview-icon">${pMeta.svg}</div>
               <div class="cyber-preview-note">${pMeta.type}</div>
-              <div class="cyber-preview-note" style="color:#00f0ff; margin-top:4px;">${rel.file_name || ''}</div>
+              <div class="cyber-preview-note" style="color:#FFC72C; margin-top:4px;">${rel.file_name || ''}</div>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@
       <!-- 4. Quick 4-Platform Direct Downloads (All 4 download links together at a glance) -->
       <div style="margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
         <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:8px;">
-          <span style="color:#00f0ff;">⚡</span>
+          <span style="color:#FFC72C;">⚡</span>
           ${lang === 'my' ? 'ပလက်ဖောင်း ၄ ခုလုံးအတွက် တိုက်ရိုက်ဒေါင်းလုဒ်' : 'All 4 Platforms Direct Downloads'}
         </h3>
         <span class="mono" style="font-size:0.76rem; color:var(--text-muted);">[ CLICK_TO_SWITCH_TERMINAL ]</span>
@@ -343,11 +343,13 @@
     const url = getDownloadUrl(release);
 
     let quickBtnText = lang === 'my' ? 'Download' : 'Download';
-    let btnStyle = 'background: rgba(0,240,255,0.15); border: 1px solid rgba(0,240,255,0.4); color: #00f0ff;';
-    if (platformKey === 'android') {
-      btnStyle = 'background: rgba(0,255,136,0.15); border: 1px solid rgba(0,255,136,0.4); color: #00ff88;';
+    let btnStyle = 'background: rgba(255,199,44,0.15); border: 1px solid rgba(255,199,44,0.4); color: #FFC72C;';
+    if (platformKey === 'macos') {
+      btnStyle = 'background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: #10B981;';
+    } else if (platformKey === 'android') {
+      btnStyle = 'background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #22c55e;';
     } else if (platformKey === 'ios') {
-      btnStyle = 'background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.4); color: #c4b5fd;';
+      btnStyle = 'background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: #EF4444;';
     }
 
     return `
@@ -384,10 +386,10 @@
       <div class="changelog-section fade-up">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
           <h3 style="margin:0; font-size:1.2rem; font-weight:700;">${title}</h3>
-          <span class="mono" style="font-size:0.75rem; color:#00f0ff;">[ BUILD_RELEASED: ${formatDate(rel.release_date)} ]</span>
+          <span class="mono" style="font-size:0.75rem; color:#FFC72C;">[ BUILD_RELEASED: ${formatDate(rel.release_date)} ]</span>
         </div>
         <ul class="changelog-list">
-          ${items.map(item => `<li><span style="color:#00f0ff; margin-right:8px;">›</span>${item}</li>`).join('')}
+          ${items.map(item => `<li><span style="color:#FFC72C; margin-right:8px;">›</span>${item}</li>`).join('')}
         </ul>
       </div>
     `;
@@ -446,10 +448,10 @@
       : 'View all releases on GitHub →';
     container.innerHTML = `
       <div class="info-box">
-        <span class="info-icon" style="color:#00f0ff;">⚡</span>
+        <span class="info-icon" style="color:#FFC72C;">⚡</span>
         <div>
           ${noteText}
-          <a href="${repoUrl}" target="_blank" rel="noopener" style="color:#00f0ff; text-decoration:underline; margin-left:6px;">${linkText}</a>
+          <a href="${repoUrl}" target="_blank" rel="noopener" style="color:#FFC72C; text-decoration:underline; margin-left:6px;">${linkText}</a>
         </div>
       </div>
     `;
