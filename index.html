@@ -79,6 +79,19 @@
             Features များကြည့်ရန်
           </a>
         </div>
+
+        <!-- Cyber OS Quick Selector -->
+        <div class="cyber-hero-quick-bar">
+          <span class="cyber-dot" style="margin-right:4px;"></span>
+          <span class="mono" style="font-size:0.75rem; color:#00f0ff; letter-spacing:0.06em; margin-right:8px;">// PLATFORMS:</span>
+          <div class="cyber-quick-pills">
+            <a href="download.html" class="cyber-quick-pill" title="Windows 10/11 Suite">🪟 Windows</a>
+            <a href="download.html" class="cyber-quick-pill active" title="macOS Apple Silicon & Intel">🍎 macOS (M1–M4 & Intel)</a>
+            <a href="download.html" class="cyber-quick-pill" title="Android APK">🤖 Android</a>
+            <a href="download.html" class="cyber-quick-pill" title="iOS Unsigned IPA">📱 iOS</a>
+          </div>
+        </div>
+
         <div class="trust-badges">
           <div class="trust-badge">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -96,9 +109,9 @@
             <span aria-hidden="true">🔓</span>
             <span data-my="Restricted Video များပါ Download ဆွဲနိုင်" data-en="Restricted Video Download Supported">Restricted Video များပါ Download ဆွဲနိုင်</span>
           </div>
-          <div class="trust-badge">
-            <span aria-hidden="true">📱</span>
-            <span data-my="Windows · Android · iOS" data-en="Windows · Android · iOS">Windows · Android · iOS</span>
+          <div class="trust-badge" style="border-color: rgba(0, 240, 255, 0.35); background: rgba(0, 240, 255, 0.08); color: #00f0ff;">
+            <span aria-hidden="true">💻</span>
+            <span data-my="Windows · macOS · Android · iOS" data-en="Windows · macOS · Android · iOS">Windows · macOS · Android · iOS</span>
           </div>
           <div class="trust-badge">
             <span aria-hidden="true">🇲🇲</span>
@@ -224,8 +237,8 @@
         <svg class="pipeline-svg" viewBox="0 0 820 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1"/>
-              <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"/>
+              <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1"/>
             </linearGradient>
           </defs>
           <!-- Connecting lines -->
@@ -234,9 +247,9 @@
           <line class="pipe-line" x1="555" y1="90" x2="665" y2="90" stroke="url(#pipeGrad)" stroke-width="2"/>
           <!-- Node 1: Download -->
           <g class="pipe-node" data-delay="0">
-            <circle class="node-ring" cx="90" cy="90" r="56" fill="none" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
-            <circle cx="90" cy="90" r="44" fill="rgba(108,99,255,0.1)" stroke="#6C63FF" stroke-width="1.5"/>
-            <g transform="translate(78,78)" stroke="#6C63FF" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle class="node-ring" cx="90" cy="90" r="56" fill="none" stroke="rgba(0,240,255,0.3)" stroke-width="1"/>
+            <circle cx="90" cy="90" r="44" fill="rgba(0,240,255,0.12)" stroke="#00f0ff" stroke-width="1.5"/>
+            <g transform="translate(78,78)" stroke="#00f0ff" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="4 9 8 13 12 9"/><line x1="8" y1="3" x2="8" y2="13"/>
               <path d="M15.65 10A6 6 0 0 0 12 3h-.84A8 8 0 1 0 1 10.86"/>
             </g>
@@ -244,9 +257,9 @@
           </g>
           <!-- Node 2: AI Cut -->
           <g class="pipe-node" data-delay="300">
-            <circle class="node-ring" cx="310" cy="90" r="56" fill="none" stroke="rgba(108,99,255,0.2)" stroke-width="1"/>
-            <circle cx="310" cy="90" r="44" fill="rgba(108,99,255,0.08)" stroke="#6C63FF" stroke-width="1.5"/>
-            <g transform="translate(298,78)" stroke="#6C63FF" fill="none" stroke-width="1.5" stroke-linecap="round">
+            <circle class="node-ring" cx="310" cy="90" r="56" fill="none" stroke="rgba(0,240,255,0.3)" stroke-width="1"/>
+            <circle cx="310" cy="90" r="44" fill="rgba(0,240,255,0.1)" stroke="#00f0ff" stroke-width="1.5"/>
+            <g transform="translate(298,78)" stroke="#00f0ff" fill="none" stroke-width="1.5" stroke-linecap="round">
               <rect x="2" y="2" width="20" height="20" rx="2"/><rect x="7" y="7" width="10" height="10"/>
               <line x1="7" y1="0" x2="7" y2="2"/><line x1="17" y1="0" x2="17" y2="2"/>
               <line x1="7" y1="22" x2="7" y2="24"/><line x1="17" y1="22" x2="17" y2="24"/>
@@ -257,9 +270,9 @@
           </g>
           <!-- Node 3: AI Rename -->
           <g class="pipe-node" data-delay="600">
-            <circle class="node-ring" cx="510" cy="90" r="56" fill="none" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
-            <circle cx="510" cy="90" r="44" fill="rgba(0,201,167,0.08)" stroke="#00C9A7" stroke-width="1.5"/>
-            <g transform="translate(498,78)" stroke="#00C9A7" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle class="node-ring" cx="510" cy="90" r="56" fill="none" stroke="rgba(0,255,136,0.3)" stroke-width="1"/>
+            <circle cx="510" cy="90" r="44" fill="rgba(0,255,136,0.1)" stroke="#00ff88" stroke-width="1.5"/>
+            <g transform="translate(498,78)" stroke="#00ff88" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M13 2H5a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7z"/>
               <polyline points="13 2 13 8 19 8"/>
               <line x1="8" y1="13" x2="16" y2="13"/>
@@ -269,9 +282,9 @@
           </g>
           <!-- Node 4: Auto Upload -->
           <g class="pipe-node" data-delay="900">
-            <circle class="node-ring" cx="730" cy="90" r="56" fill="none" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
-            <circle cx="730" cy="90" r="44" fill="rgba(0,201,167,0.12)" stroke="#00C9A7" stroke-width="1.5"/>
-            <g transform="translate(718,78)" stroke="#00C9A7" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle class="node-ring" cx="730" cy="90" r="56" fill="none" stroke="rgba(0,255,136,0.3)" stroke-width="1"/>
+            <circle cx="730" cy="90" r="44" fill="rgba(0,255,136,0.15)" stroke="#00ff88" stroke-width="1.5"/>
+            <g transform="translate(718,78)" stroke="#00ff88" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="8 7 12 3 16 7"/><line x1="12" y1="3" x2="12" y2="13"/>
               <path d="M20.39 10A6 6 0 0 0 18 2h-1.26A8 8 0 1 0 1 8.3"/>
             </g>

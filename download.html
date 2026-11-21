@@ -55,10 +55,10 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <div class="section-label" data-my="Windows · Android · iOS" data-en="Windows · Android · iOS">Windows · Android · iOS</div>
-      <h1 data-my="Video Pipeline Suite ကို Download ရယူပါ" data-en="Download Video Pipeline Suite">Video Pipeline Suite ကို Download ရယူပါ</h1>
-      <p data-my="နောက်ဆုံးထွက် Version ကို Download ဆွဲပြီး သင့်ရဲ့ Video Workflow ကို အခုပဲ စတင်လိုက်ပါ" data-en="Download the latest version and start your video workflow today.">
-        နောက်ဆုံးထွက် Version ကို Download ဆွဲပြီး သင့်ရဲ့ Video Workflow ကို အခုပဲ စတင်လိုက်ပါ
+      <div class="section-label" data-my="Windows · macOS · Android · iOS" data-en="Windows · macOS · Android · iOS">Windows · macOS · Android · iOS</div>
+      <h1 data-my="Video Pipeline Suite Cyber Distribution Matrix" data-en="Video Pipeline Suite Cyber Distribution Matrix">Video Pipeline Suite Cyber Distribution Matrix</h1>
+      <p data-my="Windows, macOS (Apple Silicon / Intel), Android APK နှင့် iOS IPA နောက်ဆုံးထွက် Version များကို တစ်နေရာတည်းမှ တိုက်ရိုက်ရယူပါ" data-en="Download the latest native releases for Windows, macOS (Apple Silicon / Intel), Android, and iOS all in one unified cyber matrix.">
+        Windows, macOS (Apple Silicon / Intel), Android APK နှင့် iOS IPA နောက်ဆုံးထွက် Version များကို တစ်နေရာတည်းမှ တိုက်ရိုက်ရယူပါ
       </p>
     </div>
   </section>
@@ -67,12 +67,15 @@
   <section class="section">
     <div class="container">
 
-      <!-- Latest release (populated by JS) -->
+      <!-- Loading Spinner -->
       <div id="download-loading" class="text-center" style="padding: 48px 0;">
-        <div class="spinner" style="width:36px;height:36px;border-width:3px;margin:0 auto;"></div>
-        <p class="mt-16 text-secondary" data-my="Release အချက်အလက်များ ရယူနေပါတယ်..." data-en="Loading release information...">Release အချက်အလက်များ ရယူနေပါတယ်...</p>
+        <div class="spinner" style="width:36px;height:36px;border-width:3px;margin:0 auto;border-color:rgba(0,240,255,0.2);border-top-color:#00f0ff;"></div>
+        <p class="mt-16 text-secondary mono" data-my="Release Matrix အချက်အလက်များ ချိတ်ဆက်နေပါတယ်..." data-en="Connecting to VPS Release Matrix...">Release Matrix အချက်အလက်များ ချိတ်ဆက်နေပါတယ်...</p>
       </div>
-      <div id="latest-release"></div>
+
+      <!-- Cybernetic Unified Download Hub -->
+      <div id="cyber-download-hub"></div>
+      <div id="latest-release" style="display:none"></div>
 
       <!-- Changelog -->
       <div id="changelog-container"></div>

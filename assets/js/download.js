@@ -1,5 +1,6 @@
 /* ========================================
-   download.js — Download page logic
+   download.js — Cybernetic Distribution Matrix
+   Unified 4-Platform Dropdown & Tabs System
    ======================================== */
 
 (function () {
@@ -7,279 +8,378 @@
 
   let _releases = null;
   let _config = null;
+  let _activePlatform = detectPlatform();
+
+  function detectPlatform() {
+    const ua = (typeof navigator !== 'undefined' && navigator.userAgent) ? navigator.userAgent : '';
+    if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+    if (/Android/i.test(ua)) return 'android';
+    if (/Macintosh|Mac OS X/i.test(ua)) return 'macos';
+    return 'windows';
+  }
 
   function formatDate(dateStr) {
+    if (!dateStr) return 'N/A';
     const d = new Date(dateStr);
-    return d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+    return isNaN(d.getTime()) ? dateStr : d.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
   }
-
-  function renderAll(lang) {
-    if (!_releases || !_config) return;
-    renderLatestRelease(_releases.latest, _config, lang);
-    if (_releases.macos) {
-      renderMacRelease(_releases.macos, lang);
-    }
-    if (_releases.android) {
-      renderAndroidRelease(_releases.android, lang);
-    }
-    if (_releases.ios) {
-      renderIosRelease(_releases.ios, lang);
-    }
-    renderChangelog(_releases.latest, lang);
-    renderPreviousReleases(_releases.previous || [], lang);
-    renderGithubNote(_config, lang);
-  }
-
-  function renderMacRelease(release, lang) {
-    let container = document.getElementById('macos-release');
-    if (!container) {
-      const latestContainer = document.getElementById('latest-release');
-      if (latestContainer) {
-        container = document.createElement('div');
-        container.id = 'macos-release';
-        container.style.marginTop = '24px';
-        latestContainer.parentNode.insertBefore(container, latestContainer.nextSibling);
-      }
-    }
-    if (!container) return;
-
-    const url = getDownloadUrl(release);
-    const appleSiliconUrl = release.apple_silicon_url || url;
-    const intelUrl = release.intel_url || url;
-    const btnText = lang === 'my'
-      ? `🍎 macOS DMG Installer Download (${release.file_size})`
-      : `🍎 Download for macOS (${release.file_size})`;
-    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
-    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
-    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
-
-    const buttonsHtml = release.intel_url ? `
-          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-            <a href="${appleSiliconUrl}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #0284c7, #38bdf8); border: none; color: #fff;">
-              ${lang === 'my' ? '🍎 Apple Silicon (M1–M4) DMG' : '🍎 Apple Silicon (M1–M4) DMG'}
-            </a>
-            <a href="${intelUrl}" class="btn btn-secondary btn-lg" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.5); color: #38bdf8;">
-              ${lang === 'my' ? '💻 Intel Mac (x86_64) DMG' : '💻 Intel Mac (x86_64) DMG'}
-            </a>
-          </div>
-    ` : `
-          <a href="${url}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #0284c7, #38bdf8); border: none; color: #fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
-            ${btnText}
-          </a>
-    `;
-
-    container.innerHTML = `
-      <div class="download-card fade-up" style="border-color: rgba(56, 189, 248, 0.45); background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.05), rgba(24, 24, 27, 0.85));">
-        <div class="download-info">
-          <div class="version-badge" style="background: rgba(56, 189, 248, 0.16); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35);">🍎 ${lang === 'my' ? 'macOS Desktop Suite (.dmg)' : 'macOS Desktop Suite (.dmg)'}</div>
-          <h2>Video Pipeline Suite for macOS <span style="color:#38bdf8">${release.version}</span></h2>
-          <div class="release-meta">
-            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
-            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
-            <span class="meta-item"><span class="meta-icon">🍎</span> ${platformLabel}: ${release.platform}</span>
-            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
-          </div>
-          ${buttonsHtml}
-          <p style="margin-top:12px; font-size:0.84rem; color: var(--text-secondary);">${lang === 'my' ? '⚡ Apple Silicon (M1/M2/M3/M4) နှင့် Intel Mac များတွင် .dmg ကိုဖွင့်ပြီး Applications ထဲသို့ ဆွဲထည့်ကာ တိုက်ရိုက် run နိုင်ပါသည်' : '⚡ Drag &amp; drop to /Applications on Apple Silicon (M1-M4) &amp; Intel Macs.'}</p>
-        </div>
-        <div class="download-action">
-          <div style="font-size:4rem; margin-bottom:12px;">🍎</div>
-          <div class="download-size-note">${release.file_size} · macOS DMG</div>
-        </div>
-      </div>
-    `;
-    setTimeout(() => {
-      document.querySelectorAll('#macos-release .fade-up').forEach(el => el.classList.add('visible'));
-    }, 120);
-  }
-
-  function renderAndroidRelease(release, lang) {
-    let container = document.getElementById('android-release');
-    if (!container) {
-      const latestContainer = document.getElementById('latest-release');
-      if (latestContainer) {
-        container = document.createElement('div');
-        container.id = 'android-release';
-        container.style.marginTop = '24px';
-        latestContainer.parentNode.insertBefore(container, latestContainer.nextSibling);
-      }
-    }
-    if (!container) return;
-
-    const url = getDownloadUrl(release);
-    const btnText = lang === 'my'
-      ? `📱 Android APK Download (${release.file_size})`
-      : `📱 Download Android APK (${release.file_size})`;
-    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
-    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
-    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
-
-    container.innerHTML = `
-      <div class="download-card fade-up" style="border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(24, 24, 27, 0.8));">
-        <div class="download-info">
-          <div class="version-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">🤖 ${lang === 'my' ? 'Android Mobile Suite' : 'Android Mobile Suite'}</div>
-          <h2>Video Pipeline Suite Mobile <span style="color:#10b981">${release.version}</span></h2>
-          <div class="release-meta">
-            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
-            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
-            <span class="meta-item"><span class="meta-icon">📱</span> ${platformLabel}: ${release.platform}</span>
-            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
-          </div>
-          <a href="${url}" class="btn btn-secondary btn-lg" style="background:#10b981; border-color:#10b981; color:#fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
-            ${btnText}
-          </a>
-        </div>
-        <div class="download-action">
-          <div style="font-size:4rem; margin-bottom:12px;">📱</div>
-          <div class="download-size-note">${release.file_size} · Android 8.0+ APK</div>
-        </div>
-      </div>
-    `;
-    setTimeout(() => {
-      document.querySelectorAll('#android-release .fade-up').forEach(el => el.classList.add('visible'));
-    }, 150);
-  }
-
-  function renderIosRelease(release, lang) {
-    let container = document.getElementById('ios-release');
-    if (!container) {
-      const anchor = document.getElementById('android-release') || document.getElementById('latest-release');
-      if (anchor) {
-        container = document.createElement('div');
-        container.id = 'ios-release';
-        container.style.marginTop = '24px';
-        anchor.parentNode.insertBefore(container, anchor.nextSibling);
-      }
-    }
-    if (!container) return;
-
-    const url = getDownloadUrl(release);
-    const btnText = lang === 'my'
-      ? `🍎 iOS Unsigned IPA Download (${release.file_size})`
-      : `🍎 Download iOS Unsigned IPA (${release.file_size})`;
-    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
-    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
-    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
-    const sideloadNote = lang === 'my'
-      ? '📲 TrollStore, AltStore, SideStore, Sideloadly သို့မဟုတ် ESign ဖြင့် Install လုပ်နိုင်ပါသည် • <b>Team (2 PCs) နှင့် Business (3 PCs) Plan များတွင်သာ ပါဝင် (Personal Plan တွင် မပါဝင်ပါ)</b>'
-      : '📲 Install via TrollStore, AltStore, SideStore, Sideloadly, or ESign • <b>Included in Team (2 PCs) &amp; Business (3 PCs) Plans only (Not available for Personal Plan)</b>';
-
-    container.innerHTML = `
-      <div class="download-card fade-up" style="border-color: rgba(99, 102, 241, 0.45); background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.05), rgba(24, 24, 27, 0.85));">
-        <div class="download-info">
-          <div class="version-badge" style="background: rgba(99, 102, 241, 0.16); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.35);">🍎 ${lang === 'my' ? 'iOS Mobile Suite (Unsigned IPA)' : 'iOS Mobile Suite (Unsigned IPA)'}</div>
-          <h2>Video Pipeline Suite for iOS <span style="color:#818cf8">${release.version}</span></h2>
-          <div class="release-meta">
-            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
-            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
-            <span class="meta-item"><span class="meta-icon">🍎</span> ${platformLabel}: ${release.platform}</span>
-            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
-          </div>
-          <a href="${url}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #6366f1, #06b6d4); border: none; color: #fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
-            ${btnText}
-          </a>
-          <p style="margin-top:12px; font-size:0.84rem; color: var(--text-secondary);">${sideloadNote}</p>
-        </div>
-        <div class="download-action">
-          <div style="font-size:4rem; margin-bottom:12px;">🍎</div>
-          <div class="download-size-note">${release.file_size} · iOS 16.0+ Unsigned IPA</div>
-        </div>
-      </div>
-    `;
-    setTimeout(() => {
-      document.querySelectorAll('#ios-release .fade-up').forEach(el => el.classList.add('visible'));
-    }, 200);
-  }
-
-  async function initDownloadPage() {
-    try {
-      const [releasesRes, configRes] = await Promise.all([
-        fetch('data/releases.json'),
-        fetch('data/config.json')
-      ]);
-      _releases = await releasesRes.json();
-      _config = await configRes.json();
-      const lang = window.VPS ? window.VPS.getLang() : (localStorage.getItem('vps-lang') || 'my');
-      renderAll(lang);
-    } catch (e) {
-      console.error('Download page init failed:', e);
-      const el = document.getElementById('download-loading');
-      if (el) el.innerHTML = '<p class="text-secondary">Could not load release information.</p>';
-    }
-  }
-
-  window.addEventListener('vps:langchange', (e) => {
-    renderAll((e.detail && e.detail.lang) || (window.VPS ? window.VPS.getLang() : 'my'));
-  });
 
   function getDownloadUrl(release) {
+    if (!release) return '#';
     return release.cloud_storage_url || release.github_release_url || '#';
   }
 
-  function renderLatestRelease(release, config, lang) {
+  const PLATFORM_CONFIG = {
+    windows: {
+      key: 'latest',
+      id: 'windows',
+      name: 'Windows 10 / 11',
+      icon: '🪟',
+      arch: 'x86_64 (64-bit)',
+      osMin: 'Windows 10 (20H2+) / Windows 11',
+      type: 'Standalone Portable / Zip',
+      color: '#00f0ff',
+      tag: 'Windows Desktop Suite'
+    },
+    macos: {
+      key: 'macos',
+      id: 'macos',
+      name: 'macOS Desktop',
+      icon: '🍎',
+      arch: 'Apple Silicon (M1–M4) & Intel (x86_64)',
+      osMin: 'macOS 12.0+ (Monterey, Ventura, Sonoma, Sequoia)',
+      type: 'Native Mach-O App / DMG',
+      color: '#38bdf8',
+      tag: 'macOS Desktop Suite'
+    },
+    android: {
+      key: 'android',
+      id: 'android',
+      name: 'Android Mobile',
+      icon: '🤖',
+      arch: 'arm64-v8a / armeabi-v7a',
+      osMin: 'Android 8.0+ (Oreo to Android 15)',
+      type: 'Native Android Package (.apk)',
+      color: '#00ff88',
+      tag: 'Android Mobile Suite'
+    },
+    ios: {
+      key: 'ios',
+      id: 'ios',
+      name: 'iOS Mobile Suite',
+      icon: '📱',
+      arch: 'ARM64 (iPhone & iPad)',
+      osMin: 'iOS 15.0+ / iPadOS 15.0+',
+      type: 'Unsigned IPA Package',
+      color: '#8b5cf6',
+      tag: 'iOS Mobile Suite'
+    }
+  };
+
+  function renderCyberHub(lang) {
+    const hub = document.getElementById('cyber-download-hub');
     const loading = document.getElementById('download-loading');
-    const container = document.getElementById('latest-release');
-    if (!container) return;
+    if (!hub || !_releases) return;
     if (loading) loading.style.display = 'none';
 
-    const url = getDownloadUrl(release);
-    const btnText = lang === 'my' ? '⬇️ Download ရယူရန်' : '⬇️ Download Now';
-    const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
-    const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
-    const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
+    const pMeta = PLATFORM_CONFIG[_activePlatform] || PLATFORM_CONFIG.windows;
+    const rel = _releases[pMeta.key] || _releases.latest;
 
-    container.innerHTML = `
-      <div class="download-card fade-up">
-        <div class="download-info">
-          <div class="version-badge">✅ ${lang === 'my' ? 'နောက်ဆုံးထွက် Version' : 'Latest Version'}</div>
-          <h2>Video Pipeline Suite <span style="color:var(--accent)">${release.version}</span></h2>
-          <div class="release-meta">
-            <span class="meta-item"><span class="meta-icon">📅</span> ${dateLabel}: ${formatDate(release.release_date)}</span>
-            <span class="meta-item"><span class="meta-icon">📦</span> ${sizeLabel}: ${release.file_size}</span>
-            <span class="meta-item"><span class="meta-icon">🖥️</span> ${platformLabel}: ${release.platform}</span>
-            <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
-          </div>
-          <a href="${url}" class="btn btn-primary btn-lg" ${url === '#' ? 'onclick="return false;"' : ''}>
-            ${btnText}
+    // Platform descriptions
+    const descMap = {
+      windows: {
+        my: 'Windows 10/11 အတွက် 0.1s တိကျသော AI Video Ad Cutter၊ 4K Telegram/YouTube Downloader၊ File Renamer နှင့် Telegram/TikTok Auto Uploader အားလုံးပါဝင်သော Portable Desktop Suite ဖြစ်ပါသည်။',
+        en: 'The complete Windows desktop suite featuring 0.1s AI Video Ad Cutter, 4K Telegram & YouTube Downloader, AI Batch Renamer, and Telegram/TikTok Scheduled Uploader.'
+      },
+      macos: {
+        my: 'Apple Silicon (M1/M2/M3/M4) နှင့် Intel Mac (x86_64) အတွက် သီးသန့် Compile ပြုလုပ်ထားသော Native macOS Application ဖြစ်ပါသည်။ .dmg ကိုဖွင့်ပြီး Applications ထဲသို့ ဆွဲထည့်ကာ ချက်ချင်း run နိုင်ပါသည်။',
+        en: 'Native macOS application compiled for both Apple Silicon (M1–M4) and Intel Macs (x86_64). Drag & drop to Applications for instant execution.'
+      },
+      android: {
+        my: 'Android ဖုန်းများအတွက် Native MTProto (TDLib) ပါဝင်ပြီး ဖုန်းနံပါတ် + OTP ဖြင့် တိုက်ရိုက် Login ဝင်ကာ Save ပိတ်ထားသော Restricted Channel Video များကိုပါ 2GB+ အထိ ဒေါင်းလုဒ်ဆွဲနိုင်ပါသည်။',
+        en: 'Native Android app with embedded Telegram MTProto (TDLib), Phone + OTP direct login, and high-speed restricted channel video downloader (2 GB+ supported).'
+      },
+      ios: {
+        my: 'iPhone နှင့် iPad များအတွက် Native MTProto iOS Client ဖြစ်ပါသည်။ TrollStore, AltStore, SideStore, Sideloadly သို့မဟုတ် ESign ဖြင့် တိုက်ရိုက် Install လုပ်နိုင်ပါသည်။ (Team & Business Plan များတွင်သာ ပါဝင်)',
+        en: 'Native MTProto client for iPhone & iPad. Install via TrollStore, AltStore, SideStore, Sideloadly, or ESign. (Available for Team & Business Plans).'
+      }
+    };
+
+    // Download buttons HTML based on platform
+    let buttonsHtml = '';
+    const mainUrl = getDownloadUrl(rel);
+
+    if (_activePlatform === 'macos') {
+      const appleSiliconUrl = rel.apple_silicon_url || mainUrl;
+      const intelUrl = rel.intel_url || mainUrl;
+      buttonsHtml = `
+        <div class="cyber-action-group">
+          <a href="${appleSiliconUrl}" class="btn-cyber-download btn-cyber-primary" ${appleSiliconUrl === '#' ? 'onclick="return false;"' : ''}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ${lang === 'my' ? '🍎 Apple Silicon (M1–M4) DMG' : '🍎 Apple Silicon (M1–M4) DMG'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(143 MB)</span>
+          </a>
+          <a href="${intelUrl}" class="btn-cyber-download btn-cyber-secondary" ${intelUrl === '#' ? 'onclick="return false;"' : ''}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ${lang === 'my' ? '💻 Intel Mac (x86_64) DMG' : '💻 Intel Mac (x86_64) DMG'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(195 MB)</span>
           </a>
         </div>
-        <div class="download-action">
-          <div style="font-size:4rem; margin-bottom:12px;">📦</div>
-          <div class="download-size-note">${release.file_size} · Windows 10/11</div>
+      `;
+    } else if (_activePlatform === 'windows') {
+      buttonsHtml = `
+        <div class="cyber-action-group">
+          <a href="${mainUrl}" class="btn-cyber-download btn-cyber-primary" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ${lang === 'my' ? '⬇️ Download Windows Suite (.zip)' : '⬇️ Download Windows Suite (.zip)'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '579 MB'})</span>
+          </a>
+          ${rel.cloud_storage_url ? `
+            <a href="${rel.cloud_storage_url}" class="btn-cyber-download btn-cyber-secondary" target="_blank" rel="noopener">
+              ☁️ ${lang === 'my' ? 'Cloud Mirror ဒေါင်းလုဒ်' : 'Cloud Mirror Download'}
+            </a>
+          ` : ''}
         </div>
+      `;
+    } else if (_activePlatform === 'android') {
+      buttonsHtml = `
+        <div class="cyber-action-group">
+          <a href="${mainUrl}" class="btn-cyber-download btn-cyber-green" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ${lang === 'my' ? '📱 Download Android APK' : '📱 Download Android APK'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '38.5 MB'})</span>
+          </a>
+        </div>
+      `;
+    } else if (_activePlatform === 'ios') {
+      buttonsHtml = `
+        <div class="cyber-action-group">
+          <a href="${mainUrl}" class="btn-cyber-download btn-cyber-purple" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ${lang === 'my' ? '🍎 Download iOS Unsigned IPA' : '🍎 Download iOS Unsigned IPA'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '28.2 MB'})</span>
+          </a>
+        </div>
+      `;
+    }
+
+    hub.innerHTML = `
+      <div class="cyber-terminal fade-up">
+        <!-- 1. Terminal Header & Cyber Status -->
+        <div class="cyber-terminal-header">
+          <div class="cyber-status-line">
+            <span class="cyber-dot"></span>
+            <span class="cyber-status-text">// CYBER_DISTRIBUTION_MATRIX::v1.3.4</span>
+            <span class="cyber-hud-badge">[ 4_PLATFORMS_ONLINE ]</span>
+          </div>
+          <div class="cyber-status-line">
+            <span class="cyber-hud-badge" style="border-color:rgba(0,255,136,0.3); color:#00ff88;">🔒 SHA-256 VERIFIED</span>
+            <span class="cyber-hud-badge" style="border-color:rgba(0,240,255,0.3);">⚡ SSL ENCRYPTED</span>
+          </div>
+        </div>
+
+        <!-- 2. Synchronized Dropdown + Tabs Control Bar -->
+        <div class="cyber-control-bar">
+          <!-- Dropdown -->
+          <div class="cyber-dropdown-container">
+            <label for="cyber-platform-select" class="cyber-dropdown-label">
+              <span>🎯 SELECT_OS:</span>
+            </label>
+            <div class="cyber-select-wrapper">
+              <select id="cyber-platform-select" class="cyber-select" aria-label="Select Operating System">
+                <option value="windows" ${_activePlatform === 'windows' ? 'selected' : ''}>🪟 Windows 10/11 · v1.0</option>
+                <option value="macos" ${_activePlatform === 'macos' ? 'selected' : ''}>🍎 macOS (M1–M4 & Intel) · v1.3.4</option>
+                <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>🤖 Android APK · v1.3.4</option>
+                <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>📱 iOS Unsigned IPA · v1.3.4</option>
+              </select>
+              <span class="cyber-select-icon">▼</span>
+            </div>
+          </div>
+
+          <!-- Cyber Tabs -->
+          <div class="cyber-tabs" role="tablist">
+            <button class="cyber-tab-btn ${_activePlatform === 'windows' ? 'active' : ''}" data-platform="windows" role="tab" aria-selected="${_activePlatform === 'windows'}">
+              <span>🪟 Windows</span>
+              <span class="cyber-tab-tag">v1.0</span>
+            </button>
+            <button class="cyber-tab-btn ${_activePlatform === 'macos' ? 'active' : ''}" data-platform="macos" role="tab" aria-selected="${_activePlatform === 'macos'}">
+              <span>🍎 macOS</span>
+              <span class="cyber-tab-tag">v1.3.4</span>
+            </button>
+            <button class="cyber-tab-btn ${_activePlatform === 'android' ? 'active' : ''}" data-platform="android" role="tab" aria-selected="${_activePlatform === 'android'}">
+              <span>🤖 Android</span>
+              <span class="cyber-tab-tag">v1.3.4</span>
+            </button>
+            <button class="cyber-tab-btn ${_activePlatform === 'ios' ? 'active' : ''}" data-platform="ios" role="tab" aria-selected="${_activePlatform === 'ios'}">
+              <span>📱 iOS</span>
+              <span class="cyber-tab-tag">v1.3.4</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Active Platform Main Panel -->
+        <div class="cyber-panel-body">
+          <div class="cyber-panel-main">
+            <div class="cyber-panel-content">
+              <div class="cyber-platform-header">
+                <span class="cyber-platform-icon">${pMeta.icon}</span>
+                <div class="cyber-platform-title">
+                  <h2>${pMeta.name} <span class="cyber-version-pill">${rel.version || 'v1.3.4'}</span></h2>
+                </div>
+              </div>
+
+              <p class="cyber-platform-desc">
+                ${descMap[_activePlatform][lang] || descMap[_activePlatform].en}
+              </p>
+
+              <!-- Specs HUD Grid -->
+              <div class="cyber-specs-grid">
+                <div class="cyber-spec-item">
+                  <div class="cyber-spec-label"><span>📅</span> ${lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Release Date'}</div>
+                  <div class="cyber-spec-value">${formatDate(rel.release_date)}</div>
+                </div>
+                <div class="cyber-spec-item">
+                  <div class="cyber-spec-label"><span>📦</span> ${lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'Package Size'}</div>
+                  <div class="cyber-spec-value">${rel.file_size || 'N/A'}</div>
+                </div>
+                <div class="cyber-spec-item">
+                  <div class="cyber-spec-label"><span>⚙️</span> ${lang === 'my' ? 'ဗိသုကာ' : 'Architecture'}</div>
+                  <div class="cyber-spec-value">${pMeta.arch}</div>
+                </div>
+                <div class="cyber-spec-item">
+                  <div class="cyber-spec-label"><span>🖥️</span> ${lang === 'my' ? 'အနိမ့်ဆုံးသတ်မှတ်ချက်' : 'Min OS'}</div>
+                  <div class="cyber-spec-value">${rel.platform || pMeta.osMin}</div>
+                </div>
+              </div>
+
+              <!-- Main Action Buttons -->
+              ${buttonsHtml}
+            </div>
+
+            <!-- Side Big Icon / HUD Preview -->
+            <div class="cyber-panel-preview">
+              <div class="cyber-preview-icon">${pMeta.icon}</div>
+              <div class="cyber-preview-note">${pMeta.type}</div>
+              <div class="cyber-preview-note" style="color:#00f0ff; margin-top:4px;">${rel.file_name || ''}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Quick 4-Platform Matrix Grid (All 4 download links together at a glance) -->
+      <div style="margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+        <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:8px;">
+          <span style="color:#00f0ff;">⚡</span>
+          ${lang === 'my' ? 'All 4 Platforms Direct Matrix' : 'All 4 Platforms Direct Matrix'}
+        </h3>
+        <span class="mono" style="font-size:0.76rem; color:var(--text-muted);">[ CLICK_TO_SWITCH_TERMINAL ]</span>
+      </div>
+
+      <div class="cyber-matrix-grid fade-up">
+        ${renderMatrixCard('windows', _releases.latest, lang)}
+        ${renderMatrixCard('macos', _releases.macos, lang)}
+        ${renderMatrixCard('android', _releases.android, lang)}
+        ${renderMatrixCard('ios', _releases.ios, lang)}
       </div>
     `;
 
-    // Re-run fade animation
+    // Bind event listeners for dropdown and tabs
+    const select = document.getElementById('cyber-platform-select');
+    if (select) {
+      select.addEventListener('change', (e) => {
+        _activePlatform = e.target.value;
+        renderAll(lang);
+      });
+    }
+
+    hub.querySelectorAll('.cyber-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        _activePlatform = btn.dataset.platform;
+        renderAll(lang);
+      });
+    });
+
+    hub.querySelectorAll('.cyber-matrix-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return; // let direct download button work without switching
+        _activePlatform = card.dataset.platform;
+        renderAll(lang);
+        window.scrollTo({ top: hub.offsetTop - 90, behavior: 'smooth' });
+      });
+    });
+
+    // Animate fade-in
     setTimeout(() => {
-      document.querySelectorAll('#latest-release .fade-up').forEach(el => el.classList.add('visible'));
+      hub.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     }, 100);
   }
 
-  function renderChangelog(release, lang) {
+  function renderMatrixCard(platformKey, release, lang) {
+    if (!release) return '';
+    const meta = PLATFORM_CONFIG[platformKey];
+    const isActive = _activePlatform === platformKey;
+    const url = getDownloadUrl(release);
+
+    let quickBtnText = lang === 'my' ? '⬇️ Download' : '⬇️ Download';
+    let btnStyle = 'background: rgba(0,240,255,0.15); border: 1px solid rgba(0,240,255,0.4); color: #00f0ff;';
+    if (platformKey === 'android') {
+      btnStyle = 'background: rgba(0,255,136,0.15); border: 1px solid rgba(0,255,136,0.4); color: #00ff88;';
+    } else if (platformKey === 'ios') {
+      btnStyle = 'background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.4); color: #c4b5fd;';
+    }
+
+    return `
+      <div class="cyber-matrix-card ${isActive ? 'active' : ''}" data-platform="${platformKey}">
+        <div class="cyber-matrix-top">
+          <span class="cyber-matrix-icon">${meta.icon}</span>
+          <span class="cyber-hud-badge">${release.version || 'v1.3.4'}</span>
+        </div>
+        <div class="cyber-matrix-info">
+          <h4>${meta.name}</h4>
+          <div class="cyber-matrix-meta">
+            ${release.file_size || ''} · ${platformKey === 'macos' ? 'Intel & M1–M4' : meta.arch.split(' ')[0]}
+          </div>
+        </div>
+        <a href="${url}" class="cyber-matrix-btn" style="${btnStyle}" ${url === '#' ? 'onclick="return false;"' : ''}>
+          ${quickBtnText}
+        </a>
+      </div>
+    `;
+  }
+
+  function renderChangelog(releases, lang) {
     const container = document.getElementById('changelog-container');
-    if (!container) return;
-    const items = lang === 'my' ? release.changelog_my : release.changelog_en;
-    const title = lang === 'my' ? '📋 ဒီ Version မှာ ပါဝင်တဲ့ Features များ' : '📋 What\'s in this release';
+    if (!container || !releases) return;
+
+    const pMeta = PLATFORM_CONFIG[_activePlatform] || PLATFORM_CONFIG.windows;
+    const rel = releases[pMeta.key] || releases.latest;
+    const items = (lang === 'my' ? rel.changelog_my : rel.changelog_en) || [];
+    const title = lang === 'my'
+      ? `📋 ${pMeta.name} (${rel.version}) တွင် ပါဝင်သော Features & Updates`
+      : `📋 Features & Updates in ${pMeta.name} (${rel.version})`;
 
     container.innerHTML = `
       <div class="changelog-section fade-up">
-        <h3>${title}</h3>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
+          <h3 style="margin:0; font-size:1.2rem; font-weight:700;">${title}</h3>
+          <span class="mono" style="font-size:0.75rem; color:#00f0ff;">[ BUILD_RELEASED: ${formatDate(rel.release_date)} ]</span>
+        </div>
         <ul class="changelog-list">
-          ${items.map(item => `<li>${item}</li>`).join('')}
+          ${items.map(item => `<li><span style="color:#00f0ff; margin-right:8px;">›</span>${item}</li>`).join('')}
         </ul>
       </div>
     `;
+
     setTimeout(() => {
       document.querySelectorAll('#changelog-container .fade-up').forEach(el => el.classList.add('visible'));
-    }, 200);
+    }, 150);
   }
 
   function renderPreviousReleases(previous, lang) {
     const container = document.getElementById('previous-releases');
     if (!container) return;
 
-    if (!previous.length) {
+    if (!previous || !previous.length) {
       container.innerHTML = `<div class="empty-state">${lang === 'my' ? 'အရင် Version ဟောင်းများ မရှိသေးပါဘူး' : 'No previous releases yet.'}</div>`;
       return;
     }
@@ -314,24 +414,62 @@
 
   function renderGithubNote(config, lang) {
     const container = document.getElementById('github-note');
-    if (!container || !config.site.github_repo) return;
+    if (!container || !config || !config.site || !config.site.github_repo) return;
     const repoUrl = `https://github.com/${config.site.github_repo}/releases`;
     const noteText = lang === 'my'
-      ? 'ဒေါင်းလုဒ်ဖိုင်များကို GitHub Releases တွင် တင်ပေးထားပါသည်။'
-      : 'Downloads are hosted on GitHub Releases.';
+      ? 'ဒေါင်းလုဒ်ဖိုင်များကို GitHub Releases တွင် လုံခြုံစွာ တင်ပေးထားပါသည်။'
+      : 'All binary releases are cryptographically signed and hosted on GitHub Releases.';
     const linkText = lang === 'my'
       ? 'GitHub Releases အားလုံး ကြည့်ရန် →'
       : 'View all releases on GitHub →';
     container.innerHTML = `
       <div class="info-box">
-        <span class="info-icon">🐙</span>
+        <span class="info-icon" style="color:#00f0ff;">⚡</span>
         <div>
           ${noteText}
-          <a href="${repoUrl}" target="_blank" rel="noopener">${linkText}</a>
+          <a href="${repoUrl}" target="_blank" rel="noopener" style="color:#00f0ff; text-decoration:underline; margin-left:6px;">${linkText}</a>
         </div>
       </div>
     `;
   }
 
+  function renderAll(lang) {
+    if (!_releases || !_config) return;
+    renderCyberHub(lang);
+    renderChangelog(_releases, lang);
+    renderPreviousReleases(_releases.previous || [], lang);
+    renderGithubNote(_config, lang);
+  }
+
+  async function initDownloadPage() {
+    try {
+      const [releasesRes, configRes] = await Promise.all([
+        fetch('data/releases.json'),
+        fetch('data/config.json')
+      ]);
+      _releases = await releasesRes.json();
+      _config = await configRes.json();
+      const lang = window.VPS ? window.VPS.getLang() : (localStorage.getItem('vps-lang') || 'my');
+      renderAll(lang);
+    } catch (e) {
+      console.error('Download page init failed:', e);
+      const el = document.getElementById('download-loading');
+      if (el) el.innerHTML = '<p class="text-secondary mono">Connection to Release Matrix failed. Retrying...</p>';
+    }
+  }
+
+  window.addEventListener('vps:langchange', (e) => {
+    renderAll((e.detail && e.detail.lang) || (window.VPS ? window.VPS.getLang() : 'my'));
+  });
+
   document.addEventListener('DOMContentLoaded', initDownloadPage);
+
+  // Expose global for external tab trigger
+  window.VPS_SET_PLATFORM = function(platform) {
+    if (PLATFORM_CONFIG[platform]) {
+      _activePlatform = platform;
+      const lang = window.VPS ? window.VPS.getLang() : 'my';
+      renderAll(lang);
+    }
+  };
 })();
