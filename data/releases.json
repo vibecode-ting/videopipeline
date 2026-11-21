@@ -29,7 +29,7 @@
   "macos": {
     "version": "v1.4.1",
     "release_date": "2026-11-21",
-    "file_size": "197 MB (Intel) / 136 MB (Apple Silicon)",
+    "file_size": "147 MB (Apple Silicon) / 197 MB (Intel)",
     "file_name": "VideoPipelineSuite-v1.4.1-macos.dmg",
     "platform": "macOS 12.0+ (Apple Silicon & Intel)",
     "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos.dmg",
