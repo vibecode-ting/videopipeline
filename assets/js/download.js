@@ -38,7 +38,9 @@
     // Official Android robot head
     android: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.082 12 8.082c-1.8533 0-3.5902.3296-5.1368.8677L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>`,
     // Apple iOS mobile device
-    ios: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.76.99.08 2.01-.51 2.56-1.26"/></svg>`
+    ios: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.76.99.08 2.01-.51 2.56-1.26"/></svg>`,
+    // Linux Penguin
+    linux: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.003 0C9.69 0 7.854 1.837 7.854 4.15c0 .35.04.689.117 1.014C5.972 5.612 4.417 7.42 4.417 9.61c0 1.25.503 2.378 1.314 3.203C4.225 13.916 3 15.763 3 18.002c0 3.314 2.686 6 6 6h6.006c3.314 0 6-2.686 6-6 0-2.239-1.225-4.086-2.731-5.189.811-.825 1.314-1.953 1.314-3.203 0-2.19-1.555-3.998-3.554-4.446.077-.325.117-.664.117-1.014C16.152 1.837 14.316 0 12.003 0z"/></svg>`
   };
 
   const PLATFORM_CONFIG = {
@@ -85,6 +87,17 @@
       type: 'Unsigned IPA Package',
       color: '#EF4444',
       tag: 'iOS Mobile Suite'
+    },
+    linux: {
+      key: 'linux',
+      id: 'linux',
+      name: 'Linux (Ubuntu / Debian)',
+      svg: ICONS.linux,
+      arch: 'x86_64 (64-bit AMD / Intel)',
+      osMin: 'Ubuntu 20.04+, Debian 11+, Linux Mint',
+      type: 'Debian Package (.deb) / Tarball',
+      color: '#E95420',
+      tag: 'Linux Desktop Suite'
     }
   };
 
@@ -97,10 +110,11 @@
     const pMeta = PLATFORM_CONFIG[_activePlatform] || PLATFORM_CONFIG.windows;
     const rel = _releases[pMeta.key] || _releases.latest;
 
-    const winVer = (_releases.latest && _releases.latest.version) || 'v1.4.0';
-    const macVer = (_releases.macos && _releases.macos.version) || 'v1.4.0';
+    const winVer = (_releases.latest && _releases.latest.version) || 'v1.4.1';
+    const macVer = (_releases.macos && _releases.macos.version) || 'v1.4.1';
     const androidVer = (_releases.android && _releases.android.version) || 'v1.4.0';
     const iosVer = (_releases.ios && _releases.ios.version) || 'v1.4.0';
+    const linuxVer = (_releases.linux && _releases.linux.version) || 'v1.4.1';
 
     // Platform descriptions
     const descMap = {
@@ -119,6 +133,10 @@
       ios: {
         my: 'iPhone နှင့် iPad များအတွက် Native MTProto iOS Client ဖြစ်ပါသည်။ TrollStore, AltStore, SideStore, Sideloadly သို့မဟုတ် ESign ဖြင့် တိုက်ရိုက် Install လုပ်နိုင်ပါသည်။ (Team & Business Plan များတွင်သာ ပါဝင်)',
         en: 'Native MTProto client for iPhone & iPad. Install via TrollStore, AltStore, SideStore, Sideloadly, or ESign. (Available for Team & Business Plans).'
+      },
+      linux: {
+        my: 'Ubuntu၊ Debian နှင့် Linux Mint စနစ်များအတွက် Native .deb package ဖြစ်ပြီး AI Video Ad Cutter၊ Telegram 4K Downloader၊ Auto Watchdog နှင့် Multi-Platform Publisher အားလုံး အပြည့်အစုံ ပါဝင်ပါသည်။',
+        en: 'Native Debian package (.deb) and portable tarball for Ubuntu, Debian and Linux Mint, featuring 0.1s AI Ad Cutter, 4K Telegram/YouTube Downloader, and 24/7 Watchdog.'
       }
     };
 
@@ -179,6 +197,23 @@
           </a>
         </div>
       `;
+    } else if (_activePlatform === 'linux') {
+      const debUrl = rel.deb_url || mainUrl;
+      const tarUrl = rel.tarball_url || mainUrl;
+      buttonsHtml = `
+        <div class="cyber-action-group">
+          <a href="${debUrl}" class="btn-cyber-download btn-cyber-primary" ${debUrl === '#' ? 'onclick="return false;"' : ''}>
+            ${ICONS.linux}
+            ${lang === 'my' ? 'Ubuntu / Debian Package (.deb)' : 'Ubuntu / Debian Package (.deb)'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(Debian / Ubuntu)</span>
+          </a>
+          <a href="${tarUrl}" class="btn-cyber-download btn-cyber-secondary" ${tarUrl === '#' ? 'onclick="return false;"' : ''}>
+            ${ICONS.linux}
+            ${lang === 'my' ? 'Portable Linux (.tar.gz)' : 'Portable Linux (.tar.gz)'}
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(x86_64)</span>
+          </a>
+        </div>
+      `;
     }
 
     hub.innerHTML = `
@@ -187,8 +222,8 @@
         <div class="cyber-terminal-header">
           <div class="cyber-status-line">
             <span class="cyber-dot"></span>
-            <span class="cyber-status-text">// OFFICIAL_DOWNLOAD_HUB::${rel.version || 'v1.4.0'}</span>
-            <span class="cyber-hud-badge">[ 4_PLATFORMS_ONLINE ]</span>
+            <span class="cyber-status-text">// OFFICIAL_DOWNLOAD_HUB::${rel.version || 'v1.4.1'}</span>
+            <span class="cyber-hud-badge">[ 5_PLATFORMS_ONLINE ]</span>
           </div>
           <div class="cyber-status-line">
             <span class="cyber-hud-badge" style="border-color:rgba(16,185,129,0.3); color:#10B981;">🔒 SHA-256 VERIFIED</span>
@@ -207,6 +242,7 @@
               <select id="cyber-platform-select" class="cyber-select" aria-label="Select Operating System">
                 <option value="windows" ${_activePlatform === 'windows' ? 'selected' : ''}>Windows 10 / 11 · ${winVer}</option>
                 <option value="macos" ${_activePlatform === 'macos' ? 'selected' : ''}>macOS (Apple & Intel) · ${macVer}</option>
+                <option value="linux" ${_activePlatform === 'linux' ? 'selected' : ''}>Linux (Debian / Ubuntu .deb) · ${linuxVer}</option>
                 <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>Android Mobile (APK) · ${androidVer}</option>
                 <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>iOS Mobile (Unsigned IPA) · ${iosVer}</option>
               </select>
@@ -225,6 +261,11 @@
               ${ICONS.macos}
               <span>macOS</span>
               <span class="cyber-tab-tag">${macVer}</span>
+            </button>
+            <button class="cyber-tab-btn ${_activePlatform === 'linux' ? 'active' : ''}" data-platform="linux" role="tab" aria-selected="${_activePlatform === 'linux'}">
+              ${ICONS.linux}
+              <span>Linux (.deb)</span>
+              <span class="cyber-tab-tag">${linuxVer}</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'android' ? 'active' : ''}" data-platform="android" role="tab" aria-selected="${_activePlatform === 'android'}">
               ${ICONS.android}

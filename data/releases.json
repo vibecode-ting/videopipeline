@@ -34,7 +34,7 @@
     "platform": "macOS 12.0+ (Apple Silicon & Intel)",
     "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos.dmg",
     "apple_silicon_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos.dmg",
-    "intel_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.4.0-all/VideoPipelineSuite-v1.4.0-macos-intel.dmg",
+    "intel_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos-intel.dmg",
     "cloud_storage_url": "",
     "changelog_my": [
       "🍎 macOS AppTranslocation & Gatekeeper Fix — macOS တွင် App ဖွင့်သည့်အခါ Read-only filesystem ကြောင့် ဖြစ်ပေါ်တတ်သည့် error ကို ဖြေရှင်းပြီး Application Support ထဲတွင် အလိုအလျောက် သိုလှောင်ပေးခြင်း",
@@ -103,6 +103,31 @@
       "⚡ 1-Tap 'Send OTP Verification Code' connects MTProto and triggers OTP in one step",
       "🔓 Download Restricted Channel & Post Videos at original quality (up to 2 GB+)",
       "📤 Native MTProto Video Uploader to your channels & groups"
+    ]
+  },
+  "linux": {
+    "version": "v1.4.1",
+    "release_date": "2026-11-21",
+    "file_size": "165 MB (.deb) / 158 MB (.tar.gz)",
+    "file_name": "videopipelinesuite_1.4.1_amd64.deb",
+    "platform": "Linux (Ubuntu / Debian / Linux Mint)",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/videopipelinesuite_1.4.1_amd64.deb",
+    "deb_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/videopipelinesuite_1.4.1_amd64.deb",
+    "tarball_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-linux-x86_64.tar.gz",
+    "cloud_storage_url": "",
+    "changelog_my": [
+      "🐧 Native Linux (.deb) Debian Installer ထွက်ရှိခြင်း — Ubuntu, Debian, Linux Mint စနစ်များတွင် 'sudo dpkg -i' ဖြင့် တိုက်ရိုက် install လုပ်နိုင်ခြင်း",
+      "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
+      "📷 1-Click Instant QR Code Login — Telegram App ဖြင့် QR Code Scan ဖတ်ရုံဖြင့် ချက်ချင်းချိတ်ဆက်နိုင်ခြင်း",
+      "☁️ Native Telegram Cloud Scheduler (schedule_date) — ကွန်ပျူတာ ပိတ်ထားသည့်တိုင် သတ်မှတ်ထားသော အချိန်တွင် Telegram Server မှ ဗီဒီယိုများကို အလိုအလျောက် တင်ပေးခြင်း",
+      "📡 24/7 Autonomous Channel Watchdog — Source Channel များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Subtitle -> Auto Upload လုပ်ဆောင်ပေးခြင်း"
+    ],
+    "changelog_en": [
+      "🐧 Native Linux Debian (.deb) & Portable Tarball Package for Ubuntu, Debian, Linux Mint and x86_64 distributions",
+      "⚡ Built-in MTProto App Keys — No manual API ID or API Hash configuration required from users",
+      "📷 1-Click Instant QR Code Login — Connect your Telegram account in 2 seconds via Mobile App QR scan without SMS delays",
+      "☁️ Native Telegram Cloud Scheduler (schedule_date) — Posts publish automatically on Telegram servers",
+      "📡 24/7 Autonomous Channel Watchdog — Continuously monitors source channels and automatically runs the pipeline"
     ]
   },
   "previous": []
