@@ -97,6 +97,11 @@
     const pMeta = PLATFORM_CONFIG[_activePlatform] || PLATFORM_CONFIG.windows;
     const rel = _releases[pMeta.key] || _releases.latest;
 
+    const winVer = (_releases.latest && _releases.latest.version) || 'v1.4.0';
+    const macVer = (_releases.macos && _releases.macos.version) || 'v1.4.0';
+    const androidVer = (_releases.android && _releases.android.version) || 'v1.4.0';
+    const iosVer = (_releases.ios && _releases.ios.version) || 'v1.4.0';
+
     // Platform descriptions
     const descMap = {
       windows: {
@@ -129,12 +134,12 @@
           <a href="${appleSiliconUrl}" class="btn-cyber-download btn-cyber-primary" ${appleSiliconUrl === '#' ? 'onclick="return false;"' : ''}>
             ${ICONS.macos}
             ${lang === 'my' ? 'Apple Silicon (M1–M4) DMG' : 'Apple Silicon (M1–M4) DMG'}
-            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(143 MB)</span>
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(136 MB)</span>
           </a>
           <a href="${intelUrl}" class="btn-cyber-download btn-cyber-secondary" ${intelUrl === '#' ? 'onclick="return false;"' : ''}>
             ${ICONS.macos}
             ${lang === 'my' ? 'Intel Mac (x86_64) DMG' : 'Intel Mac (x86_64) DMG'}
-            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(195 MB)</span>
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(197 MB)</span>
           </a>
         </div>
       `;
@@ -160,7 +165,7 @@
           <a href="${mainUrl}" class="btn-cyber-download btn-cyber-green" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
             ${ICONS.android}
             ${lang === 'my' ? 'Download Android APK' : 'Download Android APK'}
-            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '38.5 MB'})</span>
+            <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '45.1 MB'})</span>
           </a>
         </div>
       `;
@@ -182,7 +187,7 @@
         <div class="cyber-terminal-header">
           <div class="cyber-status-line">
             <span class="cyber-dot"></span>
-            <span class="cyber-status-text">// CYBER_DISTRIBUTION_MATRIX::v1.3.4</span>
+            <span class="cyber-status-text">// CYBER_DISTRIBUTION_MATRIX::${rel.version || 'v1.4.0'}</span>
             <span class="cyber-hud-badge">[ 4_PLATFORMS_ONLINE ]</span>
           </div>
           <div class="cyber-status-line">
@@ -200,10 +205,10 @@
             </label>
             <div class="cyber-select-wrapper">
               <select id="cyber-platform-select" class="cyber-select" aria-label="Select Operating System">
-                <option value="windows" ${_activePlatform === 'windows' ? 'selected' : ''}>Windows 10 / 11 · v1.0</option>
-                <option value="macos" ${_activePlatform === 'macos' ? 'selected' : ''}>macOS (Apple & Intel) · v1.3.4</option>
-                <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>Android Mobile (APK) · v1.3.4</option>
-                <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>iOS Mobile (Unsigned IPA) · v1.3.4</option>
+                <option value="windows" ${_activePlatform === 'windows' ? 'selected' : ''}>Windows 10 / 11 · ${winVer}</option>
+                <option value="macos" ${_activePlatform === 'macos' ? 'selected' : ''}>macOS (Apple & Intel) · ${macVer}</option>
+                <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>Android Mobile (APK) · ${androidVer}</option>
+                <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>iOS Mobile (Unsigned IPA) · ${iosVer}</option>
               </select>
               <span class="cyber-select-icon">▼</span>
             </div>
@@ -214,22 +219,22 @@
             <button class="cyber-tab-btn ${_activePlatform === 'windows' ? 'active' : ''}" data-platform="windows" role="tab" aria-selected="${_activePlatform === 'windows'}">
               ${ICONS.windows}
               <span>Windows</span>
-              <span class="cyber-tab-tag">v1.0</span>
+              <span class="cyber-tab-tag">${winVer}</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'macos' ? 'active' : ''}" data-platform="macos" role="tab" aria-selected="${_activePlatform === 'macos'}">
               ${ICONS.macos}
               <span>macOS</span>
-              <span class="cyber-tab-tag">v1.3.4</span>
+              <span class="cyber-tab-tag">${macVer}</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'android' ? 'active' : ''}" data-platform="android" role="tab" aria-selected="${_activePlatform === 'android'}">
               ${ICONS.android}
               <span>Android</span>
-              <span class="cyber-tab-tag">v1.3.4</span>
+              <span class="cyber-tab-tag">${androidVer}</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'ios' ? 'active' : ''}" data-platform="ios" role="tab" aria-selected="${_activePlatform === 'ios'}">
               ${ICONS.ios}
               <span>iOS</span>
-              <span class="cyber-tab-tag">v1.3.4</span>
+              <span class="cyber-tab-tag">${iosVer}</span>
             </button>
           </div>
         </div>
@@ -241,7 +246,7 @@
               <div class="cyber-platform-header">
                 <span class="cyber-platform-icon">${pMeta.svg}</span>
                 <div class="cyber-platform-title">
-                  <h2>${pMeta.name} <span class="cyber-version-pill">${rel.version || 'v1.3.4'}</span></h2>
+                  <h2>${pMeta.name} <span class="cyber-version-pill">${rel.version || 'v1.4.0'}</span></h2>
                 </div>
               </div>
 
@@ -349,7 +354,7 @@
       <div class="cyber-matrix-card ${isActive ? 'active' : ''}" data-platform="${platformKey}">
         <div class="cyber-matrix-top">
           <span class="cyber-matrix-icon">${meta.svg}</span>
-          <span class="cyber-hud-badge">${release.version || 'v1.3.4'}</span>
+          <span class="cyber-hud-badge">${release.version || 'v1.4.0'}</span>
         </div>
         <div class="cyber-matrix-info">
           <h4>${meta.name}</h4>
@@ -460,9 +465,10 @@
 
   async function initDownloadPage() {
     try {
+      const cacheBust = '?t=' + Date.now();
       const [releasesRes, configRes] = await Promise.all([
-        fetch('data/releases.json'),
-        fetch('data/config.json')
+        fetch('data/releases.json' + cacheBust),
+        fetch('data/config.json' + cacheBust)
       ]);
       _releases = await releasesRes.json();
       _config = await configRes.json();
