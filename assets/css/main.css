@@ -1658,7 +1658,7 @@ body:not([data-en-active]) .section-header h2 { font-size: clamp(1.45rem, 2.9vw,
   color: var(--text-muted);
 }
 
-/* Quick 4-Platform Matrix Grid (Below Terminal) */
+/* Quick 4-Platform Direct Downloads Grid (Below Terminal) */
 .cyber-matrix-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

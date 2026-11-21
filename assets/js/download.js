@@ -1,5 +1,5 @@
 /* ========================================
-   download.js — Cybernetic Distribution Matrix
+   download.js — Unified Download Hub
    Unified 4-Platform Dropdown & Tabs System
    ======================================== */
 
@@ -187,7 +187,7 @@
         <div class="cyber-terminal-header">
           <div class="cyber-status-line">
             <span class="cyber-dot"></span>
-            <span class="cyber-status-text">// CYBER_DISTRIBUTION_MATRIX::${rel.version || 'v1.4.0'}</span>
+            <span class="cyber-status-text">// OFFICIAL_DOWNLOAD_HUB::${rel.version || 'v1.4.0'}</span>
             <span class="cyber-hud-badge">[ 4_PLATFORMS_ONLINE ]</span>
           </div>
           <div class="cyber-status-line">
@@ -288,11 +288,11 @@
         </div>
       </div>
 
-      <!-- 4. Quick 4-Platform Matrix Grid (All 4 download links together at a glance) -->
+      <!-- 4. Quick 4-Platform Direct Downloads (All 4 download links together at a glance) -->
       <div style="margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
         <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:8px;">
           <span style="color:#00f0ff;">⚡</span>
-          ${lang === 'my' ? 'All 4 Platforms Direct Matrix' : 'All 4 Platforms Direct Matrix'}
+          ${lang === 'my' ? 'ပလက်ဖောင်း ၄ ခုလုံးအတွက် တိုက်ရိုက်ဒေါင်းလုဒ်' : 'All 4 Platforms Direct Downloads'}
         </h3>
         <span class="mono" style="font-size:0.76rem; color:var(--text-muted);">[ CLICK_TO_SWITCH_TERMINAL ]</span>
       </div>
@@ -477,7 +477,7 @@
     } catch (e) {
       console.error('Download page init failed:', e);
       const el = document.getElementById('download-loading');
-      if (el) el.innerHTML = '<p class="text-secondary mono">Connection to Release Matrix failed. Retrying...</p>';
+      if (el) el.innerHTML = '<p class="text-secondary mono">Connection to download server failed. Retrying...</p>';
     }
   }
 
