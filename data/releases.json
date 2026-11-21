@@ -38,7 +38,7 @@
     "file_size": "143 MB",
     "file_name": "VideoPipelineSuite-v1.3.4-macos.dmg",
     "platform": "macOS 12.0+ (Apple Silicon & Intel)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.3.4/VideoPipelineSuite-v1.3.4-macos.dmg",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4-macos.dmg",
     "cloud_storage_url": "",
     "changelog_my": [
       "🍎 macOS အတွက် Native Application (.dmg / .app) တရားဝင် ထွက်ရှိမှု",
@@ -65,7 +65,7 @@
     "file_size": "38.5 MB",
     "file_name": "VideoPipelineSuite-v1.3.4.apk",
     "platform": "Android 8.0+",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.3.4-android/VideoPipelineSuite-v1.3.4.apk",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4.apk",
     "cloud_storage_url": "",
     "changelog_my": [
       "🤖 PC နှင့် ၁၀၀% တူညီသော Gemini 3.x Model များသို့ အဆင့်မြှင့်တင်ခြင်း (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash, etc.)",
@@ -96,7 +96,7 @@
     "file_size": "28.2 MB",
     "file_name": "VideoPipelineSuite-v1.3.4-unsigned.ipa",
     "platform": "iOS 16.0+ (MTProto Unsigned IPA)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-ios/VideoPipelineSuite-v1.3.4-unsigned.ipa",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4-unsigned.ipa",
     "cloud_storage_url": "",
     "changelog_my": [
       "🤖 PC နှင့် ၁၀၀% တူညီသော Gemini 3.x Model များသို့ အဆင့်မြှင့်တင်ခြင်း (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash, etc.)",
