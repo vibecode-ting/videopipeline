@@ -29,12 +29,24 @@
     return release.cloud_storage_url || release.github_release_url || '#';
   }
 
+  // Official high-tech vector SVGs
+  const ICONS = {
+    // Official Microsoft Windows 4-pane angled logo
+    windows: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>`,
+    // Official Apple logo
+    macos: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.76.99.08 2.01-.51 2.56-1.26"/></svg>`,
+    // Official Android robot head
+    android: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.082 12 8.082c-1.8533 0-3.5902.3296-5.1368.8677L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>`,
+    // Apple iOS mobile device
+    ios: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.76.99.08 2.01-.51 2.56-1.26"/></svg>`
+  };
+
   const PLATFORM_CONFIG = {
     windows: {
       key: 'latest',
       id: 'windows',
       name: 'Windows 10 / 11',
-      icon: '🪟',
+      svg: ICONS.windows,
       arch: 'x86_64 (64-bit)',
       osMin: 'Windows 10 (20H2+) / Windows 11',
       type: 'Standalone Portable / Zip',
@@ -45,7 +57,7 @@
       key: 'macos',
       id: 'macos',
       name: 'macOS Desktop',
-      icon: '🍎',
+      svg: ICONS.macos,
       arch: 'Apple Silicon (M1–M4) & Intel (x86_64)',
       osMin: 'macOS 12.0+ (Monterey, Ventura, Sonoma, Sequoia)',
       type: 'Native Mach-O App / DMG',
@@ -56,7 +68,7 @@
       key: 'android',
       id: 'android',
       name: 'Android Mobile',
-      icon: '🤖',
+      svg: ICONS.android,
       arch: 'arm64-v8a / armeabi-v7a',
       osMin: 'Android 8.0+ (Oreo to Android 15)',
       type: 'Native Android Package (.apk)',
@@ -67,7 +79,7 @@
       key: 'ios',
       id: 'ios',
       name: 'iOS Mobile Suite',
-      icon: '📱',
+      svg: ICONS.ios,
       arch: 'ARM64 (iPhone & iPad)',
       osMin: 'iOS 15.0+ / iPadOS 15.0+',
       type: 'Unsigned IPA Package',
@@ -115,13 +127,13 @@
       buttonsHtml = `
         <div class="cyber-action-group">
           <a href="${appleSiliconUrl}" class="btn-cyber-download btn-cyber-primary" ${appleSiliconUrl === '#' ? 'onclick="return false;"' : ''}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            ${lang === 'my' ? '🍎 Apple Silicon (M1–M4) DMG' : '🍎 Apple Silicon (M1–M4) DMG'}
+            ${ICONS.macos}
+            ${lang === 'my' ? 'Apple Silicon (M1–M4) DMG' : 'Apple Silicon (M1–M4) DMG'}
             <span class="mono" style="font-size:0.8rem; opacity:0.85;">(143 MB)</span>
           </a>
           <a href="${intelUrl}" class="btn-cyber-download btn-cyber-secondary" ${intelUrl === '#' ? 'onclick="return false;"' : ''}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            ${lang === 'my' ? '💻 Intel Mac (x86_64) DMG' : '💻 Intel Mac (x86_64) DMG'}
+            ${ICONS.macos}
+            ${lang === 'my' ? 'Intel Mac (x86_64) DMG' : 'Intel Mac (x86_64) DMG'}
             <span class="mono" style="font-size:0.8rem; opacity:0.85;">(195 MB)</span>
           </a>
         </div>
@@ -130,13 +142,14 @@
       buttonsHtml = `
         <div class="cyber-action-group">
           <a href="${mainUrl}" class="btn-cyber-download btn-cyber-primary" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            ${lang === 'my' ? '⬇️ Download Windows Suite (.zip)' : '⬇️ Download Windows Suite (.zip)'}
+            ${ICONS.windows}
+            ${lang === 'my' ? 'Download Windows Suite (.zip)' : 'Download Windows Suite (.zip)'}
             <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '579 MB'})</span>
           </a>
           ${rel.cloud_storage_url ? `
             <a href="${rel.cloud_storage_url}" class="btn-cyber-download btn-cyber-secondary" target="_blank" rel="noopener">
-              ☁️ ${lang === 'my' ? 'Cloud Mirror ဒေါင်းလုဒ်' : 'Cloud Mirror Download'}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              ${lang === 'my' ? 'Cloud Mirror ဒေါင်းလုဒ်' : 'Cloud Mirror Download'}
             </a>
           ` : ''}
         </div>
@@ -145,8 +158,8 @@
       buttonsHtml = `
         <div class="cyber-action-group">
           <a href="${mainUrl}" class="btn-cyber-download btn-cyber-green" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            ${lang === 'my' ? '📱 Download Android APK' : '📱 Download Android APK'}
+            ${ICONS.android}
+            ${lang === 'my' ? 'Download Android APK' : 'Download Android APK'}
             <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '38.5 MB'})</span>
           </a>
         </div>
@@ -155,8 +168,8 @@
       buttonsHtml = `
         <div class="cyber-action-group">
           <a href="${mainUrl}" class="btn-cyber-download btn-cyber-purple" ${mainUrl === '#' ? 'onclick="return false;"' : ''}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            ${lang === 'my' ? '🍎 Download iOS Unsigned IPA' : '🍎 Download iOS Unsigned IPA'}
+            ${ICONS.ios}
+            ${lang === 'my' ? 'Download iOS Unsigned IPA' : 'Download iOS Unsigned IPA'}
             <span class="mono" style="font-size:0.8rem; opacity:0.85;">(${rel.file_size || '28.2 MB'})</span>
           </a>
         </div>
@@ -183,35 +196,39 @@
           <!-- Dropdown -->
           <div class="cyber-dropdown-container">
             <label for="cyber-platform-select" class="cyber-dropdown-label">
-              <span>🎯 SELECT_OS:</span>
+              <span>SELECT_OS:</span>
             </label>
             <div class="cyber-select-wrapper">
               <select id="cyber-platform-select" class="cyber-select" aria-label="Select Operating System">
-                <option value="windows" ${_activePlatform === 'windows' ? 'selected' : ''}>🪟 Windows 10/11 · v1.0</option>
-                <option value="macos" ${_activePlatform === 'macos' ? 'selected' : ''}>🍎 macOS (M1–M4 & Intel) · v1.3.4</option>
-                <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>🤖 Android APK · v1.3.4</option>
-                <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>📱 iOS Unsigned IPA · v1.3.4</option>
+                <option value="windows" ${_activePlatform === 'windows' ? 'selected' : ''}>Windows 10 / 11 · v1.0</option>
+                <option value="macos" ${_activePlatform === 'macos' ? 'selected' : ''}>macOS (Apple & Intel) · v1.3.4</option>
+                <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>Android Mobile (APK) · v1.3.4</option>
+                <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>iOS Mobile (Unsigned IPA) · v1.3.4</option>
               </select>
               <span class="cyber-select-icon">▼</span>
             </div>
           </div>
 
-          <!-- Cyber Tabs -->
+          <!-- Cyber Tabs with Authentic Brand Vector SVGs -->
           <div class="cyber-tabs" role="tablist">
             <button class="cyber-tab-btn ${_activePlatform === 'windows' ? 'active' : ''}" data-platform="windows" role="tab" aria-selected="${_activePlatform === 'windows'}">
-              <span>🪟 Windows</span>
+              ${ICONS.windows}
+              <span>Windows</span>
               <span class="cyber-tab-tag">v1.0</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'macos' ? 'active' : ''}" data-platform="macos" role="tab" aria-selected="${_activePlatform === 'macos'}">
-              <span>🍎 macOS</span>
+              ${ICONS.macos}
+              <span>macOS</span>
               <span class="cyber-tab-tag">v1.3.4</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'android' ? 'active' : ''}" data-platform="android" role="tab" aria-selected="${_activePlatform === 'android'}">
-              <span>🤖 Android</span>
+              ${ICONS.android}
+              <span>Android</span>
               <span class="cyber-tab-tag">v1.3.4</span>
             </button>
             <button class="cyber-tab-btn ${_activePlatform === 'ios' ? 'active' : ''}" data-platform="ios" role="tab" aria-selected="${_activePlatform === 'ios'}">
-              <span>📱 iOS</span>
+              ${ICONS.ios}
+              <span>iOS</span>
               <span class="cyber-tab-tag">v1.3.4</span>
             </button>
           </div>
@@ -222,7 +239,7 @@
           <div class="cyber-panel-main">
             <div class="cyber-panel-content">
               <div class="cyber-platform-header">
-                <span class="cyber-platform-icon">${pMeta.icon}</span>
+                <span class="cyber-platform-icon">${pMeta.svg}</span>
                 <div class="cyber-platform-title">
                   <h2>${pMeta.name} <span class="cyber-version-pill">${rel.version || 'v1.3.4'}</span></h2>
                 </div>
@@ -258,7 +275,7 @@
 
             <!-- Side Big Icon / HUD Preview -->
             <div class="cyber-panel-preview">
-              <div class="cyber-preview-icon">${pMeta.icon}</div>
+              <div class="cyber-preview-icon">${pMeta.svg}</div>
               <div class="cyber-preview-note">${pMeta.type}</div>
               <div class="cyber-preview-note" style="color:#00f0ff; margin-top:4px;">${rel.file_name || ''}</div>
             </div>
@@ -320,7 +337,7 @@
     const isActive = _activePlatform === platformKey;
     const url = getDownloadUrl(release);
 
-    let quickBtnText = lang === 'my' ? '⬇️ Download' : '⬇️ Download';
+    let quickBtnText = lang === 'my' ? 'Download' : 'Download';
     let btnStyle = 'background: rgba(0,240,255,0.15); border: 1px solid rgba(0,240,255,0.4); color: #00f0ff;';
     if (platformKey === 'android') {
       btnStyle = 'background: rgba(0,255,136,0.15); border: 1px solid rgba(0,255,136,0.4); color: #00ff88;';
@@ -331,7 +348,7 @@
     return `
       <div class="cyber-matrix-card ${isActive ? 'active' : ''}" data-platform="${platformKey}">
         <div class="cyber-matrix-top">
-          <span class="cyber-matrix-icon">${meta.icon}</span>
+          <span class="cyber-matrix-icon">${meta.svg}</span>
           <span class="cyber-hud-badge">${release.version || 'v1.3.4'}</span>
         </div>
         <div class="cyber-matrix-info">
@@ -464,7 +481,6 @@
 
   document.addEventListener('DOMContentLoaded', initDownloadPage);
 
-  // Expose global for external tab trigger
   window.VPS_SET_PLATFORM = function(platform) {
     if (PLATFORM_CONFIG[platform]) {
       _activePlatform = platform;
