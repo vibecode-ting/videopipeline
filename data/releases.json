@@ -34,11 +34,13 @@
   },
   "macos": {
     "version": "v1.3.4",
-    "release_date": "2026-11-20",
-    "file_size": "143 MB",
-    "file_name": "VideoPipelineSuite-v1.3.4-macos.dmg",
+    "release_date": "2026-11-21",
+    "file_size": "195 MB (Intel) / 143 MB (Apple Silicon)",
+    "file_name": "VideoPipelineSuite-v1.3.4-macos-intel.dmg",
     "platform": "macOS 12.0+ (Apple Silicon & Intel)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4-macos.dmg",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4-macos-intel.dmg",
+    "apple_silicon_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4-macos.dmg",
+    "intel_url": "https://github.com/PyaaeSoneHtoo/videopipeline-ios/releases/download/v1.3.4-all/VideoPipelineSuite-v1.3.4-macos-intel.dmg",
     "cloud_storage_url": "",
     "changelog_my": [
       "🍎 macOS အတွက် Native Application (.dmg / .app) တရားဝင် ထွက်ရှိမှု",

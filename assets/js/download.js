@@ -44,12 +44,29 @@
     if (!container) return;
 
     const url = getDownloadUrl(release);
+    const appleSiliconUrl = release.apple_silicon_url || url;
+    const intelUrl = release.intel_url || url;
     const btnText = lang === 'my'
       ? `🍎 macOS DMG Installer Download (${release.file_size})`
       : `🍎 Download for macOS (${release.file_size})`;
     const dateLabel = lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Released';
     const sizeLabel = lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'File Size';
     const platformLabel = lang === 'my' ? 'Platform' : 'Platform';
+
+    const buttonsHtml = release.intel_url ? `
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+            <a href="${appleSiliconUrl}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #0284c7, #38bdf8); border: none; color: #fff;">
+              ${lang === 'my' ? '🍎 Apple Silicon (M1–M4) DMG' : '🍎 Apple Silicon (M1–M4) DMG'}
+            </a>
+            <a href="${intelUrl}" class="btn btn-secondary btn-lg" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.5); color: #38bdf8;">
+              ${lang === 'my' ? '💻 Intel Mac (x86_64) DMG' : '💻 Intel Mac (x86_64) DMG'}
+            </a>
+          </div>
+    ` : `
+          <a href="${url}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #0284c7, #38bdf8); border: none; color: #fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
+            ${btnText}
+          </a>
+    `;
 
     container.innerHTML = `
       <div class="download-card fade-up" style="border-color: rgba(56, 189, 248, 0.45); background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.05), rgba(24, 24, 27, 0.85));">
@@ -62,9 +79,7 @@
             <span class="meta-item"><span class="meta-icon">🍎</span> ${platformLabel}: ${release.platform}</span>
             <span class="meta-item"><span class="meta-icon">📄</span> ${release.file_name}</span>
           </div>
-          <a href="${url}" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #0284c7, #38bdf8); border: none; color: #fff;" ${url === '#' ? 'onclick="return false;"' : ''}>
-            ${btnText}
-          </a>
+          ${buttonsHtml}
           <p style="margin-top:12px; font-size:0.84rem; color: var(--text-secondary);">${lang === 'my' ? '⚡ Apple Silicon (M1/M2/M3/M4) နှင့် Intel Mac များတွင် .dmg ကိုဖွင့်ပြီး Applications ထဲသို့ ဆွဲထည့်ကာ တိုက်ရိုက် run နိုင်ပါသည်' : '⚡ Drag &amp; drop to /Applications on Apple Silicon (M1-M4) &amp; Intel Macs.'}</p>
         </div>
         <div class="download-action">
