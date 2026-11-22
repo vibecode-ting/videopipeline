@@ -329,11 +329,11 @@
         </div>
       </div>
 
-      <!-- 4. Quick 4-Platform Direct Downloads (All 4 download links together at a glance) -->
+      <!-- 4. Quick 5-Platform Direct Downloads (All 5 download links together at a glance) -->
       <div style="margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
         <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:8px;">
           <span style="color:#FFC72C;">⚡</span>
-          ${lang === 'my' ? 'ပလက်ဖောင်း ၄ ခုလုံးအတွက် တိုက်ရိုက်ဒေါင်းလုဒ်' : 'All 4 Platforms Direct Downloads'}
+          ${lang === 'my' ? 'ပလက်ဖောင်း ၅ ခုလုံးအတွက် တိုက်ရိုက်ဒေါင်းလုဒ်' : 'All 5 Platforms Direct Downloads'}
         </h3>
         <span class="mono" style="font-size:0.76rem; color:var(--text-muted);">[ CLICK_TO_SWITCH_TERMINAL ]</span>
       </div>
@@ -341,6 +341,7 @@
       <div class="cyber-matrix-grid fade-up">
         ${renderMatrixCard('windows', _releases.latest, lang)}
         ${renderMatrixCard('macos', _releases.macos, lang)}
+        ${renderMatrixCard('linux', _releases.linux, lang)}
         ${renderMatrixCard('android', _releases.android, lang)}
         ${renderMatrixCard('ios', _releases.ios, lang)}
       </div>
@@ -387,6 +388,8 @@
     let btnStyle = 'background: rgba(255,199,44,0.15); border: 1px solid rgba(255,199,44,0.4); color: #FFC72C;';
     if (platformKey === 'macos') {
       btnStyle = 'background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: #10B981;';
+    } else if (platformKey === 'linux') {
+      btnStyle = 'background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); color: #F59E0B;';
     } else if (platformKey === 'android') {
       btnStyle = 'background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #22c55e;';
     } else if (platformKey === 'ios') {

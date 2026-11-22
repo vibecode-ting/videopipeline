@@ -104,18 +104,51 @@
     const navLinks = document.querySelector('.nav-links');
     if (!toggle || !navLinks) return;
 
-    toggle.addEventListener('click', () => {
+    // Inject mobile CTA if not already present
+    if (!navLinks.querySelector('.nav-mobile-cta')) {
+      const cta = document.createElement('a');
+      cta.href = 'download.html';
+      cta.className = 'nav-mobile-cta btn btn-primary';
+      cta.setAttribute('data-my', '⚡ ဒေါင်းလုဒ် ရယူရန်');
+      cta.setAttribute('data-en', '⚡ Download Now');
+      const lang = getLang();
+      cta.textContent = lang === 'my' ? '⚡ ဒေါင်းလုဒ် ရယူရန်' : '⚡ Download Now';
+      navLinks.appendChild(cta);
+    }
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = navLinks.classList.toggle('open');
       toggle.classList.toggle('is-open', isOpen);
       toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
 
+    // Close when clicking nav links
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         navLinks.classList.remove('open');
         toggle.classList.remove('is-open');
         toggle.setAttribute('aria-label', 'Open menu');
       });
+    });
+
+    // Close when clicking outside open drawer
+    document.addEventListener('click', (e) => {
+      if (!navLinks.classList.contains('open')) return;
+      if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-label', 'Open menu');
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-label', 'Open menu');
+      }
     });
 
     // Active link detection
@@ -434,6 +467,23 @@
       isMouseActive = true;
     }, { passive: true });
 
+    // Touch support for mobile devices
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+        isMouseActive = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+        isMouseActive = true;
+      }
+    }, { passive: true });
+
     // Myanmar Flag Volumetric Light Orbs (Gold, Emerald, Ruby)
     const orbs = [
       {
@@ -618,19 +668,23 @@
 
   /* ── 13. Interactive Starlight Spark on Click ── */
   function initRealisticInteractiveSparks() {
-    document.addEventListener('click', (e) => {
-      const interactiveTarget = e.target.closest('.btn, .hero-badge, .tab-btn, .lang-btn, .theme-toggle, .cyber-quick-pill, .cyber-tab-btn');
-      if (!interactiveTarget) return;
-
+    function spawnSpark(x, y) {
+      if (!x && !y) return;
       const spark = document.createElement('div');
       spark.className = 'starlight-spark';
-      spark.style.left = `${e.clientX}px`;
-      spark.style.top = `${e.clientY}px`;
+      spark.style.left = `${x}px`;
+      spark.style.top = `${y}px`;
       spark.style.width = '32px';
       spark.style.height = '32px';
 
       document.body.appendChild(spark);
       setTimeout(() => spark.remove(), 600);
+    }
+
+    document.addEventListener('click', (e) => {
+      const interactiveTarget = e.target.closest('.btn, .hero-badge, .tab-btn, .lang-btn, .theme-toggle, .cyber-quick-pill, .cyber-tab-btn, .btn-cyber-download');
+      if (!interactiveTarget) return;
+      spawnSpark(e.clientX, e.clientY);
     }, { passive: true });
   }
 
