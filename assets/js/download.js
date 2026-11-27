@@ -110,11 +110,11 @@
     const pMeta = PLATFORM_CONFIG[_activePlatform] || PLATFORM_CONFIG.windows;
     const rel = _releases[pMeta.key] || _releases.latest;
 
-    const winVer = (_releases.latest && _releases.latest.version) || 'v1.4.1';
-    const macVer = (_releases.macos && _releases.macos.version) || 'v1.4.1';
-    const androidVer = (_releases.android && _releases.android.version) || 'v1.4.1';
+    const winVer = (_releases.latest && _releases.latest.version) || 'v1.4.2';
+    const macVer = (_releases.macos && _releases.macos.version) || 'v1.4.2';
+    const androidVer = (_releases.android && _releases.android.version) || 'v1.4.2';
     const iosVer = (_releases.ios && _releases.ios.version) || 'v1.4.1';
-    const linuxVer = (_releases.linux && _releases.linux.version) || 'v1.4.1';
+    const linuxVer = (_releases.linux && _releases.linux.version) || 'v1.4.2';
 
     // Platform descriptions
     const descMap = {
