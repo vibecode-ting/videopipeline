@@ -1,85 +1,81 @@
 {
   "latest": {
-    "version": "v1.4.1",
-    "release_date": "2026-11-21",
+    "version": "v1.4.2",
+    "release_date": "2026-11-27",
     "file_size": "579 MB",
-    "file_name": "VideoPipelineSuite.Version.1.4.1.zip",
+    "file_name": "VideoPipelineSuite.Version.1.4.2.zip",
     "platform": "Windows 10/11",
     "github_release_url": "https://github.com/vibecode-ting/videopipeline/releases/download/version1.0/VideoPipelineSuite.Version.1.0.zip",
     "cloud_storage_url": "",
     "changelog_my": [
-      "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
-      "📷 1-Click Instant QR Code Login — ဖုန်းနံပါတ် သို့မဟုတ် SMS OTP စောင့်ရန်မလိုဘဲ Telegram App ဖြင့် QR Code Scan ဖတ်ရုံဖြင့် ချက်ချင်းချိတ်ဆက်နိုင်ခြင်း",
-      "☁️ Native Telegram Cloud Scheduler (schedule_date) — ကွန်ပျူတာ ပိတ်ထားသည့်တိုင် သတ်မှတ်ထားသော အချိန်တွင် Telegram Server မှ ဗီဒီယိုများကို အလိုအလျောက် တင်ပေးခြင်း",
-      "📡 24/7 Autonomous Channel Watchdog — Source Channel များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Subtitle -> Auto Upload စနစ်ဖြင့် စောင့်ကြည့်လုပ်ဆောင်ပေးခြင်း",
-      "🛡️ FloodWait Auto-Backoff Recovery — ဗီဒီယိုများစွာ တစ်ပြိုင်နက် ဒေါင်းလုဒ်/အပ်လုဒ် လုပ်ရာတွင် Telegram Rate Limit ဖြစ်ပေါ်ပါက Crash မဖြစ်ဘဲ အလိုအလျောက် စောင့်ဆိုင်းပြီး ဆက်လက်လုပ်ဆောင်ခြင်း",
-      "🚀 Telegram Premium 4GB Uploads Support — Telegram Premium အကောင့်များအတွက် 4GB အထိ ဗီဒီယို ဖိုင်ကြီးများကို အပြည့်အဝ ပံ့ပိုးပေးခြင်း",
-      "🔓 Auto-Join Private Invite Links (t.me/+...) — Private Channel link များကို အလိုအလျောက် join ပြီး ဗီဒီယိုများ ရယူနိုင်ခြင်း"
+      "📡 24/7 Autonomous Channel Watchdog (Live) — Source Telegram Channel & Topic များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Auto Renamer -> TikTok/Telegram Upload လုပ်ဆောင်ပေးခြင်း",
+      "🏷️ Stage 2.5 Auto Renamer Integration — 1-Click Pipeline ထဲတွင် Telegram Message ID ဖယ်ရှားခြင်း၊ Regex နှင့် Gemini AI နာမည်ပြန်စီခြင်းတို့ကို တိုက်ရိုက် ချိတ်ဆက်ထည့်သွင်းခြင်း",
+      "⚡ Streaming Fast Upload Engine & FloodWait Recovery — ဖိုင်ကြီးများ Upload တင်ရာတွင် RAM သုံးစွဲမှု နည်းပါးစေပြီး Rate Limit ဖြစ်ပါက Auto Retry နှင့် ချက်ချင်း Stop Cancel ပြုလုပ်နိုင်ခြင်း",
+      "☁️ Accurate UTC Cloud Scheduler (schedule_date) — PC ပိတ်ထားသည့်တိုင် Telegram Cloud တွင် သတ်မှတ်ထားသော UTC အချိန်အတိုင်း တိကျစွာ Post တင်ပေးခြင်း",
+      "🖼️ Stage 4 Video Metadata & Thumbnail Auto-Attach — Pipeline မှ Telegram သို့ တင်သည့် ဗီဒီယိုများတွင် Resolution/Duration Streaming Attributes နှင့် Thumbnail အလိုအလျောက် ထည့်သွင်းပေးခြင်း",
+      "📊 Accurate Real-Time Upload Speed Tracker — Uploader နှင့် Studio တွင် တကယ့် MB/s မြန်နှုန်းကို တိကျစွာ တွက်ချက်ပြသပေးခြင်း",
+      "📷 1-Click Instant QR Code Login & Default MTProto Keys — Developer API ID/Hash မလိုဘဲ QR Scan ဖြင့် ချက်ချင်းချိတ်ဆက်နိုင်ခြင်း"
     ],
     "changelog_en": [
-      "⚡ Built-in MTProto App Keys — No manual API ID or API Hash configuration required from users",
-      "📷 1-Click Instant QR Code Login — Connect your Telegram account in 2 seconds via Mobile App QR scan without SMS delays",
-      "☁️ Native Telegram Cloud Scheduler (schedule_date) — Posts are stored on Telegram servers and publish automatically even if your PC is turned off",
-      "📡 24/7 Autonomous Channel Watchdog — Continuously monitors source channels and automatically runs the pipeline when new videos arrive",
-      "🛡️ FloodWait Auto-Backoff Recovery — Automatically pauses and resumes during Telegram rate limits without crashing batch transfers",
-      "🚀 Telegram Premium 4GB Upload Support — Full support for 4GB video uploads for Telegram Premium accounts",
-      "🔓 Auto-Join Private Invite Links (t.me/+...) — Automatically resolves and joins private channels to fetch videos"
+      "📡 Live 24/7 Autonomous Channel Watchdog — Continuously monitors source Telegram channels/topics and automatically runs Download -> AI Ad Cut -> Auto Renamer -> Upload when new videos arrive",
+      "🏷️ Stage 2.5 Batch Renamer Pipeline Integration — Clean Telegram message IDs, format series names with Regex, or rename with Gemini AI directly inside 1-Click Pipeline",
+      "⚡ Streaming Chunk Uploader with Retries & Stop Support — Streams large files without loading entire binaries into RAM, retries FloodWait/transient errors, and honors immediate user cancellation",
+      "☁️ UTC-Accurate Native Telegram Cloud Scheduler (schedule_date) — Converts scheduled times accurately to UTC so posts publish reliably on Telegram servers even when PC is off",
+      "🖼️ Stage 4 Streaming Metadata & Auto-Thumbnails — Probes FFprobe video dimensions/duration (DocumentAttributeVideo) and embeds thumbnails on Pipeline Telegram uploads",
+      "📊 Real-Time Upload Speed Tracking — Fixed byte-delta speed calculation across Telegram Uploader and Studio",
+      "📷 1-Click Instant QR Code Login & Built-in MTProto Keys — Instant QR connection with zero manual API ID/Hash setup"
     ]
   },
   "macos": {
-    "version": "v1.4.1",
-    "release_date": "2026-11-21",
+    "version": "v1.4.2",
+    "release_date": "2026-11-27",
     "file_size": "147 MB (Apple Silicon) / 197 MB (Intel)",
-    "file_name": "VideoPipelineSuite-v1.4.1-macos.dmg",
+    "file_name": "VideoPipelineSuite-v1.4.2-macos.dmg",
     "platform": "macOS 12.0+ (Apple Silicon & Intel)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos.dmg",
-    "apple_silicon_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos.dmg",
-    "intel_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos-intel.dmg",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.2/VideoPipelineSuite-v1.4.2-macos.dmg",
+    "apple_silicon_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.2/VideoPipelineSuite-v1.4.2-macos.dmg",
+    "intel_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.2/VideoPipelineSuite-v1.4.2-macos-intel.dmg",
     "cloud_storage_url": "",
     "changelog_my": [
-      "🍎 macOS AppTranslocation & Gatekeeper Fix — macOS တွင် App ဖွင့်သည့်အခါ Read-only filesystem ကြောင့် ဖြစ်ပေါ်တတ်သည့် error ကို ဖြေရှင်းပြီး Application Support ထဲတွင် အလိုအလျောက် သိုလှောင်ပေးခြင်း",
-      "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
-      "📷 1-Click Instant QR Code Login — ဖုန်းနံပါတ် သို့မဟုတ် SMS OTP စောင့်ရန်မလိုဘဲ Telegram App ဖြင့် QR Code Scan ဖတ်ရုံဖြင့် ချက်ချင်းချိတ်ဆက်နိုင်ခြင်း",
-      "☁️ Native Telegram Cloud Scheduler (schedule_date) — ကွန်ပျူတာ ပိတ်ထားသည့်တိုင် သတ်မှတ်ထားသော အချိန်တွင် Telegram Server မှ ဗီဒီယိုများကို အလိုအလျောက် တင်ပေးခြင်း",
-      "📡 24/7 Autonomous Channel Watchdog — Source Channel များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Subtitle -> Auto Upload စနစ်ဖြင့် စောင့်ကြည့်လုပ်ဆောင်ပေးခြင်း",
-      "🛡️ FloodWait Auto-Backoff Recovery — Telegram Rate Limit ဖြစ်ပေါ်ပါက အလိုအလျောက် စောင့်ဆိုင်းပြီး ဆက်လက်လုပ်ဆောင်ခြင်း",
-      "⚡ Apple Silicon (M1/M2/M3/M4) နှင့် Intel Mac နှစ်မျိုးစလုံးအတွက် Native DMG Installer ထွက်ရှိခြင်း"
+      "📡 24/7 Autonomous Channel Watchdog (Live) — Source Telegram Channel များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Auto Renamer -> Auto Upload လုပ်ဆောင်ပေးခြင်း",
+      "🏷️ Stage 2.5 Auto Renamer Integration — 1-Click Pipeline ထဲတွင် Batch Renamer (Strip ID / Regex / Gemini AI) တိုက်ရိုက် ပါဝင်လာခြင်း",
+      "⚡ Streaming Fast Upload Engine — RAM သုံးစွဲမှု နည်းပါးစွာ Chunked Upload တင်ပေးပြီး FloodWait Auto-Retry နှင့် Instant Cancel ပါဝင်ခြင်း",
+      "☁️ UTC-Accurate Cloud Scheduler & Real Speed Tracker — schedule_date UTC အချိန် ညှိပေးခြင်းနှင့် MB/s မြန်နှုန်း တိကျစွာ ပြသပေးခြင်း",
+      "🖼️ Stage 4 Video Metadata & Thumbnail Auto-Attach — Pipeline Telegram upload များတွင် DocumentAttributeVideo နှင့် Auto Thumbnail ထည့်သွင်းပေးခြင်း",
+      "🍎 macOS AppTranslocation Fix & Native Apple Silicon + Intel DMG Installers"
     ],
     "changelog_en": [
-      "🍎 macOS AppTranslocation & Gatekeeper Fix — Resolved [Errno 30] read-only filesystem crash by storing runtime models, credentials, and temp caches in ~/Library/Application Support/VideoPipelineSuite",
-      "⚡ Built-in MTProto App Keys — No manual API ID or API Hash configuration required from users",
-      "📷 1-Click Instant QR Code Login — Connect your Telegram account in 2 seconds via Mobile App QR scan without SMS delays",
-      "☁️ Native Telegram Cloud Scheduler (schedule_date) — Posts are stored on Telegram servers and publish automatically even if your PC is turned off",
-      "📡 24/7 Autonomous Channel Watchdog — Continuously monitors source channels and automatically runs the pipeline when new videos arrive",
-      "🛡️ FloodWait Auto-Backoff Recovery — Automatically pauses and resumes during Telegram rate limits without crashing batch transfers",
-      "⚡ Native DMG Installers for both Apple Silicon (M1/M2/M3/M4) & Intel Macs"
+      "📡 Live 24/7 Autonomous Channel Watchdog — Continuously monitors source channels/topics and automatically runs Download -> AI Ad Cut -> Auto Renamer -> Upload",
+      "🏷️ Stage 2.5 Auto Renamer Integration — Clean Telegram message IDs or format series episodes inside 1-Click Pipeline",
+      "⚡ Streaming Chunk Uploader — Bounded RAM streaming with FloodWait/transient error retries and instant Stop cancellation",
+      "☁️ UTC-Accurate Telegram Cloud Scheduler & Real Byte-Delta Speed Tracking",
+      "🖼️ Stage 4 Video Metadata (DocumentAttributeVideo) & Auto Thumbnail Extraction",
+      "🍎 macOS AppTranslocation Fix & Native Apple Silicon (M1–M4) + Intel DMG Installers"
     ]
   },
   "android": {
-    "version": "v1.4.1",
-    "release_date": "2026-11-21",
+    "version": "v1.4.2",
+    "release_date": "2026-11-27",
     "file_size": "45.1 MB",
-    "file_name": "VideoPipelineSuite-v1.4.1.apk",
+    "file_name": "VideoPipelineSuite-v1.4.2.apk",
     "platform": "Android 8.0+",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.4.1-android/VideoPipelineSuite-v1.4.1.apk",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.4.2-android/VideoPipelineSuite-v1.4.2.apk",
     "cloud_storage_url": "",
     "changelog_my": [
-      "📷 1-Click Instant QR Code Login — Telegram App (Settings > Devices > Link Desktop Device) မှ QR Code Scan ဖတ်ရုံဖြင့် ဖုန်းနံပါတ် သို့မဟုတ် OTP ရိုက်စရာမလိုဘဲ ချက်ချင်း Sign In ဝင်ရောက်နိုင်ခြင်း",
-      "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
-      "🤖 PC နှင့် ၁၀၀% တူညီသော Gemini 3.x Model များသို့ အဆင့်မြှင့်တင်ခြင်း (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
-      "🛡️ ပျက်ပြယ်သွားသော Model အဟောင်းများ (gemini-2.5-flash, 2.0, 1.5) ၏ 404 Error များကို အပြီးတိုင် ဖယ်ရှားရှင်းလင်းပေးခြင်း",
-      "⚡ 1-Tap 'Send OTP Verification Code' ဖြင့် MTProto ချိတ်ဆက်ပြီး OTP တစ်ပြိုင်နက် ပို့ဆောင်နိုင်ခြင်း",
+      "✂️ Lossless Trimmer Keyframe & A/V Sync Fix — Video ဖြတ်တောက်ရာတွင် SEEK_TO_PREVIOUS_SYNC ဖြင့် IDR Keyframe အတိအကျ စတင်စေပြီး Audio နှင့် Timeline တိုက်ညှိပေးထားသောကြောင့် ဗီဒီယိုအစ အမည်းရောင်/ပျက်စီးခြင်းနှင့် အသံနောက်ကျခြင်းများ မရှိတော့ခြင်း",
+      "📷 1-Click Instant QR Code Login — Telegram App မှ QR Code Scan ဖတ်ရုံဖြင့် OTP စောင့်စရာမလိုဘဲ ချက်ချင်း Sign In ဝင်နိုင်ခြင်း",
+      "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
+      "🤖 PC နှင့် ၁၀၀% တူညီသော Gemini 3.x Model Lineup (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
       "🔓 Restricted Channel Video များပါ မူရင်း Quality အတိုင်း Download ဆွဲနိုင်ခြင်း (2 GB+ အထိ)",
-      "📤 MTProto Uploader Studio (Channels & Groups ဆီ တိုက်ရိုက် Upload တင်နိုင်ခြင်း)"
+      "📤 Native MTProto Video Uploader Studio & Batch Renamer"
     ],
     "changelog_en": [
-      "📷 1-Click Instant QR Code Login — Scan QR code with Telegram on your phone for immediate 2-second authentication without typing phone numbers or waiting for SMS OTP",
+      "✂️ Lossless Trimmer Keyframe & A/V Sync Fix — Seeks video first using SEEK_TO_PREVIOUS_SYNC anchored to the IDR keyframe and aligns audio timestamps cleanly to eliminate black/corrupted intro frames and A/V drift",
+      "📷 1-Click Instant QR Code Login — Scan QR code with Telegram on your phone for immediate authentication without SMS delays",
       "⚡ Built-in MTProto App Keys — Pre-configured developer credentials with zero manual API setup required",
-      "🤖 100% Matching PC Gemini 3.x Model Lineup (gemini-3-flash-preview, 3.5-flash-lite, 3.8-flash)",
-      "🛡️ Fully filtered out retired/deprecated models (gemini-2.5-flash, 2.0, 1.5) preventing 404 errors completely",
-      "⚡ 1-Tap 'Send OTP Verification Code' connects MTProto and triggers OTP in one step",
+      "🤖 100% Matching PC Gemini 3.x Model Lineup & Auto-Cascade Fallback",
       "🔓 Download Restricted Channel & Post Videos at original quality (up to 2 GB+)",
-      "📤 Native MTProto Video Uploader to your channels & groups"
+      "📤 Native MTProto Video Uploader Studio & Batch Renamer"
     ]
   },
   "ios": {
@@ -110,29 +106,45 @@
     ]
   },
   "linux": {
-    "version": "v1.4.1",
-    "release_date": "2026-11-21",
+    "version": "v1.4.2",
+    "release_date": "2026-11-27",
     "file_size": "165 MB (.deb) / 158 MB (.tar.gz)",
-    "file_name": "videopipelinesuite_1.4.1_amd64.deb",
+    "file_name": "videopipelinesuite_1.4.2_amd64.deb",
     "platform": "Linux (Ubuntu / Debian / Linux Mint)",
-    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/videopipelinesuite_1.4.1_amd64.deb",
-    "deb_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/videopipelinesuite_1.4.1_amd64.deb",
-    "tarball_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-linux-x86_64.tar.gz",
+    "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.2/videopipelinesuite_1.4.2_amd64.deb",
+    "deb_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.2/videopipelinesuite_1.4.2_amd64.deb",
+    "tarball_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.2/VideoPipelineSuite-v1.4.2-linux-x86_64.tar.gz",
     "cloud_storage_url": "",
     "changelog_my": [
-      "🐧 Native Linux (.deb) Debian Installer ထွက်ရှိခြင်း — Ubuntu, Debian, Linux Mint စနစ်များတွင် 'sudo dpkg -i' ဖြင့် တိုက်ရိုက် install လုပ်နိုင်ခြင်း",
-      "⚡ Default Embedded MTProto Keys — Developer API ID/Hash ရှာဖွေထည့်သွင်းရန် မလိုတော့ဘဲ တိုက်ရိုက်အသုံးပြုနိုင်ခြင်း",
-      "📷 1-Click Instant QR Code Login — Telegram App ဖြင့် QR Code Scan ဖတ်ရုံဖြင့် ချက်ချင်းချိတ်ဆက်နိုင်ခြင်း",
-      "☁️ Native Telegram Cloud Scheduler (schedule_date) — ကွန်ပျူတာ ပိတ်ထားသည့်တိုင် သတ်မှတ်ထားသော အချိန်တွင် Telegram Server မှ ဗီဒီယိုများကို အလိုအလျောက် တင်ပေးခြင်း",
-      "📡 24/7 Autonomous Channel Watchdog — Source Channel များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Subtitle -> Auto Upload လုပ်ဆောင်ပေးခြင်း"
+      "📡 24/7 Autonomous Channel Watchdog (Live) — Source Channel များသို့ ဗီဒီယို အသစ်တင်တိုင်း အလိုအလျောက် Download -> AI Ad Cut -> Auto Renamer -> Auto Upload လုပ်ဆောင်ပေးခြင်း",
+      "🏷️ Stage 2.5 Auto Renamer Integration & Stage 4 Metadata/Thumbnail Auto-Attach",
+      "⚡ Streaming Chunk Upload Engine — Low RAM usage, FloodWait retry နှင့် Stop cancellation ပါဝင်ခြင်း",
+      "☁️ UTC-Accurate Cloud Scheduler (schedule_date) & Real-Time Speed Tracker",
+      "🐧 Native Linux Debian (.deb) & Portable Tarball Package for Ubuntu, Debian & Linux Mint"
     ],
     "changelog_en": [
-      "🐧 Native Linux Debian (.deb) & Portable Tarball Package for Ubuntu, Debian, Linux Mint and x86_64 distributions",
-      "⚡ Built-in MTProto App Keys — No manual API ID or API Hash configuration required from users",
-      "📷 1-Click Instant QR Code Login — Connect your Telegram account in 2 seconds via Mobile App QR scan without SMS delays",
-      "☁️ Native Telegram Cloud Scheduler (schedule_date) — Posts publish automatically on Telegram servers",
-      "📡 24/7 Autonomous Channel Watchdog — Continuously monitors source channels and automatically runs the pipeline"
+      "📡 Live 24/7 Autonomous Channel Watchdog — Monitors source channels/topics and runs Download -> AI Ad Cut -> Auto Renamer -> Auto Upload automatically",
+      "🏷️ Stage 2.5 Auto Renamer Integration & Stage 4 Streaming Metadata/Thumbnail Embedding",
+      "⚡ Streaming Chunk Uploader with bounded memory, FloodWait retries, and instant Stop cancellation",
+      "☁️ UTC-Accurate Cloud Scheduler (schedule_date) & Real Byte-Delta Speed Tracking",
+      "🐧 Native Linux Debian (.deb) & Portable Tarball Package for Ubuntu, Debian, Linux Mint and x86_64 distributions"
     ]
   },
-  "previous": []
+  "previous": [
+    {
+      "version": "v1.4.1 (macOS DMG)",
+      "release_date": "2026-11-21",
+      "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/VideoPipelineSuite-v1.4.1-macos.dmg"
+    },
+    {
+      "version": "v1.4.1 (Linux .deb)",
+      "release_date": "2026-11-21",
+      "github_release_url": "https://github.com/PyaaeSoneHtoo/Video_Pipeline_Suite/releases/download/v1.4.1/videopipelinesuite_1.4.1_amd64.deb"
+    },
+    {
+      "version": "v1.4.1 (Android APK)",
+      "release_date": "2026-11-21",
+      "github_release_url": "https://github.com/PyaaeSoneHtoo/videopipeline-android/releases/download/v1.4.1-android/VideoPipelineSuite-v1.4.1.apk"
+    }
+  ]
 }
