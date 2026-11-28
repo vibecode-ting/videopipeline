@@ -6,8 +6,14 @@
 (function () {
   'use strict';
 
-  /* ── 0. Theme Switcher ── */
+  /* ── 0. Theme & Palette Switcher ── */
   const THEME_KEY = 'vps-theme';
+  const PALETTE_KEY = 'vps-palette';
+  const DEFAULT_LANG = 'en';
+  const PALETTES = {
+    gold: { labelEn: 'Gold', labelMy: 'ရွှေရောင်', title: 'Switch to Studio Indigo theme' },
+    indigo: { labelEn: 'Studio', labelMy: 'Studio', title: 'Switch to Myanmar Gold theme' }
+  };
 
   function getTheme() {
     return localStorage.getItem(THEME_KEY) || 'dark';
@@ -26,15 +32,73 @@
     applyTheme(next);
   }
 
-  function initTheme() {
-    applyTheme(getTheme());
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-      btn.addEventListener('click', toggleTheme);
+  function getPalette() {
+    const stored = localStorage.getItem(PALETTE_KEY);
+    return (stored === 'indigo' || stored === 'gold') ? stored : 'gold';
+  }
+
+  function updatePaletteButtons(palette) {
+    const lang = getLang();
+    const meta = PALETTES[palette] || PALETTES.gold;
+    const text = lang === 'my' ? meta.labelMy : meta.labelEn;
+    document.querySelectorAll('.palette-toggle').forEach(btn => {
+      btn.dataset.paletteState = palette;
+      btn.setAttribute('aria-label', meta.title);
+      btn.setAttribute('title', meta.title);
+      const lbl = btn.querySelector('.palette-label');
+      if (lbl) lbl.textContent = text;
     });
   }
 
+  function applyPalette(palette) {
+    const normalized = (palette === 'indigo') ? 'indigo' : 'gold';
+    document.documentElement.setAttribute('data-palette', normalized);
+    updatePaletteButtons(normalized);
+  }
+
+  function setPalette(palette) {
+    const normalized = (palette === 'indigo') ? 'indigo' : 'gold';
+    localStorage.setItem(PALETTE_KEY, normalized);
+    applyPalette(normalized);
+    window.dispatchEvent(new CustomEvent('vps:palettechange', { detail: { palette: normalized } }));
+  }
+
+  function togglePalette() {
+    const cur = document.documentElement.getAttribute('data-palette') === 'indigo' ? 'indigo' : 'gold';
+    setPalette(cur === 'gold' ? 'indigo' : 'gold');
+  }
+
+  function ensurePaletteButton() {
+    const navActions = document.querySelector('.nav-actions');
+    if (!navActions || navActions.querySelector('.palette-toggle')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'palette-toggle';
+    btn.innerHTML = '<span class="palette-swatch" aria-hidden="true"></span><span class="palette-label"></span>';
+    btn.addEventListener('click', togglePalette);
+    const themeBtn = navActions.querySelector('.theme-toggle');
+    if (themeBtn) {
+      navActions.insertBefore(btn, themeBtn);
+    } else {
+      navActions.prepend(btn);
+    }
+  }
+
+  // Apply stored appearance immediately before first paint when loaded
+  applyTheme(getTheme());
+  applyPalette(getPalette());
+
+  function initTheme() {
+    applyTheme(getTheme());
+    ensurePaletteButton();
+    applyPalette(getPalette());
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+      btn.addEventListener('click', toggleTheme);
+    });
+    window.addEventListener('vps:langchange', () => updatePaletteButtons(getPalette()));
+  }
+
   /* ── 1. Language Switcher ── */
-  const DEFAULT_LANG = 'en';
 
   function getLang() {
     return localStorage.getItem('vps-lang') || DEFAULT_LANG;
@@ -413,281 +477,6 @@
     });
   }
 
-  /* ── 10. Top Myanmar Flag Brand Accent ── */
-  function initTopFlagAccent() {
-    if (!document.querySelector('.vps-flag-bar')) {
-      const bar = document.createElement('div');
-      bar.className = 'vps-flag-bar';
-      bar.setAttribute('aria-hidden', 'true');
-      document.body.prepend(bar);
-    }
-  }
-
-  /* ── 11. Realistic Volumetric Atmosphere & Starlight Canvas ── */
-  function initRealisticAtmosphere() {
-    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    let canvas = document.getElementById('vps-ambient-canvas');
-    if (!canvas) {
-      canvas = document.createElement('canvas');
-      canvas.id = 'vps-ambient-canvas';
-      canvas.setAttribute('aria-hidden', 'true');
-      document.body.prepend(canvas);
-    }
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let width = 0;
-    let height = 0;
-    let dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-    function resize() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      canvas.style.width = width + 'px';
-      canvas.style.height = height + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    let mouseX = width * 0.5;
-    let mouseY = height * 0.3;
-    let curX = mouseX;
-    let curY = mouseY;
-    let isMouseActive = false;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      isMouseActive = true;
-    }, { passive: true });
-
-    // Touch support for mobile devices
-    window.addEventListener('touchmove', (e) => {
-      if (e.touches && e.touches[0]) {
-        mouseX = e.touches[0].clientX;
-        mouseY = e.touches[0].clientY;
-        isMouseActive = true;
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchstart', (e) => {
-      if (e.touches && e.touches[0]) {
-        mouseX = e.touches[0].clientX;
-        mouseY = e.touches[0].clientY;
-        isMouseActive = true;
-      }
-    }, { passive: true });
-
-    // Myanmar Flag Volumetric Light Orbs (Gold, Emerald, Ruby)
-    const orbs = [
-      {
-        baseXRatio: 0.25,
-        baseYRatio: 0.22,
-        radius: 440,
-        color: [255, 199, 44], // Myanmar Gold #FFC72C
-        alpha: 0.14,
-        speed: 0.0008,
-        angle: 0
-      },
-      {
-        baseXRatio: 0.78,
-        baseYRatio: 0.45,
-        radius: 460,
-        color: [16, 185, 129], // Myanmar Emerald #10B981
-        alpha: 0.12,
-        speed: 0.0006,
-        angle: 2.1
-      },
-      {
-        baseXRatio: 0.5,
-        baseYRatio: 0.82,
-        radius: 390,
-        color: [239, 68, 68], // Myanmar Ruby #EF4444
-        alpha: 0.09,
-        speed: 0.0007,
-        angle: 4.2
-      }
-    ];
-
-    // Floating Starlight Particles (Central White Star theme)
-    const particleCount = Math.min(Math.floor(width / 26), 46);
-    const stars = [];
-    for (let i = 0; i < particleCount; i++) {
-      stars.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 1.6 + 0.6,
-        baseAlpha: Math.random() * 0.5 + 0.25,
-        twinkleSpeed: Math.random() * 0.02 + 0.008,
-        twinklePhase: Math.random() * Math.PI * 2,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: -Math.random() * 0.28 - 0.08,
-        isGold: Math.random() > 0.45
-      });
-    }
-
-    let isVisible = true;
-    document.addEventListener('visibilitychange', () => {
-      isVisible = !document.hidden;
-      if (isVisible) requestAnimationFrame(render);
-    });
-
-    let lastTime = performance.now();
-
-    function render(now) {
-      if (!isVisible) return;
-      const dt = Math.min((now - lastTime) / 1000, 0.1);
-      lastTime = now;
-
-      curX += (mouseX - curX) * 0.05;
-      curY += (mouseY - curY) * 0.05;
-
-      ctx.clearRect(0, 0, width, height);
-
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      const alphaMult = isLight ? 0.55 : 1.0;
-
-      // 1. Render realistic volumetric optical orbs
-      for (let i = 0; i < orbs.length; i++) {
-        const orb = orbs[i];
-        orb.angle += orb.speed * 60 * dt;
-
-        const driftX = Math.cos(orb.angle) * 75;
-        const driftY = Math.sin(orb.angle * 1.3) * 55;
-        const parallaxX = (curX - width * 0.5) * 0.08 * (i === 0 ? 1.2 : -0.8);
-        const parallaxY = (curY - height * 0.5) * 0.08 * (i === 1 ? 1.2 : -0.8);
-
-        const cx = orb.baseXRatio * width + driftX + parallaxX;
-        const cy = orb.baseYRatio * height + driftY + parallaxY;
-
-        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, orb.radius);
-        const [r, g, b] = orb.color;
-        const maxA = orb.alpha * alphaMult;
-
-        grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${maxA})`);
-        grad.addColorStop(0.45, `rgba(${r}, ${g}, ${b}, ${maxA * 0.5})`);
-        grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(cx, cy, orb.radius, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // 2. Render dynamic interactive cursor bloom
-      if (isMouseActive) {
-        const cursorGrad = ctx.createRadialGradient(curX, curY, 0, curX, curY, 260);
-        const cAlpha = isLight ? 0.04 : 0.075;
-        cursorGrad.addColorStop(0, `rgba(255, 199, 44, ${cAlpha})`);
-        cursorGrad.addColorStop(0.5, `rgba(16, 185, 129, ${cAlpha * 0.4})`);
-        cursorGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = cursorGrad;
-        ctx.beginPath();
-        ctx.arc(curX, curY, 260, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // 3. Render floating starlight particles
-      for (let i = 0; i < stars.length; i++) {
-        const s = stars[i];
-        s.y += s.vy * 60 * dt;
-        s.x += s.vx * 60 * dt;
-        s.twinklePhase += s.twinkleSpeed;
-
-        if (s.y < -10) s.y = height + 10;
-        if (s.x < -10) s.x = width + 10;
-        if (s.x > width + 10) s.x = -10;
-
-        const twinkle = Math.sin(s.twinklePhase) * 0.4 + 0.6;
-        const alpha = s.baseAlpha * twinkle * alphaMult;
-
-        ctx.fillStyle = s.isGold ? `rgba(255, 215, 64, ${alpha})` : `rgba(255, 255, 255, ${alpha})`;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        if (s.r > 1.3 && !isLight) {
-          ctx.fillStyle = s.isGold ? `rgba(255, 199, 44, ${alpha * 0.25})` : `rgba(255, 255, 255, ${alpha * 0.25})`;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r * 2.8, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      requestAnimationFrame(render);
-    }
-
-    requestAnimationFrame(render);
-  }
-
-  /* ── 12. Realistic 3D Tilt & Specular Glare on Cards ── */
-  function initRealistic3DCardSheen() {
-    const cardSelectors = [
-      '.bento-card',
-      '.pricing-card',
-      '.feature-card',
-      '.cyber-matrix-card',
-      '.cyber-terminal',
-      '.hero-screenshot',
-      '.trust-badge',
-      '.form-card',
-      '.download-card'
-    ];
-
-    const cards = document.querySelectorAll(cardSelectors.join(', '));
-    cards.forEach(card => {
-      card.classList.add('realistic-card');
-
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-
-        const xPercent = x / rect.width;
-        const yPercent = y / rect.height;
-        const tiltX = (0.5 - yPercent) * 7;
-        const tiltY = (xPercent - 0.5) * 7;
-
-        card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateZ(3px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  }
-
-  /* ── 13. Interactive Starlight Spark on Click ── */
-  function initRealisticInteractiveSparks() {
-    function spawnSpark(x, y) {
-      if (!x && !y) return;
-      const spark = document.createElement('div');
-      spark.className = 'starlight-spark';
-      spark.style.left = `${x}px`;
-      spark.style.top = `${y}px`;
-      spark.style.width = '32px';
-      spark.style.height = '32px';
-
-      document.body.appendChild(spark);
-      setTimeout(() => spark.remove(), 600);
-    }
-
-    document.addEventListener('click', (e) => {
-      const interactiveTarget = e.target.closest('.btn, .hero-badge, .tab-btn, .lang-btn, .theme-toggle, .cyber-quick-pill, .cyber-tab-btn, .btn-cyber-download');
-      if (!interactiveTarget) return;
-      spawnSpark(e.clientX, e.clientY);
-    }, { passive: true });
-  }
-
   /* ── Init ── */
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
@@ -699,13 +488,19 @@
     initAccordion();
     initTabs();
     populateContactInfo();
-    initTopFlagAccent();
-    initRealisticAtmosphere();
-    initRealistic3DCardSheen();
-    initRealisticInteractiveSparks();
   });
 
   // Expose shared helpers
-  window.VPS = { loadConfig, getLang, isPlaceholder, validateFormFields, submitFormRequest };
+  window.VPS = {
+    loadConfig,
+    getLang,
+    getTheme,
+    getPalette,
+    setPalette,
+    togglePalette,
+    isPlaceholder,
+    validateFormFields,
+    submitFormRequest
+  };
 
 })();

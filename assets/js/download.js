@@ -34,7 +34,7 @@
     // Official Microsoft Windows 4-pane angled logo
     windows: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>`,
     // Official Apple logo
-    macos: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.76.99.08 2.01-.51 2.56-1.26"/></svg>`,
+    macos: `<svg class="platform-svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.76.99.08 2.01-.51 2.56-1.26"/></svg>`,
     // Official Android robot head
     android: `<svg class="platform-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.082 12 8.082c-1.8533 0-3.5902.3296-5.1368.8677L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>`,
     // Apple iOS mobile device
@@ -52,7 +52,7 @@
       arch: 'x86_64 (64-bit)',
       osMin: 'Windows 10 (20H2+) / Windows 11',
       type: 'Standalone Portable / Zip',
-      color: '#FFC72C',
+      color: 'var(--primary-bright)',
       tag: 'Windows Desktop Suite'
     },
     macos: {
@@ -218,16 +218,22 @@
 
     hub.innerHTML = `
       <div class="cyber-terminal fade-up">
-        <!-- 1. Terminal Header & Cyber Status -->
+        <!-- 1. Release Header -->
         <div class="cyber-terminal-header">
           <div class="cyber-status-line">
-            <span class="cyber-dot"></span>
-            <span class="cyber-status-text">// OFFICIAL_DOWNLOAD_HUB::${rel.version || 'v1.4.1'}</span>
-            <span class="cyber-hud-badge">[ 5_PLATFORMS_ONLINE ]</span>
+            <span class="cyber-dot" aria-hidden="true"></span>
+            <span class="cyber-status-text">${lang === 'my' ? 'တရားဝင် Release' : 'Official Release'} · ${rel.version || 'v1.4.2'}</span>
+            <span class="cyber-hud-badge">${lang === 'my' ? 'ပလက်ဖောင်း ၅ မျိုး' : '5 Platforms'}</span>
           </div>
           <div class="cyber-status-line">
-            <span class="cyber-hud-badge" style="border-color:rgba(16,185,129,0.3); color:#10B981;">🔒 SHA-256 VERIFIED</span>
-            <span class="cyber-hud-badge" style="border-color:rgba(255,199,44,0.3); color:#FFC72C;">⚡ SSL ENCRYPTED</span>
+            <span class="cyber-hud-badge cyber-badge-verified">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              ${lang === 'my' ? 'စစ်ဆေးပြီး Package' : 'Verified Package'}
+            </span>
+            <span class="cyber-hud-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              ${lang === 'my' ? 'Direct HTTPS' : 'Direct Download'}
+            </span>
           </div>
         </div>
 
@@ -236,7 +242,7 @@
           <!-- Dropdown -->
           <div class="cyber-dropdown-container">
             <label for="cyber-platform-select" class="cyber-dropdown-label">
-              <span>SELECT_OS:</span>
+              <span>${lang === 'my' ? 'စနစ်ရွေးရန်' : 'Platform'}</span>
             </label>
             <div class="cyber-select-wrapper">
               <select id="cyber-platform-select" class="cyber-select" aria-label="Select Operating System">
@@ -246,11 +252,13 @@
                 <option value="android" ${_activePlatform === 'android' ? 'selected' : ''}>Android Mobile (APK) · ${androidVer}</option>
                 <option value="ios" ${_activePlatform === 'ios' ? 'selected' : ''}>iOS Mobile (Unsigned IPA) · ${iosVer}</option>
               </select>
-              <span class="cyber-select-icon">▼</span>
+              <span class="cyber-select-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
             </div>
           </div>
 
-          <!-- Cyber Tabs with Authentic Brand Vector SVGs -->
+          <!-- Platform Tabs -->
           <div class="cyber-tabs" role="tablist">
             <button class="cyber-tab-btn ${_activePlatform === 'windows' ? 'active' : ''}" data-platform="windows" role="tab" aria-selected="${_activePlatform === 'windows'}">
               ${ICONS.windows}
@@ -287,7 +295,7 @@
               <div class="cyber-platform-header">
                 <span class="cyber-platform-icon">${pMeta.svg}</span>
                 <div class="cyber-platform-title">
-                  <h2>${pMeta.name} <span class="cyber-version-pill">${rel.version || 'v1.4.0'}</span></h2>
+                  <h2>${pMeta.name} <span class="cyber-version-pill">${rel.version || 'v1.4.2'}</span></h2>
                 </div>
               </div>
 
@@ -295,22 +303,34 @@
                 ${descMap[_activePlatform][lang] || descMap[_activePlatform].en}
               </p>
 
-              <!-- Specs HUD Grid -->
+              <!-- Specs Grid -->
               <div class="cyber-specs-grid">
                 <div class="cyber-spec-item">
-                  <div class="cyber-spec-label"><span>📅</span> ${lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Release Date'}</div>
+                  <div class="cyber-spec-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    ${lang === 'my' ? 'ထုတ်ဝေသည့်နေ့' : 'Release Date'}
+                  </div>
                   <div class="cyber-spec-value">${formatDate(rel.release_date)}</div>
                 </div>
                 <div class="cyber-spec-item">
-                  <div class="cyber-spec-label"><span>📦</span> ${lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'Package Size'}</div>
+                  <div class="cyber-spec-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    ${lang === 'my' ? 'ဖိုင်ဆိုဒ်' : 'Package Size'}
+                  </div>
                   <div class="cyber-spec-value">${rel.file_size || 'N/A'}</div>
                 </div>
                 <div class="cyber-spec-item">
-                  <div class="cyber-spec-label"><span>⚙️</span> ${lang === 'my' ? 'ဗိသုကာ' : 'Architecture'}</div>
+                  <div class="cyber-spec-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+                    ${lang === 'my' ? 'ဗိသုကာ' : 'Architecture'}
+                  </div>
                   <div class="cyber-spec-value">${pMeta.arch}</div>
                 </div>
                 <div class="cyber-spec-item">
-                  <div class="cyber-spec-label"><span>🖥️</span> ${lang === 'my' ? 'အနိမ့်ဆုံးသတ်မှတ်ချက်' : 'Min OS'}</div>
+                  <div class="cyber-spec-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    ${lang === 'my' ? 'အနိမ့်ဆုံးသတ်မှတ်ချက်' : 'Min OS'}
+                  </div>
                   <div class="cyber-spec-value">${rel.platform || pMeta.osMin}</div>
                 </div>
               </div>
@@ -319,23 +339,23 @@
               ${buttonsHtml}
             </div>
 
-            <!-- Side Big Icon / HUD Preview -->
+            <!-- Side Package Preview -->
             <div class="cyber-panel-preview">
               <div class="cyber-preview-icon">${pMeta.svg}</div>
               <div class="cyber-preview-note">${pMeta.type}</div>
-              <div class="cyber-preview-note" style="color:#FFC72C; margin-top:4px;">${rel.file_name || ''}</div>
+              <div class="cyber-preview-note" style="color:var(--primary-bright); margin-top:4px;">${rel.file_name || ''}</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 4. Quick 5-Platform Direct Downloads (All 5 download links together at a glance) -->
+      <!-- 4. Quick 5-Platform Direct Downloads -->
       <div style="margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
         <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:8px;">
-          <span style="color:#FFC72C;">⚡</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-bright)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           ${lang === 'my' ? 'ပလက်ဖောင်း ၅ ခုလုံးအတွက် တိုက်ရိုက်ဒေါင်းလုဒ်' : 'All 5 Platforms Direct Downloads'}
         </h3>
-        <span class="mono" style="font-size:0.76rem; color:var(--text-muted);">[ CLICK_TO_SWITCH_TERMINAL ]</span>
+        <span style="font-size:0.82rem; color:var(--text-muted);">${lang === 'my' ? 'အသေးစိတ်ကြည့်ရန် ကတ်တစ်ခုကို ရွေးချယ်ပါ' : 'Select any card to view details & release notes'}</span>
       </div>
 
       <div class="cyber-matrix-grid fade-up">
@@ -385,11 +405,11 @@
     const url = getDownloadUrl(release);
 
     let quickBtnText = lang === 'my' ? 'Download' : 'Download';
-    let btnStyle = 'background: rgba(255,199,44,0.15); border: 1px solid rgba(255,199,44,0.4); color: #FFC72C;';
+    let btnStyle = 'background: rgba(var(--primary-bright-rgb), 0.15); border: 1px solid rgba(var(--primary-bright-rgb), 0.4); color: var(--primary-bright);';
     if (platformKey === 'macos') {
       btnStyle = 'background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: #10B981;';
     } else if (platformKey === 'linux') {
-      btnStyle = 'background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); color: #F59E0B;';
+      btnStyle = 'background: rgba(var(--primary-rgb), 0.15); border: 1px solid rgba(var(--primary-rgb), 0.4); color: var(--primary);';
     } else if (platformKey === 'android') {
       btnStyle = 'background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #22c55e;';
     } else if (platformKey === 'ios') {
@@ -400,7 +420,7 @@
       <div class="cyber-matrix-card ${isActive ? 'active' : ''}" data-platform="${platformKey}">
         <div class="cyber-matrix-top">
           <span class="cyber-matrix-icon">${meta.svg}</span>
-          <span class="cyber-hud-badge">${release.version || 'v1.4.0'}</span>
+          <span class="cyber-hud-badge">${release.version || 'v1.4.2'}</span>
         </div>
         <div class="cyber-matrix-info">
           <h4>${meta.name}</h4>
@@ -423,17 +443,23 @@
     const rel = releases[pMeta.key] || releases.latest;
     const items = (lang === 'my' ? rel.changelog_my : rel.changelog_en) || [];
     const title = lang === 'my'
-      ? `📋 ${pMeta.name} (${rel.version}) တွင် ပါဝင်သော Features & Updates`
-      : `📋 Features & Updates in ${pMeta.name} (${rel.version})`;
+      ? `${pMeta.name} (${rel.version}) တွင် ပါဝင်သော Features & Updates`
+      : `Features & Updates · ${pMeta.name} (${rel.version})`;
+    const releasedLabel = lang === 'my'
+      ? `ထုတ်ဝေသည့်နေ့: ${formatDate(rel.release_date)}`
+      : `Released ${formatDate(rel.release_date)}`;
 
     container.innerHTML = `
       <div class="changelog-section fade-up">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
-          <h3 style="margin:0; font-size:1.2rem; font-weight:700;">${title}</h3>
-          <span class="mono" style="font-size:0.75rem; color:#FFC72C;">[ BUILD_RELEASED: ${formatDate(rel.release_date)} ]</span>
+          <h3 style="margin:0; font-size:1.15rem; font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-bright)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            <span>${title}</span>
+          </h3>
+          <span class="mono" style="font-size:0.78rem; color:var(--text-muted);">${releasedLabel}</span>
         </div>
         <ul class="changelog-list">
-          ${items.map(item => `<li><span style="color:#FFC72C; margin-right:8px;">›</span>${item}</li>`).join('')}
+          ${items.map(item => `<li><span style="color:var(--primary-bright); margin-right:8px;">›</span>${item}</li>`).join('')}
         </ul>
       </div>
     `;
@@ -471,7 +497,7 @@
               <td class="version-cell">${r.version}</td>
               <td>${formatDate(r.release_date)}</td>
               <td>
-                <a href="${getDownloadUrl(r)}" class="btn btn-ghost btn-sm">⬇️ ${lang === 'my' ? 'ဒေါင်းလုဒ်' : 'Download'}</a>
+                <a href="${getDownloadUrl(r)}" class="btn btn-ghost btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> ${lang === 'my' ? 'ဒေါင်းလုဒ်' : 'Download'}</a>
               </td>
             </tr>
           `).join('')}
@@ -492,10 +518,10 @@
       : 'View all releases on GitHub →';
     container.innerHTML = `
       <div class="info-box">
-        <span class="info-icon" style="color:#FFC72C;">⚡</span>
+        <span class="info-icon" style="color:var(--primary-bright);">⚡</span>
         <div>
           ${noteText}
-          <a href="${repoUrl}" target="_blank" rel="noopener" style="color:#FFC72C; text-decoration:underline; margin-left:6px;">${linkText}</a>
+          <a href="${repoUrl}" target="_blank" rel="noopener" style="color:var(--primary-bright); text-decoration:underline; margin-left:6px;">${linkText}</a>
         </div>
       </div>
     `;
